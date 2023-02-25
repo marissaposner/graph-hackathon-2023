@@ -20,3 +20,10 @@ def query_thegraph(subgraph_id, query, table_name, hosted=True):
         return r.json()["data"][table_name]
     except KeyError:
         print(r.json())
+
+
+def merge_graph_queries(column_to_merge:str ):
+    """combine the results"""
+    #I want to compare the volume to another
+    # every type of question has a diff column to merge 
+    # teach gpt what a comparison is 
