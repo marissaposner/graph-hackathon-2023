@@ -3,7 +3,7 @@ Our submission for the Graph Hackathon at UC Boulder February 2023
 <div align="center">
   <h1 align="center">GGPT</h1>
   <img src="docs/images/sybil-shield.png" height="200">
-  <h2 align="center">A solution to view NFTs across protocols with comprehensive subgraphs through training ChatGPT</h2>
+  <h2 align="center">A solution to view NFTs across protocols with comprehensive subgraphs by training ChatGPT</h2>
   <br />
   <a href="https://github.com/carbonable-labs/sybil-shield/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
   -
