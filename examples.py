@@ -27,18 +27,19 @@ def main():
         "AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9",
         """
             query {
-                CollectionDailySnapshot(
-                    where: {token1: "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"},
-                    orderBy: dailyTradedItemCount,
-                    orderDirection: desc,
-                    first: 1,
+                collectionDailySnapshots(
+                    where: {collection: "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d"}
+                    first: 1
+                    orderBy: dailyTradeVolumeETH
+                    orderDirection: desc
                 ) {
-                    dailyTradedItemCount
-                    date
+                    blockNumber
+                    dailyTradeVolumeETH
+                    timestamp
                 }
-            }
+                }
         """,
-        "CollectionDailySnapshot",
+        "collectionDailySnapshots",
         hosted=False,
     )
     print(pd.DataFrame(json_result))
