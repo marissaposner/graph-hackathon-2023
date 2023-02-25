@@ -1,30 +1,36 @@
 import os
 
 import openai
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, jsonify
+
+from thegraph import query_thegraph
+
 
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-@app.route("/", methods=("GET", "POST"))
-def index():
-    if request.method == "POST":
-        animal = request.form["animal"]
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=generate_prompt(animal),
-            temperature=0.6,
-        )
-        return redirect(url_for("index", result=response.choices[0].text))
+@app.route("/get-thegraph-results", methods=["POST", "GET"])
+def eip_subgraph_info():
+    data = query_thegraph(
+        "messari/erc20-holders-2022",
+        """
+            query {
+                tokens(orderBy: transferCount, first: 5, orderDirection: desc) {
+                    id
+                    name
+                    symbol
+                    decimals
+                    transferCount
+                }
+            }
+        """,
+        "tokens",
+    )
+    return jsonify({"Results": data})
 
-    result = request.args.get("result")
-    return render_template("index.html", result=result)
 
-
-def generate_prompt(animal):
-    return """Suggest three names for an animal that is a superhero.
-
+<<<<<<< HEAD:app2.py
 Animal: Cat
 Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
 Animal: Dog
@@ -38,3 +44,8 @@ Names:""".format(
 def send_schema_to_gpt(schema):
     """Define the schema of the subgraph to send to gpt
     """
+=======
+@app.route("/")
+def home():
+    return "Hello World"
+>>>>>>> 68e1ae6b3ba28b2e0d90bce1917cad62b9e28535:app.py
