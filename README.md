@@ -1,7 +1,7 @@
 # graph-hackathon-2023
 Our submission for the Graph Hackathon at UC Boulder February 2023
 <div align="center">
-  <h1 align="center">SybilShield</h1>
+  <h1 align="center">G_GPT</h1>
   <img src="docs/images/sybil-shield.png" height="200">
   <h2 align="center">A solution for detecting and preventing sybil attacks on Starknet blockchain</h2>
   <br />
