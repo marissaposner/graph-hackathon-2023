@@ -17,9 +17,16 @@ LIST_OF_EXAMPLES:
     "Explanation": "Queries the Bored Ape NFT collection and finds the date with the highest daily trade volume in ETH. \n\nThe timestamp is the number of days since the Unix epoch (basically the Unix timestamp, divided by 86400)."
   },
   {
-    "Questions": "What are the top 5 tokens by trading volume?",
-    "Output": "query {\n  tokens(\n    orderBy: volumeUSD,\n    orderDirection: desc,\n    first: 5\n  ) {\n    symbol\n  }\n}",
-    "Explanation": ""
+    "Questions": "What is the daily traded volume in ETH, the number of NFTs traded per day, and the number of collections per day?",
+    "Output": "query {
+  marketplaceDailySnapshots(orderBy: timestamp, orderDirection: desc) {
+    cumulativeTradeVolumeETH
+    dailyTradedItemCount
+    dailyTradedCollectionCount
+    timestamp
+  }
+}",
+    "Explanation": "Query the Opensea, LooksRare, or another NFT marketplace by trade volume in ETH, number of NFTs traded, and the number of collections all per day."
   },
   {
     "Questions": "What date had the most trading fees?",
