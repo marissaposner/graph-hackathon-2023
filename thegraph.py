@@ -16,4 +16,7 @@ def query_thegraph(subgraph_id, query, table_name, hosted=True):
     query_url = f"{base_url}{subgraph_id}"
     r = requests.post(query_url, json={"query": query})
     r.raise_for_status()
-    return r.json()["data"][table_name]
+    try:
+        return r.json()["data"][table_name]
+    except KeyError:
+        print(r.json())
