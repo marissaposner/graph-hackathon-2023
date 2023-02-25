@@ -1,9 +1,9 @@
 # graph-hackathon-2023
 Our submission for the Graph Hackathon at UC Boulder February 2023
 <div align="center">
-  <h1 align="center">G_GPT</h1>
+  <h1 align="center">GGPT</h1>
   <img src="docs/images/sybil-shield.png" height="200">
-  <h2 align="center">A solution for detecting and preventing sybil attacks on Starknet blockchain</h2>
+  <h2 align="center">A solution to view NFTs across protocols through training ChatGPT</h2>
   <br />
   <a href="https://github.com/carbonable-labs/sybil-shield/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
   -
