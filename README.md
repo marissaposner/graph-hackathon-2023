@@ -1,5 +1,5 @@
 # graph-hackathon-2023
-Our submission for the Graph Hackathon at UC Boulder February 2023
+Our submission for the Graph Hackathon at CU Boulder February 2023
 <div align="center">
   <h1 align="center">GGPT</h1>
   <img src="docs/images/sybil-shield.png" height="200">
