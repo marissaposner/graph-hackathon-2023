@@ -104,14 +104,6 @@ This project is licensed under the **MIT license**.
 
 See [LICENSE](LICENSE) for more information.
 
-## Resources
-
-Here are some interesting resources about detection and mitigation of Sybil attacks:
-
-- [Review on Detection and Mitigation of Sybil Attack in the Network](https://www.sciencedirect.com/science/article/pii/S187705091600082X)
-
-> **Note:** This list is not exhaustive, and is not intended to be.
-
 
 ## Contributors ✨
 
