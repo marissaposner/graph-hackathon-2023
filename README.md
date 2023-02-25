@@ -1,9 +1,9 @@
 # graph-hackathon-2023
-Our submission for the Graph Hackathon at UC Boulder February 2023
+Our submission for the Graph Hackathon at CU Boulder February 2023
 <div align="center">
-  <h1 align="center">G_GPT</h1>
+  <h1 align="center">GGPT</h1>
   <img src="docs/images/sybil-shield.png" height="200">
-  <h2 align="center">A solution for detecting and preventing sybil attacks on Starknet blockchain</h2>
+  <h2 align="center">A solution to view NFTs across protocols with comprehensive subgraphs by training ChatGPT</h2>
   <br />
   <a href="https://github.com/carbonable-labs/sybil-shield/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
   -
@@ -88,7 +88,7 @@ for being involved!
 ## Authors & contributors
 
 For a full list of all authors and contributors, see
-[the contributors page](https://github.com/carbonable-labs/sybil-shield/graphs/contributors).
+[the contributors page](https://github.com/marissaposner/graph-hackathon-2023/graphs/contributors).
 
 ## Security
 
@@ -103,14 +103,6 @@ _For more information and to report security issues, please refer to our
 This project is licensed under the **MIT license**.
 
 See [LICENSE](LICENSE) for more information.
-
-## Resources
-
-Here are some interesting resources about detection and mitigation of Sybil attacks:
-
-- [Review on Detection and Mitigation of Sybil Attack in the Network](https://www.sciencedirect.com/science/article/pii/S187705091600082X)
-
-> **Note:** This list is not exhaustive, and is not intended to be.
 
 
 ## Contributors ✨
