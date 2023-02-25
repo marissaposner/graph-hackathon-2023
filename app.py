@@ -2,11 +2,11 @@ import os
 
 import openai
 from flask import Flask, redirect, render_template, request, url_for
-
+from schemas import NFT_Marketplace
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-
+schema = NFT_Marketplace
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
@@ -22,8 +22,9 @@ def index():
     return render_template("index.html", result=result)
 
 
-def generate_prompt(animal):
-    return """Suggest three names for an animal that is a superhero.
+def generate_prompt(input):
+    schema = send_schema_to_gpt()
+    return schema + """   Suggest three names for an animal that is a superhero.
 
 Animal: Cat
 Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
@@ -31,11 +32,13 @@ Animal: Dog
 Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
 Animal: {}
 Names:""".format(
-        animal.capitalize()
+        input.capitalize()
     )
 
 
 def send_schema_to_gpt(schema):
     """Define the schema of the subgraph to send to gpt
     """
+    return NFT_Marketplace
+
     
