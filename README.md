@@ -88,7 +88,7 @@ for being involved!
 ## Authors & contributors
 
 For a full list of all authors and contributors, see
-[the contributors page](https://github.com/carbonable-labs/sybil-shield/graphs/contributors).
+[the contributors page](https://github.com/marissaposner/graph-hackathon-2023/graphs/contributors).
 
 ## Security
 
