@@ -33,3 +33,8 @@ Animal: {}
 Names:""".format(
         animal.capitalize()
     )
+
+
+def send_schema_to_gpt(schema):
+    """Define the schema of the subgraph to send to gpt
+    """
