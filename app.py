@@ -1,7 +1,7 @@
 import os
 
 import openai
-from flask import Flask, jsonify, redirect, render_template, request, url_for
+from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 from schemas import NFT_Marketplace
 from thegraph import query_thegraph
@@ -15,40 +15,26 @@ schema = NFT_Marketplace
 cors = CORS(app)
 
 
-@app.route("/", methods=("GET", "POST"))
-def index():
-    if request.method == "POST":
-        input = request.form["input"]
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=generate_prompt(input),
-            temperature=0.6,
-        )
-        return redirect(url_for("index", result=response.choices[0].text))
-
-    result = request.args.get("result")
-    return render_template("index.html", result=result)
-
-
 @app.route("/get-thegraph-results", methods=["POST", "GET"])
 @cross_origin()
 def eip_subgraph_info():
-    # input_sentence = request.get_json()["input"]
-    data = query_thegraph(
-        "messari/erc20-holders-2022",
-        """
-            query {
-                tokens(orderBy: transferCount, first: 5, orderDirection: desc) {
-                    id
-                    name
-                    symbol
-                    decimals
-                    transferCount
-                }
-            }
-        """,
-        "tokens",
+    input_sentence = request.get_json()["input"]
+    print("==========user response:==========\n", input_sentence)
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=generate_prompt(input_sentence),
+        temperature=0.6,
+        max_tokens=2048,
     )
+    openai_result = response.choices[0].text
+    print("==========openai response:==========\n", openai_result)
+    data = query_thegraph(
+        "AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9",
+        openai_result,
+        "collectionDailySnapshots",
+        hosted=False,
+    )
+    print("==========the graph response:==========\n", data)
     return jsonify(data)
 
 
@@ -60,7 +46,7 @@ def generate_prompt(input):
     return (
         sample_queries
         + f"""
-Query: {input} 
+Query: Using the above queries, Write a GraphQL query to {input}
 Results:"""
     )
 
@@ -106,6 +92,3 @@ def define_sample_queries():
         totalRevenueETH
     }
     }"""
-# def send_schema_to_gpt(schema):
-#     """Define the schema of the subgraph to send to gpt""
-#     return NFT_Marketplace
