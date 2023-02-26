@@ -18,10 +18,10 @@ cors = CORS(app)
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
-        animal = request.form["animal"]
+        input = request.form["input"]
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=generate_prompt(animal),
+            prompt=generate_prompt(input),
             temperature=0.6,
         )
         return redirect(url_for("index", result=response.choices[0].text))
