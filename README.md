@@ -2,14 +2,10 @@
 Our submission for the Graph Hackathon at CU Boulder February 2023
 <div align="center">
   <h1 align="center">Chat With the Graph</h1>
-  <img src="docs/images/sybil-shield.png" height="200">
   <h2 align="center">A solution to view NFTs across protocols with comprehensive subgraphs by training ChatGPT</h2>
   <br />
-  <a href="https://github.com/carbonable-labs/sybil-shield/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
   -
-  <a href="https://github.com/carbonable-labs/sybil-shield/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
   -
-  <a href="https://github.com/carbonable-labs/sybil-shield/discussions">Ask a Question</a>
 </div>
 
 <div align="center">
