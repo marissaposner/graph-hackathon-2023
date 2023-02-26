@@ -1,5 +1,4 @@
-LIST_OF_EXAMPLES:
-"""Here are a set of example questions and queries you can use as an example for making your own queries:
+LIST_OF_EXAMPLES="""Here are a set of example questions and queries you can use as an example for making your own queries:
 
 [
   {
@@ -31,7 +30,7 @@ LIST_OF_EXAMPLES:
     "Explanation": "Query the Opensea, LooksRare, or another NFT marketplace by trade volume in ETH, number of NFTs traded, and the number of collections."
   },
   {
-    "Questions": "What NFT collections have the most revenue?",
+    "Questions": ("What NFT collections have the most revenue?", ,
     "Output": "query {
   collections(orderBy: totalRevenueETH, orderDirection: desc) {
     id
@@ -39,20 +38,7 @@ LIST_OF_EXAMPLES:
     symbol
     totalRevenueETH
   }
-}",
-    "Explanation": "Query the NFT collections with the highest revenue"
-  },
-  {
-    "Questions": "How much USDC is in Uniswap?",
-    "Output": "query {\n  token(\n    id: \"TOKEN_ADDRESS_HERE \"\n  ) {\n    totalValueLocked\n  }\n}",
-    "Explanation": "Simple way to query USDC by providing the USDC address."
-  },
-  {
-    "Questions": "What are the top USDC pools by volume?",∂≈
-    "Output": "query {\n  token(\n    id: \"TOKEN_ADDRESS_HERE \"\n  ) {\n    whitelistPools(\n      orderBy: volumeUSD,\n      orderDirection: desc,\n      first: 5\n    ) {\n      volumeUSD\n      token0 {\n        symbol\n      }\n      token1 {\n        symbol\n      }\n    }\n  }\n}",
-    "Explanation": "Query USDC by address, then get the top 5 pools that contain USDC.\n\nNote that we want to get the symbols of both tokens in each pool, so we can get the symbol of the “other” token."
-  }
+}"
 ]
-
-If you understand, please respond with "confirmed"
 """
+
