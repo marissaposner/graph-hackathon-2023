@@ -1,15 +1,9 @@
 # graph-hackathon-2023
 Our submission for the Graph Hackathon at CU Boulder February 2023
 <div align="center">
-  <h1 align="center">Chat With the Graph</h1>
-  <img src="docs/images/sybil-shield.png" height="200">
+  <h1 align="center">ChatWithTheGraph</h1>
   <h2 align="center">A solution to view NFTs across protocols with comprehensive subgraphs by training ChatGPT</h2>
   <br />
-  <a href="https://github.com/carbonable-labs/sybil-shield/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
-  -
-  <a href="https://github.com/carbonable-labs/sybil-shield/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
-  -
-  <a href="https://github.com/carbonable-labs/sybil-shield/discussions">Ask a Question</a>
 </div>
 
 <div align="center">
@@ -25,11 +19,7 @@ Our submission for the Graph Hackathon at CU Boulder February 2023
 
 ## About
 
-SybilShield is an open-source project built for the StarkNet ecosystem that utilizes blockchain data to detect Sybil attack behaviors.
-
-A Sybil attack is a type of attack where an attacker creates multiple fake identities (also known as Sybil nodes) in a network in order to gain control or disrupt the network's operation.
-
-SybilShield is implemented using Apibara technology to explore on-chain data, allowing it to detect and mitigate Sybil attacks by identifying and isolating fake identities.
+ChatWithTheGraph is an open-source project built for the Graph Protocol ecosystem that allows users to ask ChatGPT to visualize their data and then our frontend displays the results.
 
 ## Getting Started
 
@@ -53,7 +43,7 @@ SybilShield is implemented using Apibara technology to explore on-chain data, al
 
 ## Roadmap
 
-See the [open issues](https://github.com/carbonable-labs/sybil-shield/issues/issues) for
+See the [open issues](https://github.com/marissaposner/graph-hackathon-2023/issues) for
 a list of proposed features (and known issues).
 
 
@@ -61,19 +51,19 @@ a list of proposed features (and known issues).
 
 Reach out to the maintainer at one of the following places:
 
-- [GitHub Discussions](https://github.com/carbonable-labs/sybil-shield/issues/discussions)
+- [GitHub Discussions](https://github.com/marissaposner/graph-hackathon-2023/issues/discussions)
 
 
 ## Project assistance
 
 If you want to say **thank you** or/and support active development:
 
-- Add a [GitHub Star](https://github.com/carbonable-labs/sybil-shield/issues/) to the
+- Add a [GitHub Star](https://github.com/marissaposner/graph-hackathon-2023) to the
   project.
 - Write interesting articles about the project on [Dev.to](https://dev.to/),
   [Medium](https://medium.com/) or your personal blog.
 
-Together, we can make SybilShield **better**!
+Together, we can make ChatWithTheGraph **better**!
 
 ## Contributing
 
@@ -92,8 +82,8 @@ For a full list of all authors and contributors, see
 
 ## Security
 
-SybilShield follows good practices of security, but 100% security cannot be assured.
-SybilShield is provided **"as is"** without any **warranty**. Use at your own risk.
+ChatWithTheGraph follows good practices of security, but 100% security cannot be assured.
+ChatWithTheGraph is provided **"as is"** without any **warranty**. Use at your own risk.
 
 _For more information and to report security issues, please refer to our
 [security documentation](docs/SECURITY.md)._

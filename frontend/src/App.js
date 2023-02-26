@@ -151,7 +151,7 @@ function App() {
       justifyContent="center"
       style={{ minHeight: '100vh' }}>
       <CustomizedInputBase/>
-      <ColumnGroupingTable style={{ marginTop: "10px" }}/>
+      <ColumnGroupingTable/>
       </Grid>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

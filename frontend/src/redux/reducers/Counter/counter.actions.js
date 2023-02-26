@@ -1,25 +1,5 @@
-import { INCREMENT, DECREMENT, SETDATA } from './counter.types';
+import {  SETDATA, API_CALLED } from './counter.types';
 
-
-export const increaseCounter = () => {
-
-    return {
-
-        type: INCREMENT,
-
-    };
-
-};
-
-export const decreaseCounter = () => {
-
-    return {
-
-       type: DECREMENT,
-
-    };
-
-};
 
 export const setData = (data) => {
 
@@ -31,3 +11,10 @@ export const setData = (data) => {
     };
 
 };
+
+export const apiCalled = (data) => {
+    return {
+      type: API_CALLED,
+      data: data
+    };
+  };
