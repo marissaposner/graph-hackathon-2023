@@ -2,7 +2,7 @@ import os
 
 import openai
 from flask import Flask, jsonify, redirect, render_template, request, url_for
-
+from flask_cors import CORS, cross_origin
 from schemas import NFT_Marketplace
 from thegraph import query_thegraph
 from graphql_examples import LIST_OF_EXAMPLES
@@ -12,7 +12,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 schema = NFT_Marketplace
 
-
+cors = CORS(app)
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
@@ -29,8 +29,9 @@ def index():
 
 
 @app.route("/get-thegraph-results", methods=["POST", "GET"])
+@cross_origin()
 def eip_subgraph_info():
-    # input_sentence = request.get_json()
+    input_sentence = request.get_json()["input"]
     data = query_thegraph(
         "messari/erc20-holders-2022",
         """
