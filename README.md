@@ -28,6 +28,8 @@ https://thegraph.com/explorer/subgraphs/GvgkY82DTAkYqRShBbPQMjF1WJyUcknXre3QPWiX
 
 Example graph queries are defined here: https://github.com/marissaposner/graph-hackathon-2023/blob/main/graphql_examples.py
 
+Youtube Link to Demo: https://www.youtube.com/watch?v=DmnDch1C8EA
+
 ## Getting Started
 
 - Install Python version management tool: [pyenv](https://github.com/pyenv/pyenv) or [asdf](https://github.com/asdf-vm/asdf)
