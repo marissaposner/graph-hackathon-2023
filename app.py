@@ -57,8 +57,7 @@ def generate_prompt(input):
     return (
         sample_queries
         + f"""
-Query: {input} #take in the query from the user
-# TO DO edit results that go here
+Query: {input} 
 Results:"""
     )
 
@@ -104,14 +103,6 @@ def define_sample_queries():
         totalRevenueETH
     }
     }"""
-<<<<<<< HEAD
 # def send_schema_to_gpt(schema):
 #     """Define the schema of the subgraph to send to gpt""
 #     return NFT_Marketplace
-=======
-
-
-def send_schema_to_gpt(schema):
-    """Define the schema of the subgraph to send to gpt"""
-    return NFT_Marketplace
->>>>>>> 0dcd72406e6ea2899983a8a40a0fce0385eb03b3
