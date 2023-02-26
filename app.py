@@ -54,21 +54,14 @@ def generate_prompt(input):
     sample_queries = LIST_OF_EXAMPLES
     return (
         sample_queries
-        + """   Suggest three names for an animal that is a superhero.
-
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: {}
-Names:""".format(
-            input.capitalize()
-        )
+        + f"""
+Query: {input} #take in the query from the user
+# TO DO edit results that go here
+Results:"""
     )
 
 def define_sample_queries():
     return """Here are a set of example questions and queries you can use as an example for making your own queries:
-
     [
     {
         "Questions": "What date were the most NFTs in the Bored Ape NFT collection traded? ",
@@ -108,6 +101,6 @@ def define_sample_queries():
         totalRevenueETH
     }
     }"""
-def send_schema_to_gpt(schema):
-    """Define the schema of the subgraph to send to gpt""
-    return NFT_Marketplace
+# def send_schema_to_gpt(schema):
+#     """Define the schema of the subgraph to send to gpt""
+#     return NFT_Marketplace
