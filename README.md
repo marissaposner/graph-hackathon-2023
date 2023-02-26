@@ -24,6 +24,7 @@ ChatWithTheGraph is an open-source project built for the Graph Protocol ecosyste
 We queried the Messart NFT Marketplace subgraphs defined in this schema: https://github.com/messari/subgraphs/blob/master/schema-nft-marketplace.graphql
 Such as:
 https://thegraph.com/explorer/subgraphs/AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9?view=Playground&chain=mainnet
+
 https://thegraph.com/explorer/subgraphs/GvgkY82DTAkYqRShBbPQMjF1WJyUcknXre3QPWiXrPnS?view=Playground&chain=mainnet
 
 Example graph queries are defined here: https://github.com/marissaposner/graph-hackathon-2023/blob/main/graphql_examples.py
