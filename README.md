@@ -21,6 +21,11 @@ Our submission for the Graph Hackathon at CU Boulder February 2023
 
 ChatWithTheGraph is an open-source project built for the Graph Protocol ecosystem that allows users to ask ChatGPT to visualize their data and then our frontend displays the results.
 
+We queried the Messart NFT Marketplace subgraphs defined in this schema: https://github.com/messari/subgraphs/blob/master/schema-nft-marketplace.graphql
+Such as:
+https://thegraph.com/explorer/subgraphs/AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9?view=Playground&chain=mainnet
+https://thegraph.com/explorer/subgraphs/GvgkY82DTAkYqRShBbPQMjF1WJyUcknXre3QPWiXrPnS?view=Playground&chain=mainnet
+
 ## Getting Started
 
 - Install Python version management tool: [pyenv](https://github.com/pyenv/pyenv) or [asdf](https://github.com/asdf-vm/asdf)
@@ -40,7 +45,47 @@ ChatWithTheGraph is an open-source project built for the Graph Protocol ecosyste
 
 ### Prerequisites
 
-#### Typescript
+### Example graph queries
+[
+  {
+    "Questions": "What date were the most NFTs in the Bored Ape NFT collection traded? ",
+    "Output": "query {
+                collectionDailySnapshots(
+                    where: {collection: "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d"}
+                    first: 1
+                    orderBy: dailyTradeVolumeETH
+                    orderDirection: desc
+                ) {
+                    blockNumber
+                    dailyTradeVolumeETH
+                    timestamp
+                }
+                }",
+    "Explanation": "Queries the Bored Ape NFT collection and finds the date with the highest daily trade volume in ETH. \n\nThe timestamp is the number of days since the Unix epoch (basically the Unix timestamp, divided by 86400)."
+  },
+  {
+    "Questions": "What is the traded volume in ETH, the number of NFTs traded, and the number of collections?",
+    "Output": "query {
+  marketplaceDailySnapshots(orderBy: timestamp, orderDirection: desc) {
+    cumulativeTradeVolumeETH
+    dailyTradedItemCount
+    dailyTradedCollectionCount
+    timestamp
+  }
+}",
+    "Explanation": "Query the Opensea, LooksRare, or another NFT marketplace by trade volume in ETH, number of NFTs traded, and the number of collections."
+  },
+  {
+    "Questions": ("What NFT collections have the most revenue?", ,
+    "Output": "query {
+  collections(orderBy: totalRevenueETH, orderDirection: desc) {
+    id
+    name
+    symbol
+    totalRevenueETH
+  }
+}"
+]
 
 ## Roadmap
 
