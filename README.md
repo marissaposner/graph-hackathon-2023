@@ -26,6 +26,8 @@ Such as:
 https://thegraph.com/explorer/subgraphs/AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9?view=Playground&chain=mainnet
 https://thegraph.com/explorer/subgraphs/GvgkY82DTAkYqRShBbPQMjF1WJyUcknXre3QPWiXrPnS?view=Playground&chain=mainnet
 
+Example graph queries are defined here: https://github.com/marissaposner/graph-hackathon-2023/blob/main/graphql_examples.py
+
 ## Getting Started
 
 - Install Python version management tool: [pyenv](https://github.com/pyenv/pyenv) or [asdf](https://github.com/asdf-vm/asdf)
@@ -44,48 +46,6 @@ https://thegraph.com/explorer/subgraphs/GvgkY82DTAkYqRShBbPQMjF1WJyUcknXre3QPWiX
 - For the frontend:`cd frontend` and then run `npm install` (note if you run into any issues you can run `npm install --force`)
 
 ### Prerequisites
-
-### Example graph queries
-[
-  {
-    "Questions": "What date were the most NFTs in the Bored Ape NFT collection traded? ",
-    "Output": "query {
-                collectionDailySnapshots(
-                    where: {collection: "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d"}
-                    first: 1
-                    orderBy: dailyTradeVolumeETH
-                    orderDirection: desc
-                ) {
-                    blockNumber
-                    dailyTradeVolumeETH
-                    timestamp
-                }
-                }",
-    "Explanation": "Queries the Bored Ape NFT collection and finds the date with the highest daily trade volume in ETH. \n\nThe timestamp is the number of days since the Unix epoch (basically the Unix timestamp, divided by 86400)."
-  },
-  {
-    "Questions": "What is the traded volume in ETH, the number of NFTs traded, and the number of collections?",
-    "Output": "query {
-  marketplaceDailySnapshots(orderBy: timestamp, orderDirection: desc) {
-    cumulativeTradeVolumeETH
-    dailyTradedItemCount
-    dailyTradedCollectionCount
-    timestamp
-  }
-}",
-    "Explanation": "Query the Opensea, LooksRare, or another NFT marketplace by trade volume in ETH, number of NFTs traded, and the number of collections."
-  },
-  {
-    "Questions": ("What NFT collections have the most revenue?", ,
-    "Output": "query {
-  collections(orderBy: totalRevenueETH, orderDirection: desc) {
-    id
-    name
-    symbol
-    totalRevenueETH
-  }
-}"
-]
 
 ## Roadmap
 
