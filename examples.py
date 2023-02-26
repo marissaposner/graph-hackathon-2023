@@ -1,6 +1,6 @@
 import pandas as pd
 
-from thegraph import query_thegraph
+from helpers.thegraph import query_thegraph
 
 
 def main():
