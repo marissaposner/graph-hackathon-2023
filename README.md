@@ -35,7 +35,9 @@ ChatWithTheGraph is an open-source project built for the Graph Protocol ecosyste
   - MacBook M1/M2: `To define`
 - Verify the setup by running tests: `poetry run test`
 - Export entrypoint: `export FLASK_APP=app`
-- Run the server: `poetry run flask run`
+- Run the server to get the backend working: `python -m flask run`
+- For the frontend:`cd frontend` and then run `npm install` (note if you run into any issues you can run `npm install --force`)
+- 
 
 ### Prerequisites
 
