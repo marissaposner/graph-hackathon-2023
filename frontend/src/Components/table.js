@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { connect } from 'react-redux';
+import { CircularProgress } from '@mui/material';
 
 function buildColumns(data){
     let column_header = Object.keys(data[0]);
@@ -80,7 +81,14 @@ export  function StickyHeadTable(props) {
     setPage(0);
   };
   let columns = props.data ? buildColumns(props?.data) : [];
-  let rows = props.data? props.data: []; 
+  if(props.isLoading){
+    return (
+      <CircularProgress sx={{ align: 'center', marginTop:"10px",} }  color="secondary"/>
+  )}
+  else{
+    let rows = props.data? props.data: []; 
+
+
   return (
     props.data && (
     <Paper sx={{ width: '80%', overflow: 'hidden', align: 'center', marginTop:"10px"}}>
@@ -132,11 +140,12 @@ export  function StickyHeadTable(props) {
       />
     </Paper>
   ));
-}
+}}
 
 const mapStateToProps = state => {
     return {
       data: state.counter.data,
+      isLoading: state.counter.isLoading
     }
   }
 

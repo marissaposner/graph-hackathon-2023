@@ -1,24 +1,15 @@
-import { INCREMENT, DECREMENT, SETDATA } from './counter.types';
+import { INCREMENT, DECREMENT, SETDATA, API_CALLED } from './counter.types';
 
 
 const INITIAL_STATE = {
 
-    count: 0,
+   isLoading: false,
     data: ""
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
 
     switch (action.type) {
-
-        case INCREMENT:
-
-           return {
-
-             ...state, 
-             count: state.count + 1,
-
-           };
 
         case SETDATA:
 
@@ -28,15 +19,17 @@ const reducer = (state = INITIAL_STATE, action) => {
              data: action.data,
 
            };
+         
+      case API_CALLED :  
+         return {
+             ...state,
+             isLoading: action.data
+         };
+         break;
 
-        case DECREMENT:
+        
 
-           return {
-              ...state, count: state.count - 1,
-
-           };
-
-         default: return state;
+      default: return state;
 
     }
 
