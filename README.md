@@ -1,7 +1,7 @@
 # graph-hackathon-2023
 Our submission for the Graph Hackathon at CU Boulder February 2023
 <div align="center">
-  <h1 align="center">GGPT</h1>
+  <h1 align="center">Chat With the Graph</h1>
   <img src="docs/images/sybil-shield.png" height="200">
   <h2 align="center">A solution to view NFTs across protocols with comprehensive subgraphs by training ChatGPT</h2>
   <br />
