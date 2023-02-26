@@ -1,7 +1,7 @@
 # graph-hackathon-2023
 Our submission for the Graph Hackathon at CU Boulder February 2023
 <div align="center">
-  <h1 align="center">Chat With the Graph</h1>
+  <h1 align="center">ChatWithTheGraph</h1>
   <h2 align="center">A solution to view NFTs across protocols with comprehensive subgraphs by training ChatGPT</h2>
   <br />
 </div>
@@ -19,7 +19,7 @@ Our submission for the Graph Hackathon at CU Boulder February 2023
 
 ## About
 
-Chat With the Graph is an open-source project built for the Graph Protocol ecosystem that allows users to ask ChatGPT to visualize their data and then our frontend displays the results.
+ChatWithTheGraph is an open-source project built for the Graph Protocol ecosystem that allows users to ask ChatGPT to visualize their data and then our frontend displays the results.
 
 ## Getting Started
 
@@ -43,7 +43,7 @@ Chat With the Graph is an open-source project built for the Graph Protocol ecosy
 
 ## Roadmap
 
-See the [open issues](https://github.com/carbonable-labs/sybil-shield/issues/issues) for
+See the [open issues](https://github.com/marissaposner/graph-hackathon-2023/issues) for
 a list of proposed features (and known issues).
 
 
@@ -51,19 +51,19 @@ a list of proposed features (and known issues).
 
 Reach out to the maintainer at one of the following places:
 
-- [GitHub Discussions](https://github.com/carbonable-labs/sybil-shield/issues/discussions)
+- [GitHub Discussions](https://github.com/marissaposner/graph-hackathon-2023/issues/discussions)
 
 
 ## Project assistance
 
 If you want to say **thank you** or/and support active development:
 
-- Add a [GitHub Star](https://github.com/carbonable-labs/sybil-shield/issues/) to the
+- Add a [GitHub Star](https://github.com/marissaposner/graph-hackathon-2023) to the
   project.
 - Write interesting articles about the project on [Dev.to](https://dev.to/),
   [Medium](https://medium.com/) or your personal blog.
 
-Together, we can make SybilShield **better**!
+Together, we can make ChatWithTheGraph **better**!
 
 ## Contributing
 
@@ -82,8 +82,8 @@ For a full list of all authors and contributors, see
 
 ## Security
 
-SybilShield follows good practices of security, but 100% security cannot be assured.
-SybilShield is provided **"as is"** without any **warranty**. Use at your own risk.
+ChatWithTheGraph follows good practices of security, but 100% security cannot be assured.
+ChatWithTheGraph is provided **"as is"** without any **warranty**. Use at your own risk.
 
 _For more information and to report security issues, please refer to our
 [security documentation](docs/SECURITY.md)._
