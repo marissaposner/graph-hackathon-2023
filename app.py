@@ -53,6 +53,9 @@ def eip_subgraph_info():
 
 
 def generate_prompt(input):
+    """
+    Take in query from user and append sample querie
+    """
     sample_queries = LIST_OF_EXAMPLES
     return (
         sample_queries
