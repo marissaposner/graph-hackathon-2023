@@ -1,4 +1,4 @@
-LIST_OF_EXAMPLES="""Here are a set of example questions and queries you can use as an example for making your own queries:
+LIST_OF_EXAMPLES = """Here are a set of example questions and queries you can use as an example for making your own queries:
 
 [
   {
@@ -20,12 +20,12 @@ LIST_OF_EXAMPLES="""Here are a set of example questions and queries you can use 
   {
     "Questions": "What is the traded volume in ETH, the number of NFTs traded, and the number of collections?",
     "Output": "query {
-  marketplaceDailySnapshots(orderBy: timestamp, orderDirection: desc) {
-    cumulativeTradeVolumeETH
-    dailyTradedItemCount
-    dailyTradedCollectionCount
-    timestamp
-  }
+                marketplaceDailySnapshots(orderBy: timestamp, orderDirection: desc) {
+                  cumulativeTradeVolumeETH
+                  dailyTradedItemCount
+                  dailyTradedCollectionCount
+                  timestamp
+                }
 }",
     "Explanation": "Query the Opensea, LooksRare, or another NFT marketplace by trade volume in ETH, number of NFTs traded, and the number of collections."
   },
@@ -41,4 +41,3 @@ LIST_OF_EXAMPLES="""Here are a set of example questions and queries you can use 
 }"
 ]
 """
-
