@@ -37,7 +37,6 @@ ChatWithTheGraph is an open-source project built for the Graph Protocol ecosyste
 - Export entrypoint: `export FLASK_APP=app`
 - Run the server to get the backend working: `python -m flask run`
 - For the frontend:`cd frontend` and then run `npm install` (note if you run into any issues you can run `npm install --force`)
-- 
 
 ### Prerequisites
 
