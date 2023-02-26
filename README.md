@@ -4,8 +4,6 @@ Our submission for the Graph Hackathon at CU Boulder February 2023
   <h1 align="center">Chat With the Graph</h1>
   <h2 align="center">A solution to view NFTs across protocols with comprehensive subgraphs by training ChatGPT</h2>
   <br />
-  -
-  -
 </div>
 
 <div align="center">
@@ -21,11 +19,7 @@ Our submission for the Graph Hackathon at CU Boulder February 2023
 
 ## About
 
-SybilShield is an open-source project built for the StarkNet ecosystem that utilizes blockchain data to detect Sybil attack behaviors.
-
-A Sybil attack is a type of attack where an attacker creates multiple fake identities (also known as Sybil nodes) in a network in order to gain control or disrupt the network's operation.
-
-SybilShield is implemented using Apibara technology to explore on-chain data, allowing it to detect and mitigate Sybil attacks by identifying and isolating fake identities.
+Chat With the Graph is an open-source project built for the Graph Protocol ecosystem that allows users to ask ChatGPT to visualize their data and then our frontend displays the results.
 
 ## Getting Started
 
