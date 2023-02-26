@@ -13,6 +13,8 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 schema = NFT_Marketplace
 
 cors = CORS(app)
+
+
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
@@ -31,7 +33,7 @@ def index():
 @app.route("/get-thegraph-results", methods=["POST", "GET"])
 @cross_origin()
 def eip_subgraph_info():
-    input_sentence = request.get_json()["input"]
+    # input_sentence = request.get_json()["input"]
     data = query_thegraph(
         "messari/erc20-holders-2022",
         """
@@ -65,6 +67,7 @@ Names:""".format(
             input.capitalize()
         )
     )
+
 
 def define_sample_queries():
     return """Here are a set of example questions and queries you can use as an example for making your own queries:
@@ -108,6 +111,8 @@ def define_sample_queries():
         totalRevenueETH
     }
     }"""
+
+
 def send_schema_to_gpt(schema):
-    """Define the schema of the subgraph to send to gpt""
+    """Define the schema of the subgraph to send to gpt"""
     return NFT_Marketplace
