@@ -1,7 +1,9 @@
 <div align="center">
-  <h1 align="center">ChatWithTheGraph</h1>
+  <h1 align="center">ChatWithTheGraph - 3rd place at the Graph Hackathon at UC Boulder </h1>
   <h2 align="center">A solution to view NFTs across protocols with comprehensive subgraphs by training ChatGPT</h2>
   <h2 align="center">Our submission for the Graph Hackathon at CU Boulder February 2023</h2>
+  <h2 align="center">Youtube Link to Demo: https://www.youtube.com/watch?v=DmnDch1C8EA</h2>
+
 
   <br />
 </div>
