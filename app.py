@@ -3,8 +3,10 @@ import os
 import openai
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
-from helpers.thegraph import query_thegraph
 from helpers.graphql_examples import LIST_OF_EXAMPLES
+from helpers.subgraphs import MESSARI_NON_HOSTED
+from helpers.thegraph import query_thegraph
+
 
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -31,9 +33,9 @@ def eip_subgraph_info():
     openai_result = response.choices[0].text
     print("==========openai response:==========\n", openai_result)
     data = query_thegraph(
-        "AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9",
+        MESSARI_NON_HOSTED["subgraphs"]["OpenSea V2 Ethereum"],
         openai_result,
-        hosted=False,
+        hosted=MESSARI_NON_HOSTED["hosted_boolean"],
     )
     print("==========the graph response:==========\n", data)
     return jsonify(data)
