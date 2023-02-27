@@ -17,6 +17,8 @@ cors = CORS(app)
 def eip_subgraph_info():
     try:
         input_sentence = request.get_json()["input"]
+        if input_sentence == "":
+            raise
     except:
         input_sentence = "find the date that the most NFTs in the otherside collection (0x34d85c9cdeb23fa97cb08333b511ac86e1c4e258) were traded?"
     print("==========user response:==========\n", input_sentence)
@@ -31,7 +33,6 @@ def eip_subgraph_info():
     data = query_thegraph(
         "AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9",
         openai_result,
-        "collectionDailySnapshots",
         hosted=False,
     )
     print("==========the graph response:==========\n", data)
