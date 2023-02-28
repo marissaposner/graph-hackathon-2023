@@ -10,7 +10,7 @@ api_key = os.getenv("THEGRAPH_API_KEY")
 
 def query_thegraph(subgraph_id, query, hosted=True):
     if hosted:
-        base_url = "https://api.thegraph.com/subgraphs/name/"
+        base_url = "https://api.thegraph.com/subgraphs/name/messari/"
     else:
         base_url = f"https://gateway.thegraph.com/api/{api_key}/subgraphs/id/"
     query_url = f"{base_url}{subgraph_id}"
@@ -21,7 +21,9 @@ def query_thegraph(subgraph_id, query, hosted=True):
         first_table_name = list(r.json()["data"].keys())[0]
         return r.json()["data"][first_table_name]
     except KeyError:
-        print(r.json())
+        if "errors" in r.json().keys():
+            # TODO: display on front-end
+            raise Exception(r.json())
 
 
 def merge_graph_queries(column_to_merge: str):
