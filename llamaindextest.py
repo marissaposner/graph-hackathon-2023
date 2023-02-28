@@ -14,9 +14,8 @@ from llama_index import GPTSimpleVectorIndex, SimpleDirectoryReader
 
 
 from llama_index import LLMPredictor, GPTSimpleVectorIndex, PromptHelper
-documents = SimpleDirectoryReader('docs').load_data()
+documents = SimpleDirectoryReader('docs/lending').load_data()
 index = GPTSimpleVectorIndex(documents)
-
 # define LLM
 llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-davinci-003"))
 
@@ -36,5 +35,5 @@ index = GPTSimpleVectorIndex(
 # response = index.query("""You are an AI that helps write GraphQL queries on the Graph Protocol. In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work. Show only code and do not use sentences. Note that it's important that if you don't have some specific data (like dates or IDs), just add placeholders. Show only code and do not use sentences. 
 # What is the total trading volume by tier?""")
 response = index.query("""You are an AI that helps write GraphQL queries on the Graph Protocol. In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work. Show only code and do not use sentences. Note that it's important that if you don't have some specific data (like dates or IDs), just add placeholders. Show only code and do not use sentences. 
-What is the proposal with the most votes?""")
+What is the total amount borrowed?""")
 print(response)
