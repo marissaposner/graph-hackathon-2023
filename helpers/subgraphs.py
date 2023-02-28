@@ -1,18 +1,60 @@
-MESSARI_NON_HOSTED = {
-    "hosted_boolean": False,
-    "subgraphs": {
-        "OpenSea V2 Ethereum": "AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9",
-        "SushiSwap Ethereum": "7h1x51fyT5KigAhXd8sdE3kzzxQDJxxz1y66LTFiC3mS",
-        "Aave v2 Ethereum": "84CvqQHYhydZzr2KSth8s1AFYpBRzUbVJXq6PWuZm9U9",
-        "Uniswap v3 Ethereum": "ELUcwgpm14LKPLrBRuVvPvNKHQ9HvwmtKgKSH6123cr7",
-        "Yearn v2 Ethereum": "3CDiQ2hSrftreri8FLqsVAVTv9QNkEBszGZiDdmL4UQJ",
-        "MakerDAO Ethereum": "G1KHEQkA7shnPZahHUmKcerfpqBMNnL9xJzWGAVrj7n7",
-        "Balancer v2 Ethereum": "Ei5typKWPepPSgqkaKf3p5bPhgJesnu1RuRpyt69Pcrx",
-        "Curve Finance Ethereum": "GAGwGKc4ArNKKq9eFTcwgd1UGymvqhTier9Npqo1YvZB",
-        "Lido Ethereum": "XYcD9VeUvSvuqrsV5pFauXk7jQy9hrnhe5Kb7REyuxm",
-        "Convex Finance Ethereum": "CVVEQi1VRgQYwX5r6tPjD1Leiao2nETLYC6pHTWVNPtk",
-        "OpenSea Seaport Ethereum": "G1F2huam7aLSd2JYjxnofXmqkQjT5K2fRjdfapwiik9c",
-        "Liquity Ethereum": "GQ8aYQ1kdQPGDSQzeF6cPo9MzdzqkPxqmuCaMCJoNLrF",
-        "Aave v3 Ethereum": "HB1Z2EAw4rtPRYVb2Nz8QGFLHCpym6ByBX6vbCViuE9F",
-    },
-}
+"""
+instructions:
+$ git clone git@github.com:messari/subgraphs.git in the project's root dir
+
+scan the messari subgraphs repository and build an overview of production ready
+subgraphs with:
+- filename to their graphql schema
+- subgraph type (lending, dex-amm, generic, governance, bridge, yield-aggregator, nft-marketplace)
+- network(s)
+- their subgraph id, both for hosted and/or decentralised subgraphs
+"""
+import json
+import os
+
+
+PATH = "subgraphs/subgraphs/"
+
+protocols = {}
+with os.scandir(PATH) as it:
+    for entry in it:
+        # only consider directories that arent prefixed by a dot or underscore
+        if not entry.name.startswith((".", "_")) and not entry.is_file():
+            protocols[entry.name] = {}
+
+# gather protocol names and include them if their schema adheres to the standard
+unfinished_protocols = []
+f = open("subgraphs/deployment/deployment.json")
+deployment = json.load(f)
+for protocol in protocols:
+    try:
+        schema_file = os.path.join(PATH, protocol, "schema.graphql")
+        with open(schema_file) as f:
+            first_line = f.readline()
+            protocols[protocol]["schema_file"] = schema_file
+            # gather deployment data for protocol
+            if protocol in deployment:
+                protocols[protocol]["type"] = deployment[protocol]["schema"]
+                for chain in deployment[protocol]["deployments"]:
+                    if deployment[protocol]["deployments"][chain]["status"] == "prod":
+                        network_label = deployment[protocol]["deployments"][chain][
+                            "network"
+                        ]
+                        protocols[protocol]["deployments"] = {network_label: {}}
+                        protocols[protocol]["deployments"][network_label][
+                            "services"
+                        ] = deployment[protocol]["deployments"][chain]["services"]
+                    else:
+                        unfinished_protocols.append(protocol)
+            else:
+                unfinished_protocols.append(protocol)
+    except FileNotFoundError:
+        unfinished_protocols.append(protocol)
+for protocol in set(unfinished_protocols):
+    protocols.pop(protocol)
+
+# dev: for debugging purposes
+# from pprint import pprint
+
+# pprint(protocols)
+# print(len(protocols))

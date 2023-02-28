@@ -4,7 +4,7 @@ import openai
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 from helpers.graphql_examples import LIST_OF_EXAMPLES
-from helpers.subgraphs import MESSARI_NON_HOSTED
+from helpers.subgraphs import protocols
 from helpers.thegraph import query_thegraph
 
 
@@ -32,10 +32,22 @@ def eip_subgraph_info():
     )
     openai_result = response.choices[0].text
     print("==========openai response:==========\n", openai_result)
+    # hardcode protocol and chain for now
+    protocol = "makerdao"
+    chain = "ethereum"
+    schema_file = protocols[protocol]["schema_file"]
+    protocol_type = protocols[protocol]["type"]
+    if "decentralized-network" in protocols[protocol]["deployments"][chain]["services"]:
+        service_type = "decentralized-network"
+    else:
+        service_type = "hosted-service"
+    query_id = protocols[protocol]["deployments"][chain]["services"][service_type][
+        "query-id"
+    ]
     data = query_thegraph(
-        MESSARI_NON_HOSTED["subgraphs"]["OpenSea V2 Ethereum"],
+        query_id,
         openai_result,
-        hosted=MESSARI_NON_HOSTED["hosted_boolean"],
+        hosted=(service_type == "hosted-service"),
     )
     print("==========the graph response:==========\n", data)
     return jsonify(data)
