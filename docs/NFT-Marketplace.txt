@@ -1,4 +1,3 @@
-NFT_Marketplace = """
 # Defines the network the NFT was minted on
 enum Network {
   ARBITRUM_ONE
@@ -279,4 +278,4 @@ type CollectionDailySnapshot @entity {
 
   " Number of traded items of the day. "
   dailyTradedItemCount: Int!
-}"""
+}
