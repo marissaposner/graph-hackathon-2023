@@ -47,6 +47,8 @@ Youtube Link to Demo: https://www.youtube.com/watch?v=DmnDch1C8EA
 - Export entrypoint: `export FLASK_APP=app`
 - Run the server to get the backend working: `python -m flask run`
 - For the frontend:`cd frontend` and then run `npm install` (note if you run into any issues you can run `npm install --force`)
+- To update the submodule and re-pull the latest data from Messari Subgraphs (https://github.com/messari/subgraphs) run: git submodule update
+
 
 ### Prerequisites
 
