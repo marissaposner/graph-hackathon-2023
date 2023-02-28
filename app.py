@@ -4,6 +4,7 @@ import datetime as dt
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 from helpers.graphql_examples import LIST_OF_EXAMPLES
+from helpers.schemas import NFT_Marketplace
 from helpers.subgraphs import protocols
 from helpers.thegraph import query_thegraph
 
