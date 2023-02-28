@@ -20,21 +20,35 @@ def eip_subgraph_info():
     except:
         input_sentence = "find the date that the most NFTs in the otherside collection (0x34d85c9cdeb23fa97cb08333b511ac86e1c4e258) were traded?"
     print("==========user response:==========\n", input_sentence)
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=generate_prompt(input_sentence),
-        temperature=0.6,
-        max_tokens=2048,
-    )
-    openai_result = response.choices[0].text
-    print("==========openai response:==========\n", openai_result)
-    data = query_thegraph(
-        "AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9",
-        openai_result,
+    hardcoded_query = """query {
+    collectionDailySnapshots(where: 
+        {collection: "0x34d85c9cdeb23fa97cb08333b511ac86e1c4e258"}, 
+        first: 1, orderBy: dailyTradeVolumeETH, orderDirection: desc) {
+        blockNumber
+        dailyTradeVolumeETH
+        timestamp
+    }
+    }"""
+    data = query_thegraph("AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9",
+        hardcoded_query,
         "collectionDailySnapshots",
-        hosted=False,
-    )
-    print("==========the graph response:==========\n", data)
+        hosted=False,)
+
+    # response = openai.Completion.create(
+    #     model="text-davinci-003",
+    #     prompt=generate_prompt(input_sentence),
+    #     temperature=0.6,
+    #     max_tokens=2048,
+    # )
+    # openai_result = response.choices[0].text
+    # print("==========openai response:==========\n", openai_result)
+    # data = query_thegraph(
+    #     "AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9",
+    #     openai_result,
+    #     "collectionDailySnapshots",
+    #     hosted=False,
+    # )
+    # print("==========the graph response:==========\n", data)
     return jsonify(data)
 
 
