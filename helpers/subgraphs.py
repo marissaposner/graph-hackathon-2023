@@ -32,23 +32,26 @@ for protocol in protocols:
         with open(schema_file) as f:
             first_line = f.readline()
             protocols[protocol]["schema_file"] = schema_file
-            # gather deployment data for protocol
-            if protocol in deployment:
-                protocols[protocol]["type"] = deployment[protocol]["schema"]
-                for chain in deployment[protocol]["deployments"]:
-                    if deployment[protocol]["deployments"][chain]["status"] == "prod":
-                        network_label = deployment[protocol]["deployments"][chain][
-                            "network"
-                        ]
-                        protocols[protocol]["deployments"] = {network_label: {}}
-                        protocols[protocol]["deployments"][network_label][
-                            "services"
-                        ] = deployment[protocol]["deployments"][chain]["services"]
-                    else:
-                        unfinished_protocols.append(protocol)
-            else:
-                unfinished_protocols.append(protocol)
+        # gather deployment data for protocol
+        if protocol in deployment:
+            protocols[protocol]["type"] = deployment[protocol]["schema"]
+            protocols[protocol]["deployments"] = {}  # network_label: {}}
+            for chain in deployment[protocol]["deployments"]:
+                if deployment[protocol]["deployments"][chain]["status"] == "prod":
+                    network_label = deployment[protocol]["deployments"][chain][
+                        "network"
+                    ]
+                    protocols[protocol]["deployments"][network_label] = deployment[
+                        protocol
+                    ]["deployments"][chain]["services"]
+                if len(protocols[protocol]["deployments"]) == 0:
+                    # no production ready deployments founds
+                    unfinished_protocols.append(protocol)
+        if "deployments" not in protocols[protocol]:
+            # no deployments founds
+            unfinished_protocols.append(protocol)
     except FileNotFoundError:
+        # no graphql schema found
         unfinished_protocols.append(protocol)
 for protocol in set(unfinished_protocols):
     protocols.pop(protocol)

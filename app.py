@@ -37,13 +37,11 @@ def eip_subgraph_info():
     chain = "ethereum"
     schema_file = protocols[protocol]["schema_file"]
     protocol_type = protocols[protocol]["type"]
-    if "decentralized-network" in protocols[protocol]["deployments"][chain]["services"]:
+    if "decentralized-network" in protocols[protocol]["deployments"][chain]:
         service_type = "decentralized-network"
     else:
         service_type = "hosted-service"
-    query_id = protocols[protocol]["deployments"][chain]["services"][service_type][
-        "query-id"
-    ]
+    query_id = protocols[protocol]["deployments"][chain][service_type]["query-id"]
     data = query_thegraph(
         query_id,
         openai_result,
