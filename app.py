@@ -1,6 +1,6 @@
 import os
-
 import openai
+import datetime as dt
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 from helpers.thegraph import query_thegraph
@@ -18,8 +18,10 @@ def eip_subgraph_info():
     try:
         input_sentence = request.get_json()["input"]
     except:
+        # if there is no input sentence and we are just testing
         input_sentence = "find the date that the most NFTs in the otherside collection (0x34d85c9cdeb23fa97cb08333b511ac86e1c4e258) were traded?"
     print("==========user response:==========\n", input_sentence)
+
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=generate_prompt(input_sentence),
@@ -34,7 +36,14 @@ def eip_subgraph_info():
         "collectionDailySnapshots",
         hosted=False,
     )
+    
     print("==========the graph response:==========\n", data)
+    for dict_item in data:
+        for key, val in dict_item.items():
+            if key == 'timestamp':
+                # print(dt.datetime.utcfromtimestamp(int(val)).strftime('%Y-%m-%d %H:%M:%S'))
+                dict_item[key]= dt.datetime.utcfromtimestamp(int(val)).strftime('%Y-%m-%d %H:%M:%S')
+    print("end data", data)
     return jsonify(data)
 
 
