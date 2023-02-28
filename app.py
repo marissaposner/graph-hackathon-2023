@@ -1,5 +1,4 @@
 import os
-import pandas as pd
 import openai
 import datetime as dt
 from flask import Flask, jsonify, request
@@ -37,20 +36,6 @@ def eip_subgraph_info():
         "collectionDailySnapshots",
         hosted=False,
     )
-    
-#     hardcoded_query = """query {
-#   collectionDailySnapshots(where: 
-#     {collection: "0x34d85c9cdeb23fa97cb08333b511ac86e1c4e258"}, 
-#     first: 1, orderBy: dailyTradeVolumeETH, orderDirection: desc) {
-#     blockNumber
-#     dailyTradeVolumeETH
-#     timestamp
-#   }
-# }"""
-    # data = query_thegraph("AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9",
-    #     hardcoded_query,
-    #     "collectionDailySnapshots",
-    #     hosted=False,)
     
     print("==========the graph response:==========\n", data)
     for dict_item in data:
