@@ -8,7 +8,7 @@ load_dotenv()  # take environment variables from .env.
 api_key = os.getenv("THEGRAPH_API_KEY")
 
 
-def query_thegraph(subgraph_id, query, table_name, hosted=True):
+def query_thegraph(subgraph_id, query, hosted=True):
     if hosted:
         base_url = "https://api.thegraph.com/subgraphs/name/"
     else:
@@ -17,7 +17,9 @@ def query_thegraph(subgraph_id, query, table_name, hosted=True):
     r = requests.post(query_url, json={"query": query})
     r.raise_for_status()
     try:
-        return r.json()["data"][table_name]
+        # assumes only one table is being queried
+        first_table_name = list(r.json()["data"].keys())[0]
+        return r.json()["data"][first_table_name]
     except KeyError:
         print(r.json())
 
