@@ -15,11 +15,9 @@
 
 </div>
 
-
-
 ## About
 
-ChatWithTheGraph is an open-source project built for the Graph Protocol ecosystem that allows users to ask ChatGPT to visualize their data and then our frontend displays the results.
+ChatWithTheGraph is an open-source project built for The Graph Protocol ecosystem that allows users to ask ChatGPT to visualize their data and then our frontend displays the results.
 
 We queried the Messart NFT Marketplace subgraphs defined in this schema: https://github.com/messari/subgraphs/blob/master/schema-nft-marketplace.graphql
 Such as:
@@ -39,16 +37,15 @@ This is split between 2 services, a frontend and a backend
 
 # Running the backend
 - Setup the backend, ensure you have python 3.9 or great installed
+- `git submodule update --init --recursive` to clone (or update) the `subgraphs` repo in `backend/`
 - `cd backend` and run `pip install -r requirements.txt`
-- Setup .env by copying .env.example to .env  and seed with correct data
+- Setup .env by copying .env.example to .env and seed with correct data
 - Start the backend app with `flask run`
-- Visit http://3localhost:5000
+- Visit http://localhost:5000
 
 # Running the frontend
 
 - For the frontend:`cd frontend` and then run `npm install` (note if you run into any issues you can run `npm install --force`)
-
-
 
 ### Prerequisites
 
@@ -56,14 +53,6 @@ This is split between 2 services, a frontend and a backend
 
 See the [open issues](https://github.com/marissaposner/graph-hackathon-2023/issues) for
 a list of proposed features (and known issues).
-
-
-## Support
-
-Reach out to the maintainer at one of the following places:
-
-- [GitHub Discussions](https://github.com/marissaposner/graph-hackathon-2023/issues/discussions)
-
 
 ## Project assistance
 
@@ -104,20 +93,3 @@ _For more information and to report security issues, please refer to our
 This project is licensed under the **MIT license**.
 
 See [LICENSE](LICENSE) for more information.
-
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

@@ -3,7 +3,7 @@ import datetime as dt
 
 from backend.config import THEGRAPH_API_KEY
 from backend.services.graph.subgraphs import SubgraphService
-# from helpers.thegraph import query_thegraph
+
 
 DEFAULT_PROTOCOL = "aave-governance"
 DEFAULT_CHAIN = "ethereum"
@@ -35,19 +35,23 @@ class GraphService:
             self.service_type = "decentralized-network"
         else:
             self.service_type = "hosted-service"
-        self.query_id = self.protocols[protocol]["deployments"][chain][self.service_type ]["query-id"]
+        self.query_id = self.protocols[protocol]["deployments"][chain][
+            self.service_type
+        ]["query-id"]
 
     def query_thegraph(self, gql):
         data = query_thegraph(
             self.query_id,
             gql,
-            hosted=(self.service_type  == "hosted-service"),
+            hosted=(self.service_type == "hosted-service"),
         )
         print("==========the graph response:==========\n", data)
         for dict_item in data:
             for key, val in dict_item.items():
-                if key == 'timestamp':
+                if key == "timestamp":
                     # print(dt.datetime.utcfromtimestamp(int(val)).strftime('%Y-%m-%d %H:%M:%S'))
-                    dict_item[key]= dt.datetime.utcfromtimestamp(int(val)).strftime('%Y-%m-%d %H:%M:%S')
-        print("end data", data)
+                    dict_item[key] = dt.datetime.utcfromtimestamp(int(val)).strftime(
+                        "%Y-%m-%d %H:%M:%S"
+                    )
+        print("formatted data", data)
         return data
