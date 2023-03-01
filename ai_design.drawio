@@ -1,0 +1,69 @@
+<mxfile host="65bd71144e">
+    <diagram name="QueryToData" id="RRmpciId2Hh4jt-6YhZj">
+        <mxGraphModel dx="1232" dy="1465" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="AI driven graph and chart generation" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="293" y="40" width="265" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="ERC20 Tokens" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry y="260" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="NFTs" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="260" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Lending Pool" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="260" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Events" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="260" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Line Charts" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry y="690" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Bar Charts" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="690" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Data Tables" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="690" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Time Series" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="690" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Pie Chart" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="690" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="TXs" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="730" y="260" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="QU6DeJzNUEyJdpGIUiS0-14" value="Text Query to GQL" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=24;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="380" width="544" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="QU6DeJzNUEyJdpGIUiS0-15" value="TheGraph call with GQL&amp;nbsp;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=24;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="490" width="544" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="QU6DeJzNUEyJdpGIUiS0-16" value="Results to correct chart" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=24;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="570" width="544" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="QU6DeJzNUEyJdpGIUiS0-17" value="Save" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=24;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="370" width="190" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="QU6DeJzNUEyJdpGIUiS0-18" value="Save" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=24;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="490" width="190" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="QU6DeJzNUEyJdpGIUiS0-19" value="User Input" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=24;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="170" width="544" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="5GGXdGrM5uDnyeqmeQt-" name="Design">
+        <mxGraphModel dx="1056" dy="1256" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

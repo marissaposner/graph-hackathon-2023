@@ -38,8 +38,8 @@ def eip_subgraph_info():
     # hardcode protocol and chain for now
     protocol = "makerdao"
     chain = "ethereum"
-    schema_file = protocols[protocol]["schema_file"]
-    protocol_type = protocols[protocol]["type"]
+    # schema_file = protocols[protocol]["schema_file"]
+    # protocol_type = protocols[protocol]["type"]
     if "decentralized-network" in protocols[protocol]["deployments"][chain]:
         service_type = "decentralized-network"
     else:

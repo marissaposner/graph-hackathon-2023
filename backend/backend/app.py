@@ -2,10 +2,12 @@ from flask import Flask
 from backend import api
 from backend import auth
 from backend import manage
+from backend import public
 from backend.extensions import apispec
 from backend.extensions import db
 from backend.extensions import jwt
 from backend.extensions import migrate
+from flask_cors import CORS, cross_origin
 
 
 def create_app(testing=False):
@@ -20,7 +22,7 @@ def create_app(testing=False):
     configure_cli(app)
     configure_apispec(app)
     register_blueprints(app)
-
+    CORS(app)
     return app
 
 
@@ -59,3 +61,4 @@ def register_blueprints(app):
     """Register all blueprints for application"""
     app.register_blueprint(auth.views.blueprint)
     app.register_blueprint(api.views.blueprint)
+    app.register_blueprint(public.views.blueprint)
