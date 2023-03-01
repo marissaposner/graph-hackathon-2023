@@ -35,7 +35,7 @@ for protocol in protocols:
         # gather deployment data for protocol
         if protocol in deployment:
             protocols[protocol]["type"] = deployment[protocol]["schema"]
-            protocols[protocol]["deployments"] = {}  # network_label: {}}
+            protocols[protocol]["deployments"] = {}
             for chain in deployment[protocol]["deployments"]:
                 if deployment[protocol]["deployments"][chain]["status"] == "prod":
                     network_label = deployment[protocol]["deployments"][chain][
