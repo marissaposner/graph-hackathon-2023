@@ -16,4 +16,5 @@ class APIV1Controller:
         gql = ai_service.request_gql_for_graph(input_sentence)
         graph_service = GraphService()
         result = graph_service.query_thegraph(gql)
-        import pdb;pdb.set_trace()
+        import pdb
+        pdb.set_trace()

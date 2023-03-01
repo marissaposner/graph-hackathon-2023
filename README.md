@@ -35,20 +35,20 @@ Link to our Notion page: https://www.notion.so/ETH-Denver-2023-Hackathon-Project
 
 ## Getting Started
 
-- Install Python version management tool: [pyenv](https://github.com/pyenv/pyenv) or [asdf](https://github.com/asdf-vm/asdf)
-- Install `Python 3.9.14` using the Python version management tool and activate that version
-- Clone this repository
-- Verify the active Python version: `python -V`
-- [Install Poetry](https://python-poetry.org/docs/#installation) — a dependency manager
-- Create Python virtual environment in the project directory: `poetry env use 3.9`
-- Activate environment: `poetry shell`
-- Upgrade pip: `pip install --upgrade pip`
-- Install project dependencies: `poetry install`
-  - MacBook M1/M2: `To define`
-- Verify the setup by running tests: `poetry run test`
-- Export entrypoint: `export FLASK_APP=app`
-- Run the server to get the backend working: `python -m flask run`
+This is split between 2 services, a frontend and a backend
+
+# Running the backend
+- Setup the backend, ensure you have python 3.9 or great installed
+- `cd backend` and run `pip install -r requirements.txt`
+- Setup .env by copying .env.example to .env  and seed with correct data
+- Start the backend app with `flask run`
+- Visit http://3localhost:5000
+
+# Running the frontend
+
 - For the frontend:`cd frontend` and then run `npm install` (note if you run into any issues you can run `npm install --force`)
+
+
 
 ### Prerequisites
 
@@ -108,7 +108,7 @@ See [LICENSE](LICENSE) for more information.
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)): 
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
