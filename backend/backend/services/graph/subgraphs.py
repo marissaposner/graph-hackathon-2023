@@ -11,7 +11,9 @@ subgraphs with:
 """
 import json
 import os
-PATH = "/subgraphs/subgraphs/" #TODO UPDATE
+
+PATH = "/subgraphs/subgraphs/"
+
 
 class SubgraphService:
     def get_prod_subgraphs(self):
@@ -29,7 +31,9 @@ class SubgraphService:
         deployment = json.load(f)
         for protocol in protocols:
             try:
-                schema_file = os.path.join(os.getcwdb().decode("utf-8") + PATH, protocol, "schema.graphql")
+                schema_file = os.path.join(
+                    os.getcwdb().decode("utf-8") + PATH, protocol, "schema.graphql"
+                )
                 with open(schema_file) as f:
                     first_line = f.readline()
                     protocols[protocol]["schema_file"] = schema_file
@@ -38,13 +42,16 @@ class SubgraphService:
                     protocols[protocol]["type"] = deployment[protocol]["schema"]
                     protocols[protocol]["deployments"] = {}  # network_label: {}}
                     for chain in deployment[protocol]["deployments"]:
-                        if deployment[protocol]["deployments"][chain]["status"] == "prod":
+                        if (
+                            deployment[protocol]["deployments"][chain]["status"]
+                            == "prod"
+                        ):
                             network_label = deployment[protocol]["deployments"][chain][
                                 "network"
                             ]
-                            protocols[protocol]["deployments"][network_label] = deployment[
-                                protocol
-                            ]["deployments"][chain]["services"]
+                            protocols[protocol]["deployments"][
+                                network_label
+                            ] = deployment[protocol]["deployments"][chain]["services"]
                         if len(protocols[protocol]["deployments"]) == 0:
                             # no production ready deployments founds
                             unfinished_protocols.append(protocol)
@@ -57,11 +64,17 @@ class SubgraphService:
         for protocol in set(unfinished_protocols):
             protocols.pop(protocol)
 
+        # dev: for debugging purposes
+        print(os.getcwdb().decode("utf-8"))
+        json.dump(
+            protocols,
+            open(
+                os.path.join(
+                    os.getcwdb().decode("utf-8"),
+                    "backend/services/graph/subgraphs_prod.json",
+                ),
+                "w",
+            ),
+        )
 
         return protocols
-
-    # dev: for debugging purposes
-    # from pprint import pprint
-
-    # pprint(protocols)
-    # print(len(protocols))
