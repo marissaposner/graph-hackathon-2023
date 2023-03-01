@@ -4,10 +4,10 @@ import datetime as dt
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 from helpers.graphql_examples import LIST_OF_EXAMPLES
+from helpers.schemas import NFT_Marketplace
 from helpers.subgraphs import protocols
 from helpers.thegraph import query_thegraph
-
-
+from helpers.schemas import NFT_Marketplace
 app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -65,10 +65,11 @@ def generate_prompt(input):
     """
     Take in query from user and prepend sample queries
     """
-    sample_queries = LIST_OF_EXAMPLES
+    # sample_queries = LIST_OF_EXAMPLES
+    schema = NFT_Marketplace
     return (
-        sample_queries
-        + f"""
-Query: Using the above queries, Write a GraphQL query to find: {input}
-Results:"""
+        f""" 
+You are an AI that helps write GraphQL queries on the Graph Protocol. In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work. Show only code and do not use sentences. Note that it's important that if you don't have some specific data (like dates or IDs), just add placeholders. Show only code and do not use sentences. 
+Using the above queries, Write a GraphQL query to: {input}
+""" + schema 
     )

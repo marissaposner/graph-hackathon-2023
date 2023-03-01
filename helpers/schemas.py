@@ -80,27 +80,15 @@ type Marketplace @entity {
 
   " Cumulative trade volume (in ETH) "
   cumulativeTradeVolumeETH: BigDecimal!
-  
-  " Cumulative trade volume (in USD) "
-  cumulativeTradeVolumeUSD: BigDecimal!
 
   " Revenue in ETH that goes to the marketplace protocol, aka protocol fee. "
   marketplaceRevenueETH: BigDecimal!
-  
-  " Revenue in USD that goes to the marketplace protocol, aka protocol fee. "
-  marketplaceRevenueUSD: BigDecimal!
 
   " Revenue in ETH that goes to creator, aka royalty fee. "
   creatorRevenueETH: BigDecimal!
-  
-  " Revenue in USD that goes to creator, aka royalty fee. "
-  creatorRevenueUSD: BigDecimal!
 
   " Sum of marketplaceRevenueETH and creatorRevenueETH. "
   totalRevenueETH: BigDecimal!
-  
-  " Sum of marketplaceRevenueUSD and creatorRevenueUSD. "
-  totalRevenueUSD: BigDecimal!
 
   " Cumulative unique traders. "
   cumulativeUniqueTraders: Int!
@@ -137,26 +125,14 @@ type Collection @entity {
   " Cumulative trade volume (in ETH) "
   cumulativeTradeVolumeETH: BigDecimal!
   
-  " Cumulative trade volume (in USD) "
-  cumulativeTradeVolumeUSD: BigDecimal!
-
   " Revenue in ETH that goes to the marketplace protocol, aka protocol fee. "
   marketplaceRevenueETH: BigDecimal!
   
-  " Revenue in USD that goes to the marketplace protocol, aka protocol fee. "
-  marketplaceRevenueUSD: BigDecimal!
-
   " Revenue in ETH that goes to creator, aka royalty fee. "
   creatorRevenueETH: BigDecimal!
-  
-  " Revenue in USD that goes to creator, aka royalty fee. "
-  creatorRevenueUSD: BigDecimal!
 
   " Sum of marketplaceRevenueETH and creatorRevenueETH. "
   totalRevenueETH: BigDecimal!
-  
-  " Sum of marketplaceRevenueUSD and creatorRevenueUSD. "
-  totalRevenueUSD: BigDecimal!
 
   " Trade count of the collection on the marketplace. "
   tradeCount: Int!
@@ -209,9 +185,6 @@ type Trade @entity {
   " Price (in ETH). If only 1 tokenId is involved, then the price is determined by the token only. If the trade is incurred by a batch purchasing (available in x2y2), then the price is the average price in the batch. "
   priceETH: BigDecimal!
   
-  " Price (in USD). If only 1 tokenId is involved, then the price is determined by the token only. If the trade is incurred by a batch purchasing (available in x2y2), then the price is the average price in the batch. "
-  priceUSD: BigDecimal!
-
   " Stretegy that the trade is executed. "
   strategy: SaleStrategy!
 
@@ -241,26 +214,15 @@ type MarketplaceDailySnapshot @entity {
   " Cumulative trade volume (in ETH) "
   cumulativeTradeVolumeETH: BigDecimal!
   
-  " Cumulative trade volume (in USD) "
-  cumulativeTradeVolumeUSD: BigDecimal!
 
   " Revenue in ETH that goes to the marketplace protocol, aka protocol fee. "
   marketplaceRevenueETH: BigDecimal!
   
-  " Revenue in USD that goes to the marketplace protocol, aka protocol fee. "
-  marketplaceRevenueUSD: BigDecimal!
-
   " Revenue in ETH that goes to creator, aka royalty fee. "
   creatorRevenueETH: BigDecimal!
-  
-  " Revenue in USD that goes to creator, aka royalty fee. "
-  creatorRevenueUSD: BigDecimal!
 
   " Sum of marketplaceRevenueETH and creatorRevenueETH. "
   totalRevenueETH: BigDecimal!
-  
-   " Sum of marketplaceRevenueUSD and creatorRevenueUSD. "
-  totalRevenueUSD: BigDecimal!
 
   " Trade count of the all collections on the marketplace. "
   tradeCount: Int!
@@ -297,45 +259,21 @@ type CollectionDailySnapshot @entity {
   " Minimum sale price of the day (in ETH) "
   dailyMinSalePriceETH: BigDecimal!
   
-  " Minimum sale price of the day (in USD) "
-  dailyMinSalePriceUSD: BigDecimal!
-
   " Maximum sale price of the day (in ETH) "
   dailyMaxSalePriceETH: BigDecimal!
   
-  " Maximum sale price of the day (in USD) "
-  dailyMaxSalePriceUSD: BigDecimal!
-
   " Cumulative trade volume (in ETH) "
   cumulativeTradeVolumeETH: BigDecimal!
   
-  " Cumulative trade volume (in USD) "
-  cumulativeTradeVolumeUSD: BigDecimal!
-
-  " Daily trade volume (in ETH) "
-  dailyTradeVolumeETH: BigDecimal!
-  
-  " Daily trade volume (in USD) "
-  dailyTradeVolumeUSD: BigDecimal!
-
   " Revenue in ETH that goes to the marketplace protocol, aka protocol fee. "
   marketplaceRevenueETH: BigDecimal!
   
-  " Revenue in USD that goes to the marketplace protocol, aka protocol fee. "
-  marketplaceRevenueUSD: BigDecimal!
-
   " Revenue in ETH that goes to creator, aka royalty fee. "
   creatorRevenueETH: BigDecimal!
   
-  " Revenue in USD that goes to creator, aka royalty fee. "
-  creatorRevenueUSD: BigDecimal!
-
   " Sum of marketplaceRevenueETH and creatorRevenueETH. "
   totalRevenueETH: BigDecimal!
   
-  " Sum of marketplaceRevenueUSD and creatorRevenueUSD. "
-  totalRevenueUSD: BigDecimal!
-
   " Trade count of the collection on the marketplace. "
   tradeCount: Int!
 
