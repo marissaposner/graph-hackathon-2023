@@ -31,6 +31,8 @@ Example graph queries are defined here: https://github.com/marissaposner/graph-h
 
 Youtube Link to Demo: https://www.youtube.com/watch?v=DmnDch1C8EA
 
+Link to our Notion page: https://www.notion.so/ETH-Denver-2023-Hackathon-Project-40b594f5274e49148fbf9b5cae9cc213
+
 ## Getting Started
 
 - Install Python version management tool: [pyenv](https://github.com/pyenv/pyenv) or [asdf](https://github.com/asdf-vm/asdf)
