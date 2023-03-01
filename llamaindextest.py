@@ -1,6 +1,9 @@
 from langchain import OpenAI
 from llama_index import GPTSimpleVectorIndex, SimpleDirectoryReader
 # from helpers.schemas import NFT_Marketplace
+from dotenv import load_dotenv
+
+load_dotenv()  # take environment variables from .env.
 # documents = SimpleDirectoryReader('docs').load_data()
 # index = GPTSimpleVectorIndex(documents)
 
