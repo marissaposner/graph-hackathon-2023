@@ -17,10 +17,13 @@ class DashboardCreator(Resource):
 
     def post(self):
         try:
-            input_sentence = request.get_json().get("input", DEFAULT_INPUT)
+            input_sentence = request.get_json().get("input")
         except:
             input_sentence = DEFAULT_INPUT
-            print("using default")
+
+        print("=========== input_sentence ===============")
+        print(input_sentence)
+        print("=========== input_sentence ===============")
 
         controller = APIV1Controller()
         response = controller.handle_query_for_dashboard(input_sentence)

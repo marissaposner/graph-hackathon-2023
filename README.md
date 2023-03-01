@@ -36,6 +36,8 @@ Link to our Notion page: https://www.notion.so/ETH-Denver-2023-Hackathon-Project
 This is split between 2 services, a frontend and a backend
 
 # Running the backend
+- Install Python version management tool: [pyenv](https://github.com/pyenv/pyenv) or [asdf](https://github.com/asdf-vm/asdf)
+- Install `Python 3.9.14` using the Python version management tool and activate that version
 - Setup the backend, ensure you have python 3.9 or great installed
 - `git submodule update --init --recursive` to clone (or update) the `subgraphs` repo in `backend/`
 - `cd backend` and run `pip install -r requirements.txt`
