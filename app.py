@@ -14,6 +14,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 cors = CORS(app)
 
 
+
 @app.route("/get-thegraph-results", methods=["POST", "GET"])
 @cross_origin()
 def eip_subgraph_info():
@@ -49,7 +50,7 @@ def eip_subgraph_info():
         openai_result,
         hosted=(service_type == "hosted-service"),
     )
-    
+
     print("==========the graph response:==========\n", data)
     for dict_item in data:
         for key, val in dict_item.items():

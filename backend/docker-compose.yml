@@ -1,0 +1,17 @@
+# WARNING: this file is not suitable for production, please use with caution
+version: '3'
+
+services:
+  web:
+    image: backend
+    build: .
+    command: gunicorn -b 0.0.0.0:5000 backend.wsgi:app
+    env_file:
+      - ./.flaskenv
+    environment:
+      - DATABASE_URI=sqlite:////db/backend.db
+    volumes:
+      - ./backend:/code/backend
+      - ./db/:/db/
+    ports:
+      - "5000:5000"
