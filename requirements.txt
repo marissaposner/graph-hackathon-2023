@@ -8,3 +8,5 @@ pathlib==1.0.1
 pipe==2.0
 pydantic==1.10.5
 python-dotenv==1.0.0
+llama_index==0.4.15
+langchain==0.0.96

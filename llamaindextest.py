@@ -14,7 +14,7 @@ from llama_index import GPTSimpleVectorIndex, SimpleDirectoryReader
 
 
 from llama_index import LLMPredictor, GPTSimpleVectorIndex, PromptHelper
-documents = SimpleDirectoryReader('docs/lending').load_data()
+documents = SimpleDirectoryReader('/subgraphs/schema-lending.graphql').load_data()
 index = GPTSimpleVectorIndex(documents)
 # define LLM
 llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-davinci-003"))
