@@ -15,9 +15,24 @@ class DashboardCreator(Resource):
     # to enable security uncomment line below
     # method_decorators = [jwt_required()]
 
+    def get(self, input_sentence):
+
+        print("=========== input_sentence ===============")
+        print(input_sentence)
+        print("=========== input_sentence ===============")
+
+        controller = APIV1Controller()
+        response = controller.handle_query_for_dashboard(input_sentence)
+        print(response)
+        return response
+
+
+
     def post(self):
         try:
             input_sentence = request.get_json().get("input")
+            if input_sentence == "":
+                raise
         except:
             input_sentence = DEFAULT_INPUT
 
