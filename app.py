@@ -23,7 +23,7 @@ def eip_subgraph_info():
             raise
     except:
         # if there is no input sentence and we are just testing
-        input_sentence = "how many items were traded yesterday?"
+        input_sentence = "What proposal has the most votes?"
     print("==========user response:==========\n", input_sentence)
 
     response = openai.Completion.create(
@@ -35,7 +35,7 @@ def eip_subgraph_info():
     openai_result = response.choices[0].text
     print("==========openai response:==========\n", openai_result)
     # hardcode protocol and chain for now
-    protocol = "cryptopunks"
+    protocol = "aave-governance"
     chain = "ethereum"
     schema_file = protocols[protocol]["schema_file"]
     protocol_type = protocols[protocol]["type"]
@@ -58,7 +58,6 @@ def eip_subgraph_info():
                 dict_item[key] = dt.datetime.utcfromtimestamp(int(val)).strftime(
                     "%Y-%m-%d %H:%M:%S"
                 )
-    print("end data", data)
     return jsonify(data)
 
 
