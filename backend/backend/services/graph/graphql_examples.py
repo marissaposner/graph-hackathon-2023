@@ -37,7 +37,18 @@ LIST_OF_EXAMPLES = """Here are a set of example questions and queries you can us
                   symbol
                   totalRevenueETH
                 }
-              }"
+              }",
+    "Explanation": "Queries the highest revenue collections in ETH."
+  },
+  {
+    "Questions": "What is the aave proposal with the most votes?",
+    "Output": "query MostVotedProposal {
+                proposals(orderBy: totalWeightedVotes, orderDirection: desc, first: 1 ) {
+                  id
+                  totalWeightedVotes
+                }
+              }",
+    "Explanation": "Query the aave governance subgraph and find the proposal with the most votes."
   }
 ]
 """

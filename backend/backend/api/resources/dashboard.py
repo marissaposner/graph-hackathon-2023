@@ -7,7 +7,7 @@ from backend.extensions import db
 from backend.commons.pagination import paginate
 from backend.controllers.api.v1 import APIV1Controller
 
-DEFAULT_INPUT = "find the date that the most NFTs in the otherside collection (0x34d85c9cdeb23fa97cb08333b511ac86e1c4e258) were traded?"
+DEFAULT_INPUT = "What proposal has the most votes?"
 
 class DashboardCreator(Resource):
     """Dashboard Resource
@@ -15,7 +15,7 @@ class DashboardCreator(Resource):
     # to enable security uncomment line below
     # method_decorators = [jwt_required()]
 
-    def get(self):
+    def post(self):
         try:
             input_sentence = request.get_json().get("input", DEFAULT_INPUT)
         except:
@@ -24,5 +24,5 @@ class DashboardCreator(Resource):
 
         controller = APIV1Controller()
         response = controller.handle_query_for_dashboard(input_sentence)
-
-        return {"user": "f"}
+        print(response)
+        return response

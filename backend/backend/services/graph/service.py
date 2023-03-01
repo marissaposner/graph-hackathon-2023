@@ -5,13 +5,13 @@ from backend.config import THEGRAPH_API_KEY
 from backend.services.graph.subgraphs import SubgraphService
 # from helpers.thegraph import query_thegraph
 
-DEFAULT_PROTOCOL = "makerdao"
+DEFAULT_PROTOCOL = "aave-governance"
 DEFAULT_CHAIN = "ethereum"
 
 
 def query_thegraph(subgraph_id, query, hosted=True):
     if hosted:
-        base_url = "https://api.thegraph.com/subgraphs/name/"
+        base_url = "https://api.thegraph.com/subgraphs/name/messari/"
     else:
         base_url = f"https://gateway.thegraph.com/api/{THEGRAPH_API_KEY}/subgraphs/id/"
     query_url = f"{base_url}{subgraph_id}"
@@ -32,16 +32,16 @@ class GraphService:
         self.subgraph_service = SubgraphService()
         self.protocols = self.subgraph_service.get_prod_subgraphs()
         if "decentralized-network" in self.protocols[protocol]["deployments"][chain]:
-            service_type = "decentralized-network"
+            self.service_type = "decentralized-network"
         else:
-            service_type = "hosted-service"
-        self.query_id = self.protocols[protocol]["deployments"][chain][service_type]["query-id"]
+            self.service_type = "hosted-service"
+        self.query_id = self.protocols[protocol]["deployments"][chain][self.service_type ]["query-id"]
 
-    def query_thegraph(self, gql, service_type=True):
+    def query_thegraph(self, gql):
         data = query_thegraph(
             self.query_id,
             gql,
-            hosted=(service_type == "hosted-service"),
+            hosted=(self.service_type  == "hosted-service"),
         )
         print("==========the graph response:==========\n", data)
         for dict_item in data:

@@ -16,7 +16,7 @@ PATH = "/subgraphs/subgraphs/" #TODO UPDATE
 class SubgraphService:
     def get_prod_subgraphs(self):
         protocols = {}
-        # import pdb;pdb.set_trace()
+
         with os.scandir(os.getcwdb().decode("utf-8") + PATH) as it:
             for entry in it:
                 # only consider directories that arent prefixed by a dot or underscore
@@ -57,7 +57,7 @@ class SubgraphService:
         for protocol in set(unfinished_protocols):
             protocols.pop(protocol)
 
-        import pdb;pdb.set_trace()
+
         return protocols
 
     # dev: for debugging purposes
