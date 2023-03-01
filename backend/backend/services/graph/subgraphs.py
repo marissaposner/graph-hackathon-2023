@@ -64,8 +64,7 @@ class SubgraphService:
         for protocol in set(unfinished_protocols):
             protocols.pop(protocol)
 
-        # dev: for debugging purposes
-        print(os.getcwdb().decode("utf-8"))
+        # dump protocols object to json for human readability
         json.dump(
             protocols,
             open(
@@ -75,6 +74,7 @@ class SubgraphService:
                 ),
                 "w",
             ),
+            indent=2,
         )
 
         return protocols

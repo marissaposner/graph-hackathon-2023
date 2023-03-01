@@ -1,1 +1,682 @@
-{"truefi": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/truefi/schema.graphql", "type": "lending", "deployments": {"ethereum": {"hosted-service": {"slug": "truefi-ethereum", "query-id": "truefi-ethereum"}, "decentralized-network": {"slug": "truefi-ethereum", "query-id": "EfbqRompqd9DVYJHgNqnB9Ni2kiWCBfVagWxcBQ7EUCz"}}}}, "saddle-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/saddle-finance/schema.graphql", "type": "dex-amm", "deployments": {"arbitrum": {"hosted-service": {"slug": "saddle-finance-arbitrum", "query-id": "saddle-finance-arbitrum"}}, "ethereum": {"hosted-service": {"slug": "saddle-finance-ethereum", "query-id": "saddle-finance-ethereum"}}, "fantom": {"hosted-service": {"slug": "saddle-finance-fantom", "query-id": "saddle-finance-fantom"}}, "optimism": {"hosted-service": {"slug": "saddle-finance-optimism", "query-id": "saddle-finance-optimism"}}}}, "tornado-cash": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/tornado-cash/schema.graphql", "type": "generic", "deployments": {"ethereum": {"hosted-service": {"slug": "tornado-cash-classic-ethereum", "query-id": "tornado-cash-classic-ethereum"}, "decentralized-network": {"slug": "tornado-cash-classic-ethereum", "query-id": "FxhN13aCD2H1f9vagrVueGjHwguZ7JkfuDZrMvKthdk5"}}, "bsc": {"hosted-service": {"slug": "tornado-cash-classic-bsc", "query-id": "tornado-cash-classic-bsc"}}}}, "notional-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/notional-finance/schema.graphql", "type": "lending", "deployments": {"ethereum": {"hosted-service": {"slug": "notional-finance-ethereum", "query-id": "notional-finance-ethereum"}, "decentralized-network": {"slug": "notional-finance-ethereum", "query-id": "346UaR2Lgxg8yJ2Vq2r8wid1pWaYQNH6N1GmzGCJkHRV"}}}}, "lido": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/lido/schema.graphql", "type": "generic", "deployments": {"ethereum": {"hosted-service": {"slug": "lido-ethereum", "query-id": "lido-ethereum"}, "decentralized-network": {"slug": "lido-ethereum", "query-id": "XYcD9VeUvSvuqrsV5pFauXk7jQy9hrnhe5Kb7REyuxm"}}}}, "velodrome-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/velodrome-finance/schema.graphql", "type": "dex-amm", "deployments": {"optimism": {"hosted-service": {"slug": "velodrome-optimism", "query-id": "velodrome-optimism"}}}}, "aave-governance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/aave-governance/schema.graphql", "type": "governance", "deployments": {"ethereum": {"hosted-service": {"slug": "aave-governance", "query-id": "aave-governance"}}}}, "stargate": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/stargate/schema.graphql", "type": "bridge", "deployments": {"ethereum": {"hosted-service": {"slug": "stargate-ethereum", "query-id": "stargate-ethereum"}}, "fantom": {"hosted-service": {"slug": "stargate-fantom", "query-id": "stargate-fantom"}}}}, "multichain": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/multichain/schema.graphql", "type": "bridge", "deployments": {"ethereum": {"hosted-service": {"slug": "multichain-ethereum", "query-id": "multichain-ethereum"}}, "fantom": {"hosted-service": {"slug": "multichain-fantom", "query-id": "multichain-fantom"}}}}, "arrakis-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/arrakis-finance/schema.graphql", "type": "yield-aggregator", "deployments": {"ethereum": {"hosted-service": {"slug": "arrakis-finance-ethereum", "query-id": "arrakis-finance-ethereum"}, "decentralized-network": {"slug": "arrakis-finance-ethereum", "query-id": "9WiZHUk2d3rM4sEQ4NSz6ihFRc2zWmPj7yk8w51dNdhT"}}}}, "qidao": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/qidao/schema.graphql", "type": "lending", "deployments": {"arbitrum": {"hosted-service": {"slug": "qidao-arbitrum", "query-id": "qidao-arbitrum"}}, "avalanche": {"hosted-service": {"slug": "qidao-avalanche", "query-id": "qidao-avalanche"}}, "bsc": {"hosted-service": {"slug": "qidao-bsc", "query-id": "qidao-bsc"}}, "ethereum": {"hosted-service": {"slug": "qidao-ethereum", "query-id": "qidao-ethereum"}, "decentralized-network": {"slug": "qidao-ethereum", "query-id": "EXuutY6qkZbXjYeJZdiDBf2imJswTNdfm8YZCqhAthfW"}}, "fantom": {"hosted-service": {"slug": "qidao-fantom", "query-id": "qidao-fantom"}}, "polygon": {"hosted-service": {"slug": "qidao-polygon", "query-id": "qidao-polygon"}}, "moonriver": {"hosted-service": {"slug": "qidao-moonriver", "query-id": "qidao-moonriver"}}, "optimism": {"hosted-service": {"slug": "qidao-optimism", "query-id": "qidao-optimism"}}, "gnosis": {"hosted-service": {"slug": "qidao-gnosis", "query-id": "qidao-gnosis"}, "decentralized-network": {"slug": "qidao-gnosis", "query-id": "3cMswgcjkpLmuF99ViQRZfCPRyCsnimqQsR9z6mY5e2i"}}, "harmony": {"hosted-service": {"slug": "qidao-harmony", "query-id": "qidao-harmony"}}}}, "goldfinch": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/goldfinch/schema.graphql", "type": "lending", "deployments": {"ethereum": {"hosted-service": {"slug": "goldfinch-ethereum", "query-id": "goldfinch-ethereum"}, "decentralized-network": {"slug": "goldfinch-ethereum", "query-id": "Dtj2HicXKpoUjNB7ffdBkMwt3L9Sz3cbENd67AdHu6Vb"}}}}, "rari-vaults": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/rari-vaults/schema.graphql", "type": "yield-aggregator", "deployments": {"ethereum": {"hosted-service": {"slug": "rari-vaults-ethereum", "query-id": "rari-vaults-ethereum"}, "decentralized-network": {"slug": "rari-vaults-ethereum", "query-id": "Duw2tSACo9uRGFctAGsCc9pF7ZGMyqpjkAHPwm49dZe6"}}}}, "burrow": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/burrow/schema.graphql", "type": "lending", "deployments": {"near-mainnet": {"hosted-service": {"slug": "burrow-near", "query-id": "burrow-near"}}}}, "compound-v3": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/compound-v3/schema.graphql", "type": "lending", "deployments": {"ethereum": {"hosted-service": {"slug": "compound-v3-ethereum", "query-id": "compound-v3-ethereum"}}}}, "rocket-pool": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/rocket-pool/schema.graphql", "type": "generic", "deployments": {"ethereum": {"hosted-service": {"slug": "rocket-pool-ethereum", "query-id": "rocket-pool-ethereum"}, "decentralized-network": {"slug": "rocket-pool-ethereum", "query-id": "GSjXo5Vd1EPaMGRJBYe6HoBKv7WSq3miCrRRZJbTCHkT"}}}}, "vesper-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/vesper-finance/schema.graphql", "type": "yield-aggregator", "deployments": {"ethereum": {"hosted-service": {"slug": "vesper-ethereum", "query-id": "vesper-ethereum"}, "decentralized-network": {"slug": "vesper-ethereum", "query-id": "GbKdmBe4ycCYCQLQSjqGg6UHYoYfbyJyq5WrG35pv1si"}}}}, "euler-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/euler-finance/schema.graphql", "type": "lending", "deployments": {"ethereum": {"hosted-service": {"slug": "euler-finance-ethereum", "query-id": "euler-finance-ethereum"}, "decentralized-network": {"slug": "euler-finance-ethereum", "query-id": "8cLf29KxAedWLVaEqjV8qKomdwwXQxjptBZFrqWNH5u2"}}}}, "alpaca-finance-lending": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/alpaca-finance-lending/schema.graphql", "type": "lending", "deployments": {"bsc": {"hosted-service": {"slug": "alpaca-finance-lending-bsc", "query-id": "alpaca-finance-lending-bsc"}}, "fantom": {"hosted-service": {"slug": "alpaca-finance-lending-fantom", "query-id": "alpaca-finance-lending-fantom"}}}}, "makerdao": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/makerdao/schema.graphql", "type": "lending", "deployments": {"ethereum": {"hosted-service": {"slug": "makerdao-ethereum", "query-id": "makerdao-ethereum"}, "decentralized-network": {"slug": "makerdao-ethereum", "query-id": "G1KHEQkA7shnPZahHUmKcerfpqBMNnL9xJzWGAVrj7n7"}}}}, "platypus-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/platypus-finance/schema.graphql", "type": "dex-amm", "deployments": {"avalanche": {"hosted-service": {"slug": "platypus-finance-avalanche", "query-id": "platypus-finance-avalanche"}}}}, "vesta-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/vesta-finance/schema.graphql", "type": "lending", "deployments": {"arbitrum": {"hosted-service": {"slug": "vesta-finance-arbitrum", "query-id": "vesta-finance-arbitrum"}}}}, "abracadabra": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/abracadabra/schema.graphql", "type": "lending", "deployments": {"arbitrum": {"hosted-service": {"slug": "abracadabra-money-arbitrum", "query-id": "abracadabra-money-arbitrum"}}, "avalanche": {"hosted-service": {"slug": "abracadabra-money-avalanche", "query-id": "abracadabra-money-avalanche"}}, "bsc": {"hosted-service": {"slug": "abracadabra-money-bsc", "query-id": "abracadabra-money-bsc"}}, "fantom": {"hosted-service": {"slug": "abracadabra-money-fantom", "query-id": "abracadabra-money-fantom"}}, "ethereum": {"hosted-service": {"slug": "abracadabra-money-ethereum", "query-id": "abracadabra-money-ethereum"}, "decentralized-network": {"slug": "abracadabra-money-ethereum", "query-id": "3Gkei7B24o9C2bCoAbQpApZqMStPta7oCAnNhmNv5dab"}}}}, "belt-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/belt-finance/schema.graphql", "type": "yield-aggregator", "deployments": {"bsc": {"hosted-service": {"slug": "belt-finance-bsc", "query-id": "belt-finance-bsc"}}}}, "cryptopunks": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/cryptopunks/schema.graphql", "type": "nft-marketplace", "deployments": {"ethereum": {"hosted-service": {"slug": "cryptopunks-ethereum", "query-id": "cryptopunks-ethereum"}, "decentralized-network": {"slug": "cryptopunks-ethereum", "query-id": "7vJEsy8pJmRQZQh5kTXNz68SRHXBS859hMq3o5uWF1Ac"}}}}, "badgerdao": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/badgerdao/schema.graphql", "type": "yield-aggregator", "deployments": {"ethereum": {"hosted-service": {"slug": "badgerdao-ethereum", "query-id": "badgerdao-ethereum"}}}}, "ribbon-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/ribbon-finance/schema.graphql", "type": "yield-aggregator", "deployments": {"ethereum": {"hosted-service": {"slug": "ribbon-finance-ethereum", "query-id": "ribbon-finance-ethereum"}}, "avalanche": {"hosted-service": {"slug": "ribbon-finance-avalanche", "query-id": "ribbon-finance-avalanche"}}}}, "aura-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/aura-finance/schema.graphql", "type": "yield-aggregator", "deployments": {"ethereum": {"hosted-service": {"slug": "aura-finance-ethereum", "query-id": "aura-finance-ethereum"}, "decentralized-network": {"slug": "aura-finance-ethereum", "query-id": "33aQTj7abtAR5zGcG9JBd1fd1sodgKDjoTsKuA8QrUW7"}}}}, "liquity": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/liquity/schema.graphql", "type": "lending", "deployments": {"ethereum": {"hosted-service": {"slug": "liquity-ethereum", "query-id": "liquity-ethereum"}, "decentralized-network": {"slug": "liquity-ethereum", "query-id": "GQ8aYQ1kdQPGDSQzeF6cPo9MzdzqkPxqmuCaMCJoNLrF"}}}}, "ellipsis-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/ellipsis-finance/schema.graphql", "type": "dex-amm", "deployments": {"bsc": {"hosted-service": {"slug": "ellipsis-finance-bsc", "query-id": "ellipsis-finance-bsc"}}}}, "maple-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/maple-finance/schema.graphql", "type": "lending", "deployments": {"ethereum": {"hosted-service": {"slug": "maple-finance-ethereum", "query-id": "maple-finance-ethereum"}, "decentralized-network": {"slug": "maple-finance-ethereum", "query-id": "5H97eNhy9fVHcqRXZtCV2UxHG2DbzcFA7yth1TaVZ45x"}}}}, "inverse-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/inverse-finance/schema.graphql", "type": "lending", "deployments": {"ethereum": {"hosted-service": {"slug": "inverse-finance-ethereum", "query-id": "inverse-finance-ethereum"}, "decentralized-network": {"slug": "inverse-finance-ethereum", "query-id": "FQ6JYszEKApsBpAmiHesRsd9Ygc6mzmpNRANeVQFYoVX"}}}}, "uniswap-v3": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/uniswap-v3/schema.graphql", "type": "dex-amm", "deployments": {"arbitrum": {"hosted-service": {"slug": "uniswap-v3-arbitrum", "query-id": "uniswap-v3-arbitrum"}}, "celo": {"hosted-service": {"slug": "uniswap-v3-celo", "query-id": "uniswap-v3-celo"}}, "ethereum": {"hosted-service": {"slug": "uniswap-v3-ethereum", "query-id": "uniswap-v3-ethereum"}, "decentralized-network": {"slug": "uniswap-v3-ethereum", "query-id": "ELUcwgpm14LKPLrBRuVvPvNKHQ9HvwmtKgKSH6123cr7"}}, "optimism": {"hosted-service": {"slug": "uniswap-v3-optimism", "query-id": "uniswap-v3-optimism"}}, "polygon": {"hosted-service": {"slug": "uniswap-v3-polygon", "query-id": "uniswap-v3-polygon"}}}}, "bancor-v3": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/bancor-v3/schema.graphql", "type": "dex-amm", "deployments": {"ethereum": {"hosted-service": {"slug": "bancor-v3-ethereum", "query-id": "bancor-v3-ethereum"}, "decentralized-network": {"slug": "bancor-v3-ethereum", "query-id": "B35cLTayreXTML6fXPTrFNSYx7mKyDuuV51LjVxWwWjp"}}}}, "convex-finance": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/convex-finance/schema.graphql", "type": "yield-aggregator", "deployments": {"ethereum": {"hosted-service": {"slug": "convex-finance-ethereum", "query-id": "convex-finance-ethereum"}, "decentralized-network": {"slug": "convex-finance-ethereum", "query-id": "CVVEQi1VRgQYwX5r6tPjD1Leiao2nETLYC6pHTWVNPtk"}}}}, "yearn-v2": {"schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/yearn-v2/schema.graphql", "type": "yield-aggregator", "deployments": {"arbitrum": {"hosted-service": {"slug": "yearn-v2-arbitrum", "query-id": "yearn-v2-arbitrum"}}, "ethereum": {"hosted-service": {"slug": "yearn-v2-ethereum", "query-id": "yearn-v2-ethereum"}, "decentralized-network": {"slug": "yearn-v2-ethereum", "query-id": "3CDiQ2hSrftreri8FLqsVAVTv9QNkEBszGZiDdmL4UQJ"}}}}}
+{
+  "truefi": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/truefi/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "truefi-ethereum",
+          "query-id": "truefi-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "truefi-ethereum",
+          "query-id": "EfbqRompqd9DVYJHgNqnB9Ni2kiWCBfVagWxcBQ7EUCz"
+        }
+      }
+    }
+  },
+  "saddle-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/saddle-finance/schema.graphql",
+    "type": "dex-amm",
+    "deployments": {
+      "arbitrum": {
+        "hosted-service": {
+          "slug": "saddle-finance-arbitrum",
+          "query-id": "saddle-finance-arbitrum"
+        }
+      },
+      "ethereum": {
+        "hosted-service": {
+          "slug": "saddle-finance-ethereum",
+          "query-id": "saddle-finance-ethereum"
+        }
+      },
+      "fantom": {
+        "hosted-service": {
+          "slug": "saddle-finance-fantom",
+          "query-id": "saddle-finance-fantom"
+        }
+      },
+      "optimism": {
+        "hosted-service": {
+          "slug": "saddle-finance-optimism",
+          "query-id": "saddle-finance-optimism"
+        }
+      }
+    }
+  },
+  "tornado-cash": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/tornado-cash/schema.graphql",
+    "type": "generic",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "tornado-cash-classic-ethereum",
+          "query-id": "tornado-cash-classic-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "tornado-cash-classic-ethereum",
+          "query-id": "FxhN13aCD2H1f9vagrVueGjHwguZ7JkfuDZrMvKthdk5"
+        }
+      },
+      "bsc": {
+        "hosted-service": {
+          "slug": "tornado-cash-classic-bsc",
+          "query-id": "tornado-cash-classic-bsc"
+        }
+      }
+    }
+  },
+  "notional-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/notional-finance/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "notional-finance-ethereum",
+          "query-id": "notional-finance-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "notional-finance-ethereum",
+          "query-id": "346UaR2Lgxg8yJ2Vq2r8wid1pWaYQNH6N1GmzGCJkHRV"
+        }
+      }
+    }
+  },
+  "lido": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/lido/schema.graphql",
+    "type": "generic",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "lido-ethereum",
+          "query-id": "lido-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "lido-ethereum",
+          "query-id": "XYcD9VeUvSvuqrsV5pFauXk7jQy9hrnhe5Kb7REyuxm"
+        }
+      }
+    }
+  },
+  "velodrome-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/velodrome-finance/schema.graphql",
+    "type": "dex-amm",
+    "deployments": {
+      "optimism": {
+        "hosted-service": {
+          "slug": "velodrome-optimism",
+          "query-id": "velodrome-optimism"
+        }
+      }
+    }
+  },
+  "aave-governance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/aave-governance/schema.graphql",
+    "type": "governance",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "aave-governance",
+          "query-id": "aave-governance"
+        }
+      }
+    }
+  },
+  "stargate": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/stargate/schema.graphql",
+    "type": "bridge",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "stargate-ethereum",
+          "query-id": "stargate-ethereum"
+        }
+      },
+      "fantom": {
+        "hosted-service": {
+          "slug": "stargate-fantom",
+          "query-id": "stargate-fantom"
+        }
+      }
+    }
+  },
+  "multichain": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/multichain/schema.graphql",
+    "type": "bridge",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "multichain-ethereum",
+          "query-id": "multichain-ethereum"
+        }
+      },
+      "fantom": {
+        "hosted-service": {
+          "slug": "multichain-fantom",
+          "query-id": "multichain-fantom"
+        }
+      }
+    }
+  },
+  "arrakis-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/arrakis-finance/schema.graphql",
+    "type": "yield-aggregator",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "arrakis-finance-ethereum",
+          "query-id": "arrakis-finance-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "arrakis-finance-ethereum",
+          "query-id": "9WiZHUk2d3rM4sEQ4NSz6ihFRc2zWmPj7yk8w51dNdhT"
+        }
+      }
+    }
+  },
+  "qidao": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/qidao/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "arbitrum": {
+        "hosted-service": {
+          "slug": "qidao-arbitrum",
+          "query-id": "qidao-arbitrum"
+        }
+      },
+      "avalanche": {
+        "hosted-service": {
+          "slug": "qidao-avalanche",
+          "query-id": "qidao-avalanche"
+        }
+      },
+      "bsc": {
+        "hosted-service": {
+          "slug": "qidao-bsc",
+          "query-id": "qidao-bsc"
+        }
+      },
+      "ethereum": {
+        "hosted-service": {
+          "slug": "qidao-ethereum",
+          "query-id": "qidao-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "qidao-ethereum",
+          "query-id": "EXuutY6qkZbXjYeJZdiDBf2imJswTNdfm8YZCqhAthfW"
+        }
+      },
+      "fantom": {
+        "hosted-service": {
+          "slug": "qidao-fantom",
+          "query-id": "qidao-fantom"
+        }
+      },
+      "polygon": {
+        "hosted-service": {
+          "slug": "qidao-polygon",
+          "query-id": "qidao-polygon"
+        }
+      },
+      "moonriver": {
+        "hosted-service": {
+          "slug": "qidao-moonriver",
+          "query-id": "qidao-moonriver"
+        }
+      },
+      "optimism": {
+        "hosted-service": {
+          "slug": "qidao-optimism",
+          "query-id": "qidao-optimism"
+        }
+      },
+      "gnosis": {
+        "hosted-service": {
+          "slug": "qidao-gnosis",
+          "query-id": "qidao-gnosis"
+        },
+        "decentralized-network": {
+          "slug": "qidao-gnosis",
+          "query-id": "3cMswgcjkpLmuF99ViQRZfCPRyCsnimqQsR9z6mY5e2i"
+        }
+      },
+      "harmony": {
+        "hosted-service": {
+          "slug": "qidao-harmony",
+          "query-id": "qidao-harmony"
+        }
+      }
+    }
+  },
+  "goldfinch": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/goldfinch/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "goldfinch-ethereum",
+          "query-id": "goldfinch-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "goldfinch-ethereum",
+          "query-id": "Dtj2HicXKpoUjNB7ffdBkMwt3L9Sz3cbENd67AdHu6Vb"
+        }
+      }
+    }
+  },
+  "rari-vaults": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/rari-vaults/schema.graphql",
+    "type": "yield-aggregator",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "rari-vaults-ethereum",
+          "query-id": "rari-vaults-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "rari-vaults-ethereum",
+          "query-id": "Duw2tSACo9uRGFctAGsCc9pF7ZGMyqpjkAHPwm49dZe6"
+        }
+      }
+    }
+  },
+  "burrow": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/burrow/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "near-mainnet": {
+        "hosted-service": {
+          "slug": "burrow-near",
+          "query-id": "burrow-near"
+        }
+      }
+    }
+  },
+  "compound-v3": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/compound-v3/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "compound-v3-ethereum",
+          "query-id": "compound-v3-ethereum"
+        }
+      }
+    }
+  },
+  "rocket-pool": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/rocket-pool/schema.graphql",
+    "type": "generic",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "rocket-pool-ethereum",
+          "query-id": "rocket-pool-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "rocket-pool-ethereum",
+          "query-id": "GSjXo5Vd1EPaMGRJBYe6HoBKv7WSq3miCrRRZJbTCHkT"
+        }
+      }
+    }
+  },
+  "vesper-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/vesper-finance/schema.graphql",
+    "type": "yield-aggregator",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "vesper-ethereum",
+          "query-id": "vesper-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "vesper-ethereum",
+          "query-id": "GbKdmBe4ycCYCQLQSjqGg6UHYoYfbyJyq5WrG35pv1si"
+        }
+      }
+    }
+  },
+  "euler-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/euler-finance/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "euler-finance-ethereum",
+          "query-id": "euler-finance-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "euler-finance-ethereum",
+          "query-id": "8cLf29KxAedWLVaEqjV8qKomdwwXQxjptBZFrqWNH5u2"
+        }
+      }
+    }
+  },
+  "alpaca-finance-lending": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/alpaca-finance-lending/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "bsc": {
+        "hosted-service": {
+          "slug": "alpaca-finance-lending-bsc",
+          "query-id": "alpaca-finance-lending-bsc"
+        }
+      },
+      "fantom": {
+        "hosted-service": {
+          "slug": "alpaca-finance-lending-fantom",
+          "query-id": "alpaca-finance-lending-fantom"
+        }
+      }
+    }
+  },
+  "makerdao": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/makerdao/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "makerdao-ethereum",
+          "query-id": "makerdao-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "makerdao-ethereum",
+          "query-id": "G1KHEQkA7shnPZahHUmKcerfpqBMNnL9xJzWGAVrj7n7"
+        }
+      }
+    }
+  },
+  "platypus-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/platypus-finance/schema.graphql",
+    "type": "dex-amm",
+    "deployments": {
+      "avalanche": {
+        "hosted-service": {
+          "slug": "platypus-finance-avalanche",
+          "query-id": "platypus-finance-avalanche"
+        }
+      }
+    }
+  },
+  "vesta-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/vesta-finance/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "arbitrum": {
+        "hosted-service": {
+          "slug": "vesta-finance-arbitrum",
+          "query-id": "vesta-finance-arbitrum"
+        }
+      }
+    }
+  },
+  "abracadabra": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/abracadabra/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "arbitrum": {
+        "hosted-service": {
+          "slug": "abracadabra-money-arbitrum",
+          "query-id": "abracadabra-money-arbitrum"
+        }
+      },
+      "avalanche": {
+        "hosted-service": {
+          "slug": "abracadabra-money-avalanche",
+          "query-id": "abracadabra-money-avalanche"
+        }
+      },
+      "bsc": {
+        "hosted-service": {
+          "slug": "abracadabra-money-bsc",
+          "query-id": "abracadabra-money-bsc"
+        }
+      },
+      "fantom": {
+        "hosted-service": {
+          "slug": "abracadabra-money-fantom",
+          "query-id": "abracadabra-money-fantom"
+        }
+      },
+      "ethereum": {
+        "hosted-service": {
+          "slug": "abracadabra-money-ethereum",
+          "query-id": "abracadabra-money-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "abracadabra-money-ethereum",
+          "query-id": "3Gkei7B24o9C2bCoAbQpApZqMStPta7oCAnNhmNv5dab"
+        }
+      }
+    }
+  },
+  "belt-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/belt-finance/schema.graphql",
+    "type": "yield-aggregator",
+    "deployments": {
+      "bsc": {
+        "hosted-service": {
+          "slug": "belt-finance-bsc",
+          "query-id": "belt-finance-bsc"
+        }
+      }
+    }
+  },
+  "cryptopunks": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/cryptopunks/schema.graphql",
+    "type": "nft-marketplace",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "cryptopunks-ethereum",
+          "query-id": "cryptopunks-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "cryptopunks-ethereum",
+          "query-id": "7vJEsy8pJmRQZQh5kTXNz68SRHXBS859hMq3o5uWF1Ac"
+        }
+      }
+    }
+  },
+  "badgerdao": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/badgerdao/schema.graphql",
+    "type": "yield-aggregator",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "badgerdao-ethereum",
+          "query-id": "badgerdao-ethereum"
+        }
+      }
+    }
+  },
+  "ribbon-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/ribbon-finance/schema.graphql",
+    "type": "yield-aggregator",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "ribbon-finance-ethereum",
+          "query-id": "ribbon-finance-ethereum"
+        }
+      },
+      "avalanche": {
+        "hosted-service": {
+          "slug": "ribbon-finance-avalanche",
+          "query-id": "ribbon-finance-avalanche"
+        }
+      }
+    }
+  },
+  "aura-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/aura-finance/schema.graphql",
+    "type": "yield-aggregator",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "aura-finance-ethereum",
+          "query-id": "aura-finance-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "aura-finance-ethereum",
+          "query-id": "33aQTj7abtAR5zGcG9JBd1fd1sodgKDjoTsKuA8QrUW7"
+        }
+      }
+    }
+  },
+  "liquity": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/liquity/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "liquity-ethereum",
+          "query-id": "liquity-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "liquity-ethereum",
+          "query-id": "GQ8aYQ1kdQPGDSQzeF6cPo9MzdzqkPxqmuCaMCJoNLrF"
+        }
+      }
+    }
+  },
+  "ellipsis-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/ellipsis-finance/schema.graphql",
+    "type": "dex-amm",
+    "deployments": {
+      "bsc": {
+        "hosted-service": {
+          "slug": "ellipsis-finance-bsc",
+          "query-id": "ellipsis-finance-bsc"
+        }
+      }
+    }
+  },
+  "maple-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/maple-finance/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "maple-finance-ethereum",
+          "query-id": "maple-finance-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "maple-finance-ethereum",
+          "query-id": "5H97eNhy9fVHcqRXZtCV2UxHG2DbzcFA7yth1TaVZ45x"
+        }
+      }
+    }
+  },
+  "inverse-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/inverse-finance/schema.graphql",
+    "type": "lending",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "inverse-finance-ethereum",
+          "query-id": "inverse-finance-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "inverse-finance-ethereum",
+          "query-id": "FQ6JYszEKApsBpAmiHesRsd9Ygc6mzmpNRANeVQFYoVX"
+        }
+      }
+    }
+  },
+  "uniswap-v3": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/uniswap-v3/schema.graphql",
+    "type": "dex-amm",
+    "deployments": {
+      "arbitrum": {
+        "hosted-service": {
+          "slug": "uniswap-v3-arbitrum",
+          "query-id": "uniswap-v3-arbitrum"
+        }
+      },
+      "celo": {
+        "hosted-service": {
+          "slug": "uniswap-v3-celo",
+          "query-id": "uniswap-v3-celo"
+        }
+      },
+      "ethereum": {
+        "hosted-service": {
+          "slug": "uniswap-v3-ethereum",
+          "query-id": "uniswap-v3-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "uniswap-v3-ethereum",
+          "query-id": "ELUcwgpm14LKPLrBRuVvPvNKHQ9HvwmtKgKSH6123cr7"
+        }
+      },
+      "optimism": {
+        "hosted-service": {
+          "slug": "uniswap-v3-optimism",
+          "query-id": "uniswap-v3-optimism"
+        }
+      },
+      "polygon": {
+        "hosted-service": {
+          "slug": "uniswap-v3-polygon",
+          "query-id": "uniswap-v3-polygon"
+        }
+      }
+    }
+  },
+  "bancor-v3": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/bancor-v3/schema.graphql",
+    "type": "dex-amm",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "bancor-v3-ethereum",
+          "query-id": "bancor-v3-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "bancor-v3-ethereum",
+          "query-id": "B35cLTayreXTML6fXPTrFNSYx7mKyDuuV51LjVxWwWjp"
+        }
+      }
+    }
+  },
+  "convex-finance": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/convex-finance/schema.graphql",
+    "type": "yield-aggregator",
+    "deployments": {
+      "ethereum": {
+        "hosted-service": {
+          "slug": "convex-finance-ethereum",
+          "query-id": "convex-finance-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "convex-finance-ethereum",
+          "query-id": "CVVEQi1VRgQYwX5r6tPjD1Leiao2nETLYC6pHTWVNPtk"
+        }
+      }
+    }
+  },
+  "yearn-v2": {
+    "schema_file": "/Users/jorijnsmit/Documents/ethdenver-buidlathon-2023/backend/subgraphs/subgraphs/yearn-v2/schema.graphql",
+    "type": "yield-aggregator",
+    "deployments": {
+      "arbitrum": {
+        "hosted-service": {
+          "slug": "yearn-v2-arbitrum",
+          "query-id": "yearn-v2-arbitrum"
+        }
+      },
+      "ethereum": {
+        "hosted-service": {
+          "slug": "yearn-v2-ethereum",
+          "query-id": "yearn-v2-ethereum"
+        },
+        "decentralized-network": {
+          "slug": "yearn-v2-ethereum",
+          "query-id": "3CDiQ2hSrftreri8FLqsVAVTv9QNkEBszGZiDdmL4UQJ"
+        }
+      }
+    }
+  }
+}
