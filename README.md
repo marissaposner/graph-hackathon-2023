@@ -15,11 +15,9 @@
 
 </div>
 
-
-
 ## About
 
-ChatWithTheGraph is an open-source project built for the Graph Protocol ecosystem that allows users to ask ChatGPT to visualize their data and then our frontend displays the results.
+ChatWithTheGraph is an open-source project built for The Graph Protocol ecosystem that allows users to ask ChatGPT to visualize their data and then our frontend displays the results.
 
 We queried the Messart NFT Marketplace subgraphs defined in this schema: https://github.com/messari/subgraphs/blob/master/schema-nft-marketplace.graphql
 Such as:
@@ -35,19 +33,20 @@ Link to our Notion page: https://www.notion.so/ETH-Denver-2023-Hackathon-Project
 
 ## Getting Started
 
+This is split between 2 services, a frontend and a backend
+
+# Running the backend
 - Install Python version management tool: [pyenv](https://github.com/pyenv/pyenv) or [asdf](https://github.com/asdf-vm/asdf)
 - Install `Python 3.9.14` using the Python version management tool and activate that version
-- Clone this repository
-- Verify the active Python version: `python -V`
-- [Install Poetry](https://python-poetry.org/docs/#installation) — a dependency manager
-- Create Python virtual environment in the project directory: `poetry env use 3.9`
-- Activate environment: `poetry shell`
-- Upgrade pip: `pip install --upgrade pip`
-- Install project dependencies: `poetry install`
-  - MacBook M1/M2: `To define`
-- Verify the setup by running tests: `poetry run test`
-- Export entrypoint: `export FLASK_APP=app`
-- Run the server to get the backend working: `python -m flask run`
+- Setup the backend, ensure you have python 3.9 or great installed
+- `git submodule update --init --recursive` to clone (or update) the `subgraphs` repo in `backend/`
+- `cd backend` and run `pip install -r requirements.txt`
+- Setup .env by copying .env.example to .env and seed with correct data
+- Start the backend app with `flask run`
+- Visit http://localhost:5000
+
+# Running the frontend
+
 - For the frontend:`cd frontend` and then run `npm install` (note if you run into any issues you can run `npm install --force`)
 
 ### Prerequisites
@@ -56,14 +55,6 @@ Link to our Notion page: https://www.notion.so/ETH-Denver-2023-Hackathon-Project
 
 See the [open issues](https://github.com/marissaposner/graph-hackathon-2023/issues) for
 a list of proposed features (and known issues).
-
-
-## Support
-
-Reach out to the maintainer at one of the following places:
-
-- [GitHub Discussions](https://github.com/marissaposner/graph-hackathon-2023/issues/discussions)
-
 
 ## Project assistance
 
@@ -104,20 +95,3 @@ _For more information and to report security issues, please refer to our
 This project is licensed under the **MIT license**.
 
 See [LICENSE](LICENSE) for more information.
-
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)): 
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
