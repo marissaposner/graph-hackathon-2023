@@ -23,7 +23,7 @@ def eip_subgraph_info():
             raise
     except:
         # if there is no input sentence and we are just testing
-        input_sentence = "find the date that the most NFTs in the otherside collection (0x34d85c9cdeb23fa97cb08333b511ac86e1c4e258) were traded?"
+        input_sentence = "What proposal has the most votes?"
     print("==========user response:==========\n", input_sentence)
 
     response = openai.Completion.create(
@@ -35,7 +35,7 @@ def eip_subgraph_info():
     openai_result = response.choices[0].text
     print("==========openai response:==========\n", openai_result)
     # hardcode protocol and chain for now
-    protocol = "makerdao"
+    protocol = "aave-governance"
     chain = "ethereum"
     schema_file = protocols[protocol]["schema_file"]
     protocol_type = protocols[protocol]["type"]
@@ -49,14 +49,15 @@ def eip_subgraph_info():
         openai_result,
         hosted=(service_type == "hosted-service"),
     )
-    
+
     print("==========the graph response:==========\n", data)
     for dict_item in data:
         for key, val in dict_item.items():
-            if key == 'timestamp':
+            if key == "timestamp":
                 # print(dt.datetime.utcfromtimestamp(int(val)).strftime('%Y-%m-%d %H:%M:%S'))
-                dict_item[key]= dt.datetime.utcfromtimestamp(int(val)).strftime('%Y-%m-%d %H:%M:%S')
-    print("end data", data)
+                dict_item[key] = dt.datetime.utcfromtimestamp(int(val)).strftime(
+                    "%Y-%m-%d %H:%M:%S"
+                )
     return jsonify(data)
 
 
