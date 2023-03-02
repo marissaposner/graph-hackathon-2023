@@ -16,7 +16,7 @@ function buildColumns(data){
 
     for (var index = 0; index < column_header.length; index++)
     {
-        console.log(column_header[index]);
+        // console.log(column_header[index]);
         columns.push({id: column_header[index], label: column_header[index], minWidth: 170, align: "right",format: (value) => value })
     }
 

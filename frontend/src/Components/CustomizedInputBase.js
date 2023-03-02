@@ -33,7 +33,7 @@ export function CustomizedInputBase(props) {
 
   const Search = async (event) => {
     event.preventDefault();
-    console.log(input)
+    // console.log(input)
     props.apiCalled(true)
     const res  = await axios.post('http://127.0.0.1:5000/api/v1/dashboard', {
         input: input
@@ -46,7 +46,7 @@ export function CustomizedInputBase(props) {
     props.setData(res.data);
 
     props.apiCalled(false)
-    console.log(persons)
+    // console.log(persons)
 
 
     // navigate('/')
@@ -55,18 +55,19 @@ export function CustomizedInputBase(props) {
 
   return (
     <Paper
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 310 }}
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: "80%" }}
     >
     <Box
       component="form"
       sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
+         m: 1, width: '100%'
       }}
       noValidate
       autoComplete="off"
       onSubmit={Search}
     >
       <TextField
+      sx = {{width: "100%"}}
         id="outlined-controlled"
         label="Enter Prompt"
         value={input}
