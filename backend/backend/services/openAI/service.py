@@ -21,11 +21,11 @@ class OpenAIService:
     def __init__(self, use_prompt=0):
         openai.api_key = OPENAI_API_KEY
 
-    def request_gql_for_graph(self, input_query, generic=False):
+    def request_gql_for_graph(self, input_query, subgraph, generic=False):
         prompt = input_query if generic else generate_prompt(input_query)
         response = openai.Completion.create(
             model="text-davinci-003",
-            prompt=prompt,
+            prompt=generate_prompt(input_query),
             temperature=0.6,
             max_tokens=2048,
         )
