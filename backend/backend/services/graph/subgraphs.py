@@ -9,6 +9,7 @@ subgraphs with:
 - network(s)
 - their subgraph id, both for hosted and/or decentralised subgraphs
 """
+import glob
 import json
 import os
 
@@ -19,10 +20,9 @@ class SubgraphService:
     def __init__(self, protocol, chain):
         self.protocol = protocol
         self.chain = chain
-        self.deployments_json = json.load(
+        self.deployments = json.load(
             open(os.getcwdb().decode("utf-8") + "/subgraphs/deployment/deployment.json")
-        )
-        self.deployments = self.deployments_json[protocol]
+        )[protocol]
         if (
             "decentralized-network"
             in self.deployments["deployments"][f"{protocol}-{chain}"]["services"]
@@ -40,11 +40,23 @@ class SubgraphService:
         except AttributeError:
             # protocol does not have any deployments
             raise NotImplementedError
-        self.base = self.deployments["base"]
-        self.template_filename = self.deployments["deployments"][f"{protocol}-{chain}"][
-            "files"
-        ]["template"]
-        self.template_file_location = f"subgraphs/subgraphs/{self.base}/protocols/{self.protocol}/config/templates/{self.template_filename}"
+        try:
+            self.template_file_location = f"subgraphs/subgraphs/{self.deployments['base']}/protocols/{self.protocol}/config/templates/{self.deployments['deployments'][f'{protocol}-{chain}']['files']['template']}"
+        except:
+            # no template file defined
+            pass
+        if os.path.isfile(
+            f"subgraphs/subgraphs/{self.deployments['base']}/schema.graphql"
+        ):
+            self.schema_file_location = (
+                f"subgraphs/subgraphs/{self.deployments['base']}/schema.graphql"
+            )
+        self.mappers = self.read_mappings_dir(
+            f"subgraphs/subgraphs/{self.deployments['base']}/src"
+        )
+
+    def read_mappings_dir(self, directory):
+        return list(glob.iglob(f"{directory}/**/*.ts", recursive=True))
 
     def parse_template_file(self):
         # TODO: yaml.constructor.ConstructorError: while constructing a mapping
