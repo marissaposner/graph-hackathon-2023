@@ -9,6 +9,9 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { connect } from 'react-redux';
 import { CircularProgress } from '@mui/material';
+import {humanize as h} from "@jsdevtools/humanize-anything"
+import humanize from 'humanize-plus';;
+
 
 function buildColumns(data){
     let column_header = Object.keys(data[0]);
@@ -17,7 +20,14 @@ function buildColumns(data){
     for (var index = 0; index < column_header.length; index++)
     {
         // console.log(column_header[index]);
-        columns.push({id: column_header[index], label: column_header[index], minWidth: 170, align: "right",format: (value) => value })
+        
+        columns.push({id: column_header[index], label: column_header[index], minWidth: 170, align: "right",format: (value) => {
+          if(typeof(value) == "number"){
+            return humanize.formatNumber(value, 2)
+          }
+          else{
+
+          return h(value)} }})
     }
 
     
