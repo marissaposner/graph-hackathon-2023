@@ -39,11 +39,12 @@ class SubgraphService:
             ][self.service_type]["query-id"]
         except AttributeError:
             # protocol does not have any deployments
+            self.query_id = None
             raise NotImplementedError
         try:
             self.template_file_location = f"subgraphs/subgraphs/{self.deployments['base']}/protocols/{self.protocol}/config/templates/{self.deployments['deployments'][f'{protocol}-{chain}']['files']['template']}"
         except:
-            # no template file defined
+            self.template_file_location = None
             pass
         if os.path.isfile(
             f"subgraphs/subgraphs/{self.deployments['base']}/schema.graphql"
@@ -51,6 +52,8 @@ class SubgraphService:
             self.schema_file_location = (
                 f"subgraphs/subgraphs/{self.deployments['base']}/schema.graphql"
             )
+        else:
+            self.schema_file_location = None
         self.mappers = self.read_mappings_dir(
             f"subgraphs/subgraphs/{self.deployments['base']}/src"
         )
