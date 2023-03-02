@@ -5,7 +5,7 @@ from backend.config import THEGRAPH_API_KEY
 from backend.services.graph.subgraphs import SubgraphService
 
 
-DEFAULT_PROTOCOL = "aave-governance"
+DEFAULT_PROTOCOL = "uniswap-v3"
 DEFAULT_CHAIN = "ethereum"
 
 
@@ -31,6 +31,7 @@ class GraphService:
         self.chain = chain
         self.subgraph_service = SubgraphService()
         self.protocols = self.subgraph_service.get_prod_subgraphs()
+        # import pdb;pdb.set_trace()
         if "decentralized-network" in self.protocols[protocol]["deployments"][chain]:
             self.service_type = "decentralized-network"
         else:
