@@ -19,6 +19,9 @@ import {
 } from "../redux/reducers/Counter/counter.actions"
 import { connect } from 'react-redux';
 import { CircularProgress } from '@mui/material';
+
+const propmts = ["What NFTs are trending in the last week?", "What is the address for the CryptoPunks collection?"]
+const prompt = propmts[Math.floor(Math.random()*propmts.length)]
 const useStyles = makeStyles(theme => ({
   paper: {
     display: "flex",
@@ -79,9 +82,9 @@ export function CustomizedInputBase(props) {
       onSubmit={Search}
     >
       <TextField
-      sx = {{width: "100%"}}
+      sx = {{width: "100%"}}  
         id="outlined-controlled"
-        label="Enter Prompt"
+        label={prompt}
         value={input}
         onChange={(event) => {
             setInput(event.target.value);

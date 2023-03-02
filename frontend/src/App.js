@@ -5,6 +5,8 @@ import CustomizedInputBase from './Components/CustomizedInputBase';
 import ColumnGroupingTable from './Components/table';
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import { useEffect, useState } from 'react';
+import Connect from './Components/Connect';
 
 
 function App() {
@@ -16,6 +18,19 @@ function App() {
     // starting from v2 you can add only the features you need reducing the bundle size
     await loadFull(main);
   };
+  const [haveMetamask, sethaveMetamask] = useState(true);
+
+  useEffect(() => {
+    const { ethereum } = window;
+    const checkMetamaskAvailability = async () => {
+      if (!ethereum) {
+        sethaveMetamask(false);
+      }
+      sethaveMetamask(true);
+    };
+    checkMetamaskAvailability();
+  }, []);
+
   return (
     <div className="App" class="particles-js-canvas-el">
       {/* <canvas class="particles-js-canvas-el" width="1748" height="842" style="width: 100%; height: 100%;"/> */}
@@ -150,6 +165,7 @@ function App() {
       alignItems="center"
       justifyContent="center"
       style={{ minHeight: '100vh' }}>
+        {/* <Connect haveMetamask={haveMetamask} sethaveMetamask={sethaveMetamask}/> */}
       <CustomizedInputBase/>
       <ColumnGroupingTable/>
       </Grid>

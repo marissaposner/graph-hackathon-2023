@@ -80,7 +80,7 @@ function createData(name, code, population, size) {
 }
 
 
-export  function StickyHeadTable(props) {
+export function StickyHeadTable(props) {
     
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
