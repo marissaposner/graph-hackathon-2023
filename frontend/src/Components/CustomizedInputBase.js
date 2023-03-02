@@ -90,14 +90,7 @@ export function CustomizedInputBase(props) {
         autoComplete="off"
         onSubmit={Search}
       />
-        <TextField
-          id="outlined-controlled"
-          label="Enter Prompt"
-          value={input}
-          onChange={(event) => {
-            setInput(event.target.value);
-          }}
-        />
+        
       </Box>
       <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
         <SearchIcon onClick={(e) => { Search(e) }} />

@@ -20,6 +20,7 @@ function buildColumns(data){
     for (var index = 0; index < column_header.length; index++)
     {
         // console.log(column_header[index]);
+<<<<<<< HEAD
         
         columns.push({id: column_header[index], label: column_header[index], minWidth: 170, align: "right",format: (value) => {
           if(typeof(value) == "number"){
@@ -28,6 +29,9 @@ function buildColumns(data){
           else{
 
           return h(value)} }})
+=======
+        columns.push({id: column_header[index], label: column_header[index], minWidth: 170, align: "right",format: (value) => value })
+>>>>>>> f38ef6d (fix merge conflicts)
     }
 
     
