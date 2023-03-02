@@ -4,40 +4,48 @@ import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+
 import { makeStyles } from '@mui/styles';
 import axios from 'axios';
 
 
 import {
   apiCalled,
-    setData,
-  } from "../redux/reducers/Counter/counter.actions"
+  setData,
+} from "../redux/reducers/Counter/counter.actions"
 import { connect } from 'react-redux';
 import { CircularProgress } from '@mui/material';
 const useStyles = makeStyles(theme => ({
-    paper: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
-        verticalAlign: "middle",
-        boxShadow: "4px 4px 4px rgba(0, 0, 0, 0.25)",
-        borderRadius: "25px",
-      }
-  }))
+  paper: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    verticalAlign: "middle",
+    boxShadow: "4px 4px 4px rgba(0, 0, 0, 0.25)",
+    borderRadius: "25px",
+  }
+}))
 
 
 
 export function CustomizedInputBase(props) {
   const [input, setInput] = React.useState('');
+  const [subgraph, setSubgraph] = React.useState('');
 
   const Search = async (event) => {
     event.preventDefault();
     // console.log(input)
     props.apiCalled(true)
-    // const res  = await axios.post('http://127.0.0.1:5000/api/v1/dashboard', {
-    //     input: input
-    //   })
+
+    const res = await axios.post('http://127.0.0.1:5000/api/v1/dashboard', {
+      input: input,
+      subgraph: subgraph,
+    })
 
 
 
@@ -50,8 +58,12 @@ export function CustomizedInputBase(props) {
 
 
     // navigate('/')
-}
-//   const classes = useStyles()
+  }
+  //   const classes = useStyles()
+  const handleChange = (event) => {
+
+    setSubgraph(event.target.value);
+  };
 
   return (
     <Paper
@@ -74,27 +86,40 @@ export function CustomizedInputBase(props) {
         onChange={(event) => {
             setInput(event.target.value);
         }}
+        noValidate
+        autoComplete="off"
+        onSubmit={Search}
       />
-    </Box>
+        <TextField
+          id="outlined-controlled"
+          label="Enter Prompt"
+          value={input}
+          onChange={(event) => {
+            setInput(event.target.value);
+          }}
+        />
+      </Box>
       <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-        <SearchIcon onClick = {(e) => {Search(e)}}/>
+        <SearchIcon onClick={(e) => { Search(e) }} />
       </IconButton>
+
+
     </Paper>
   );
 }
 
 const mapStateToProps = state => {
-    return {
-      count: state.counter.count,
-      data: state.counter.data
-    }
+  return {
+    count: state.counter.count,
+    data: state.counter.data
   }
+}
 
 const mapDispatchToProps = dispatch => {
-    return {
-      setData: (data) => dispatch(setData(data)) ,
-      apiCalled: (data) => dispatch(apiCalled(data))
-    }
+  return {
+    setData: (data) => dispatch(setData(data)),
+    apiCalled: (data) => dispatch(apiCalled(data))
   }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomizedInputBase)
