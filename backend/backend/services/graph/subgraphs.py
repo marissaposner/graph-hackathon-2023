@@ -30,8 +30,8 @@ class SubgraphService:
         f = open(os.getcwdb().decode("utf-8") + "/subgraphs/deployment/deployment.json")
         deployment = json.load(f)
         for protocol in protocols:
-            if protocol == "opensea":
-                import pdb;pdb.set_trace()
+            # if protocol == "opensea":
+            #     import pdb;pdb.set_trace()
             try:
                 schema_file = os.path.join(
                     os.getcwdb().decode("utf-8") + PATH, protocol, "schema.graphql"
