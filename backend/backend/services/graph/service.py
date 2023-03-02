@@ -9,7 +9,7 @@ DEFAULT_PROTOCOL = "aave-governance"
 DEFAULT_CHAIN = "ethereum"
 
 
-def query_thegraph(subgraph_id, query, hosted=True):
+def execute_query_thegraph(subgraph_id, query, hosted=True):
     if hosted:
         base_url = "https://api.thegraph.com/subgraphs/name/messari/"
     else:
@@ -40,11 +40,13 @@ class GraphService:
         ]["query-id"]
 
     def query_thegraph(self, gql):
-        data = query_thegraph(
+        import pdb;pdb.set_trace()
+        data = execute_query_thegraph(
             self.query_id,
             gql,
             hosted=(self.service_type == "hosted-service"),
         )
+
         print("==========the graph response:==========\n", data)
         for dict_item in data:
             for key, val in dict_item.items():
