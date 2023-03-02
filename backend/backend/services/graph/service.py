@@ -5,7 +5,7 @@ from backend.config import THEGRAPH_API_KEY
 from backend.services.graph.subgraphs import SubgraphService
 
 
-DEFAULT_PROTOCOL = "uniswap-v3"
+DEFAULT_PROTOCOL = "aave-governance"
 DEFAULT_CHAIN = "ethereum"
 
 
