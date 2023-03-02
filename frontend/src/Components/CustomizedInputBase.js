@@ -78,6 +78,7 @@ export function CustomizedInputBase(props) {
           label="SubGraph"
           onChange={handleChange}
         >
+          <MenuItem value={"aave-governance"}>aave-governance</MenuItem>
           <MenuItem value={"uniswap-v3"}>uniswap-v3</MenuItem>
           <MenuItem value={"opensea-v2"}>opensea-v2</MenuItem>
         </Select>
