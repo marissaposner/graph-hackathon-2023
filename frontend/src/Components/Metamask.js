@@ -41,7 +41,7 @@ class Metamask extends Component {
     if (!this.state.selectedAddress) {
       return (
         // <button onClick={() => this.connectToMetamask()}>Connect to Metamask</button>
-        <Button color="primary"  onClick={() => this.connectToMetamask()} sx={[{ "&:hover": { backgroundColor: 'grey' , position: "sticky", top: 0,} }]}>Connect</Button>
+        <Button color="primary"  onClick={() => this.connectToMetamask()} sx={[{ "&:hover": { backgroundColor: 'grey' , position: "sticky", top: 0, float: 'right'} }]}>Connect</Button>
       )
     } else {
       return (

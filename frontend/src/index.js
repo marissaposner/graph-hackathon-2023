@@ -5,12 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import store from './store'
-import Metamask from './Components/Metamask';
+import NavBar from './Components/navBar';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <Metamask />
+    <NavBar />
     <App />
     </Provider>
   </React.StrictMode>
