@@ -31,6 +31,7 @@ class GraphService:
         self.chain = chain
         self.subgraph_service = SubgraphService()
         self.protocols = self.subgraph_service.get_prod_subgraphs()
+        # import pdb;pdb.set_trace()
         if "decentralized-network" in self.protocols[protocol]["deployments"][chain]:
             self.service_type = "decentralized-network"
         else:
