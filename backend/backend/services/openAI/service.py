@@ -37,10 +37,11 @@ class OpenAIService:
     def __init__(self, use_prompt=0):
         openai.api_key = OPENAI_API_KEY
         
-    def request_gql_for_graph_2(self, input_query):
+    def request_gql_for_graph(self, input_query, subgraph):
         """
         testing new chatgpt api"""
-        PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/aave-governance/"
+        PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/".format(subgraph)
+        print("PATH", PATH)
         with open(PATH+"schema.graphql"):
         # documents = SimpleDirectoryReader(list(PATH+"schema.graphql")).load_data()
         # documents = [Document(t) for t in PATH]
@@ -58,7 +59,7 @@ class OpenAIService:
         print("completion['choices'][0]['message']['content']", completion['choices'][0]['message']['content'])
         return completion['choices'][0]['message']['content']
 
-    def request_gql_for_graph(self, input_query):
+    def request_gql_for_graph_llama(self, input_query, subgraph):
         # path = "/subgraphs/subgraphs/" #TODO UPDATE
         # PATH = os.path.dirname(os.path.dirname(path))
         
@@ -67,7 +68,7 @@ class OpenAIService:
         #           # only consider directories that arent prefixed by a dot or underscore
         #           if not entry.name.startswith((".", "_")) and not entry.is_file():
         #               print(entry)
-        PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/aave-governance/"
+        PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/".format(subgraph)
 
         # with open(PATH+"schema.graphql"):
         # documents = open(PATH+"schema.graphql")
@@ -76,7 +77,7 @@ class OpenAIService:
         documents = SimpleDirectoryReader(PATH).load_data()
         for d in documents: print(d)
         # except:
-        #     PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/aave-governance/schema.graphql"
+            # PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/aave-governance/schema.graphql"
         #     documents = SimpleDirectoryReader.load_data(input_files=list(PATH)).load_data()
         
         index = GPTSimpleVectorIndex(documents)
@@ -85,7 +86,7 @@ class OpenAIService:
         # load from disk
         # index = GPTSimpleVectorIndex.load_from_disk('index.json')
         # define LLM
-        llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-davinci-003"))
+        llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-embedding-ada-002"))
 
         # define prompt helper
         # set maximum input size

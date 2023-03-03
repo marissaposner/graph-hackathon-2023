@@ -27,7 +27,8 @@ class DashboardCreator(Resource):
 
         try:
             subgraph = request.get_json().get("subgraph")
-            if subgraph == "":
+            print("SUBGRAPH IN TRY", subgraph)
+            if subgraph == None or subgraph == "":
                 raise
         except:
             subgraph = DEFAULT_SUBGRAPH
