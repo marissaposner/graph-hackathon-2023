@@ -4,14 +4,10 @@ import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
-import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
-
-import { makeStyles } from '@mui/styles';
-import axios from 'axios';
 
 
 import {
@@ -22,17 +18,6 @@ import { connect } from 'react-redux';
 
 const propmts = ["What NFTs are trending in the last week?", "What is the address for the CryptoPunks collection?"]
 const prompt = propmts[Math.floor(Math.random()*propmts.length)]
-const useStyles = makeStyles(theme => ({
-  paper: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-    verticalAlign: "middle",
-    boxShadow: "4px 4px 4px rgba(0, 0, 0, 0.25)",
-    borderRadius: "25px",
-  }
-}))
 
 
 

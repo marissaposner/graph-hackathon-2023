@@ -22,3 +22,19 @@ export const StyledSelect = styled(Select)`
     color: white;
   }
   `;
+
+// export const useStyles = makeStyles(theme => ({
+//     root: {
+//       width: "100%"
+//     },
+//     paper: {
+//       marginTop: theme.spacing(3),
+//       width: "100%",
+//       overflowX: "auto",
+//       marginBottom: theme.spacing(2),
+//       margin: "auto"
+//     },
+//     table: {
+//       width: '100%',
+//     }
+//   }));

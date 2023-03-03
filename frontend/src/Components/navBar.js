@@ -91,8 +91,8 @@ function NavBar(props) {
         <Toolbar>
           {/* <HomeIcon onClick={goToHome} sx={{ display: { xs: 'none', sm: 'block', cursor: 'pointer' } }} /> */}
           <Box sx={{ flexGrow: 1 }} />
-          {/* <Metamask /> */}
-          <MetamaskWeb3/>
+          <Metamask />
+          {/* <MetamaskWeb3/> */}
 
         </Toolbar>
       </AppBar>

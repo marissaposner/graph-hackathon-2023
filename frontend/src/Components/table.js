@@ -10,7 +10,8 @@ import TableRow from '@mui/material/TableRow';
 import { connect } from 'react-redux';
 import { CircularProgress } from '@mui/material';
 import {humanize as h} from "@jsdevtools/humanize-anything"
-import humanize from 'humanize-plus';;
+import humanize from 'humanize-plus';
+;
 
 
 function buildColumns(data){
@@ -18,11 +19,8 @@ function buildColumns(data){
     var columns = []
 
     for (var index = 0; index < column_header.length; index++)
-    {
-        // console.log(column_header[index]);
-
-        
-        columns.push({id: column_header[index], label: column_header[index], minWidth: 170, align: "right",format: (value) => {
+    {   
+        columns.push({id: column_header[index], label: column_header[index], minWidth: 170, align: "center",format: (value) => {
           if(typeof(value) == "number"){
             return humanize.formatNumber(value, 2)
           }
@@ -36,48 +34,6 @@ function buildColumns(data){
     return columns
     
 }
-
-// function buildRows(data){
-//     var rows = []
-
-//     for (var index = 0; index < data.length; index++)
-//     {
-//         rows.push(Object.values(data[index]))
-//     }
-//     return rows
-// }
-
-const columns = [
-  { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
-  {
-    id: 'population',
-    label: 'Population',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'size',
-    label: 'Size\u00a0(km\u00b2)',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'density',
-    label: 'Density',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toFixed(2),
-  },
-];
-
-function createData(name, code, population, size) {
-  const density = population / size;
-  return { name, code, population, size, density };
-}
-
 
 export function StickyHeadTable(props) {
     
@@ -106,13 +62,14 @@ export function StickyHeadTable(props) {
     <Paper sx={{ width: '80%', overflow: 'hidden', align: 'center', marginTop:"10px"}}>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
+          <TableHead >
+            <TableRow >
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
+                  sx={{textAlign: 'center', backgroundColor: '#494F55', color:'white', fontWeight: "bold"}}
                 >
                   {column.label}
                 </TableCell>
@@ -128,7 +85,7 @@ export function StickyHeadTable(props) {
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align}>
+                        <TableCell key={column.id} align={column.align} sx={{textAlign: 'center'}}>
                           {column.format && typeof value === 'number'
                             ? column.format(value)
                             : value}
