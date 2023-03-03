@@ -9,6 +9,7 @@ from backend.controllers.api.v1 import APIV1Controller
 
 DEFAULT_INPUT = "What proposal has the most votes?"
 DEFAULT_SUBGRAPH = "aave-governance"
+DEFAULT_ADDRESS = "-1"
 
 class DashboardCreator(Resource):
     """Dashboard Resource
@@ -27,6 +28,14 @@ class DashboardCreator(Resource):
 
         try:
             subgraph = request.get_json().get("subgraph")
+            if subgraph == "":
+                raise
+        except:
+            subgraph = DEFAULT_SUBGRAPH
+
+
+        try:
+            subgraph = request.get_json().get("wallet_address")
             if subgraph == "":
                 raise
         except:
