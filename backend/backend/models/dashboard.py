@@ -9,7 +9,8 @@ class DashboardQueryResult(db.Model):
     chatgpt_gql = db.Column(db.Text)
     subgraph = db.Column(db.Text)
     chain = db.Column(db.Text, default="ethereum")
-    gql_valid = db.Column(db.Boolean)
+    output = db.Column(db.JSON)
+    gql_valid = db.Column(db.Integer)
     user_id = db.Column(db.Integer)
 
     def __repr__(self):

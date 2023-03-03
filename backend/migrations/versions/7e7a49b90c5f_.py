@@ -1,8 +1,8 @@
 """Create DashboardQueryResult
 
-Revision ID: 88439f3d14de
+Revision ID: 7e7a49b90c5f
 Revises: 4b4a97de5b7d
-Create Date: 2023-03-02 20:57:49.457163
+Create Date: 2023-03-03 01:32:47.575449
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '88439f3d14de'
+revision = '7e7a49b90c5f'
 down_revision = '4b4a97de5b7d'
 branch_labels = None
 depends_on = None
@@ -24,7 +24,8 @@ def upgrade():
     sa.Column('chatgpt_gql', sa.Text(), nullable=True),
     sa.Column('subgraph', sa.Text(), nullable=True),
     sa.Column('chain', sa.Text(), nullable=True),
-    sa.Column('gql_valid', sa.Boolean(), nullable=True),
+    sa.Column('output', sa.JSON(), nullable=True),
+    sa.Column('gql_valid', sa.Integer(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
