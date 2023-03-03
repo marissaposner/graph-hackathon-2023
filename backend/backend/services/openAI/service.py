@@ -37,27 +37,22 @@ class OpenAIService:
     def __init__(self, use_prompt=0):
         openai.api_key = OPENAI_API_KEY
         
-    def request_gql_for_graph(self, input_query, subgraph):
-        """
-        testing new chatgpt api"""
-        PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/".format(subgraph)
-        print("PATH", PATH)
-        with open(PATH+"schema.graphql"):
-        # documents = SimpleDirectoryReader(list(PATH+"schema.graphql")).load_data()
-        # documents = [Document(t) for t in PATH]
-        # documents = SimpleDirectoryReader(input_files = list(PATH + "schema.graphql")).load_data()
-        # print("documents", documents)
-        # index = GPTSimpleVectorIndex(documents)
+    # def request_gql_for_graph(self, input_query, subgraph):
+    #     """
+    #     testing new chatgpt api"""
+    #     PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/".format(subgraph)
+    #     print("PATH", PATH)
+    #     with open(PATH+"schema.graphql"):
 
-            completion = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo", 
-                messages=[{"role": "user", "content": """You are an AI that helps write GraphQL queries on the Graph Protocol. 
-                In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work. 
-                Show only code and do not use sentences. Note that it's important that if you don't have some specific data 
-                (like dates or IDs), just add placeholders. Show only code and do not use sentences.{}""".format(input_query)}]
-            )
-        print("completion['choices'][0]['message']['content']", completion['choices'][0]['message']['content'])
-        return completion['choices'][0]['message']['content']
+    #         completion = openai.ChatCompletion.create(
+    #             model="gpt-3.5-turbo", 
+    #             messages=[{"role": "user", "content": """You are an AI that helps write GraphQL queries on the Graph Protocol. 
+    #             In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work. 
+    #             Show only code and do not use sentences. Note that it's important that if you don't have some specific data 
+    #             (like dates or IDs), just add placeholders. Show only code and do not use sentences.{}""".format(input_query)}]
+    #         )
+    #     print("completion['choices'][0]['message']['content']", completion['choices'][0]['message']['content'])
+    #     return completion['choices'][0]['message']['content']
 
     def request_gql_for_graph_llama(self, input_query, subgraph):
         from backend.services.graph.service import GraphService
