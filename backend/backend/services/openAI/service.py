@@ -1,28 +1,32 @@
 import openai
 
 from backend.config import OPENAI_API_KEY
-from backend.services.graph.graphql_examples import LIST_OF_EXAMPLES
+# from backend.services.graph.graphql_examples import LIST_OF_EXAMPLES
 from backend.services.openAI.graph_prompt_factory import GraphPromptFactory
 from llama_index import LLMPredictor, GPTSimpleVectorIndex, SimpleDirectoryReader, PromptHelper
 from llama_index.indices import GPTListIndex
 from llama_index import Document
+from backend.services.graph.service import GraphService
 
 
 from langchain import OpenAI
 from backend.services.graph import subgraphs
 import os
 
+PROTOCOL_TO_PATH = {
+    "opensea-v2": "opensea",
+    "opensea-v1": "opensea"
+}
 
 
-def generate_prompt(input):
-    """
-    Take in query from user and prepend sample queries
-    """
-    sample_queries = LIST_OF_EXAMPLES
-    return (
-        sample_queries
-        + PRE_PROMPT.format(input)
-    )
+def protocol_path_formatter(protocol):
+    return PROTOCOL_TO_PATH.get(protocol, protocol)
+
+
+def mapping_path(protocol):
+    path = protocol_path_formatter(protocol)
+    # import pdb;pdb.set_trace()
+    return os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/src/".format(path)
 
 
 class OpenAIService:
@@ -30,14 +34,13 @@ class OpenAIService:
         openai.api_key = OPENAI_API_KEY
 
     def request_gql_for_graph_llama(self, input_query, subgraph):
-        from backend.services.graph.service import GraphService
-        import regex as re
+        # import regex as re
         graph_service = GraphService(protocol=subgraph)
         schema = os.path.join(os.getcwdb().decode("utf-8"), graph_service.subgraph.schema_file_location)
-        mappings = os.path.join(os.getcwdb().decode("utf-8"), "/subgraphs/subgraphs/{}/src/".format(graph_service.subgraph.deployments['base']))
-        examples = os.getcwdb().decode("utf-8")+ "/backend/services/graph/graphql_examples.py"
-        #set recursive = True for case of uniswap etc where there are more sub directories
-        documents = SimpleDirectoryReader(input_files=[examples], recursive=True).load_data()
+        mappings = mapping_path(graph_service.subgraph.deployments['base'])
+        # examples = os.getcwdb().decode("utf-8")+ "/backend/services/graph/graphql_examples.py"
+        # set recursive = True for case of uniswap etc where there are more sub directories
+        documents = SimpleDirectoryReader(input_dir=mappings, recursive=True).load_data()
         # print("documents", documents)
         # save to disk
         # index.save_to_disk('index.json')
