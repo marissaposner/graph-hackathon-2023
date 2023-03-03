@@ -1,5 +1,6 @@
-import requests
 import datetime as dt
+
+import requests
 
 from backend.config import THEGRAPH_API_KEY
 from backend.services.graph.subgraphs import SubgraphService
@@ -27,23 +28,13 @@ def execute_query_thegraph(subgraph_id, query, hosted=True):
 
 class GraphService:
     def __init__(self, protocol=DEFAULT_PROTOCOL, chain=DEFAULT_CHAIN):
-        self.protocol = protocol
-        self.chain = chain
-        self.subgraph_service = SubgraphService()
-        self.protocols = self.subgraph_service.get_prod_subgraphs()
-        if "decentralized-network" in self.protocols[protocol]["deployments"][chain]:
-            self.service_type = "decentralized-network"
-        else:
-            self.service_type = "hosted-service"
-        self.query_id = self.protocols[protocol]["deployments"][chain][
-            self.service_type
-        ]["query-id"]
+        self.subgraph = SubgraphService(protocol, chain)
 
     def query_thegraph(self, gql):
         data = execute_query_thegraph(
-            self.query_id,
+            self.subgraph.query_id,
             gql,
-            hosted=(self.service_type == "hosted-service"),
+            hosted=(self.subgraph.service_type == "hosted-service"),
         )
 
         print("==========the graph response:==========\n", data)
@@ -58,4 +49,8 @@ class GraphService:
             print("formatted data", data)
             return data
         return None
-        
+
+    def whitelist(self):
+        # TODO: generate list of protocols that can be queried
+        # this will populate the dropdown in the f/e
+        pass

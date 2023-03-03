@@ -9,59 +9,60 @@ subgraphs with:
 - network(s)
 - their subgraph id, both for hosted and/or decentralised subgraphs
 """
+import glob
 import json
 import os
+import yaml
+
 PATH = "/subgraphs/subgraphs" #TODO UPDATE
 
 class SubgraphService:
-    def get_prod_subgraphs(self):
-        protocols = {}
-        with os.scandir(os.getcwdb().decode("utf-8") + PATH) as it:
-            for entry in it:
-                # only consider directories that arent prefixed by a dot or underscore
-                if not entry.name.startswith((".", "_")) and not entry.is_file():
-                    protocols[entry.name] = {}
+    def __init__(self, protocol, chain):
+        self.protocol = protocol
+        self.chain = chain
+        self.deployments = json.load(
+            open(os.getcwdb().decode("utf-8") + "/subgraphs/deployment/deployment.json")
+        )[protocol]
+        if (
+            "decentralized-network"
+            in self.deployments["deployments"][f"{protocol}-{chain}"]["services"]
+        ):
+            self.service_type = "decentralized-network"
+        elif (
+            "hosted-service"
+            in self.deployments["deployments"][f"{protocol}-{chain}"]["services"]
+        ):
+            self.service_type = "hosted-service"
+        try:
+            self.query_id = self.deployments["deployments"][f"{protocol}-{chain}"][
+                "services"
+            ][self.service_type]["query-id"]
+        except AttributeError:
+            # protocol does not have any deployments
+            self.query_id = None
+            raise NotImplementedError
+        try:
+            self.template_file_location = f"subgraphs/subgraphs/{self.deployments['base']}/protocols/{self.protocol}/config/templates/{self.deployments['deployments'][f'{protocol}-{chain}']['files']['template']}"
+        except:
+            self.template_file_location = None
+            pass
+        if os.path.isfile(
+            f"subgraphs/subgraphs/{self.deployments['base']}/schema.graphql"
+        ):
+            self.schema_file_location = (
+                f"subgraphs/subgraphs/{self.deployments['base']}/schema.graphql"
+            )
+        else:
+            self.schema_file_location = None
+        self.mappers = self.read_mappings_dir(
+            f"subgraphs/subgraphs/{self.deployments['base']}/src"
+        )
 
-        # gather protocol names and include them if their schema adheres to the standard
-        unfinished_protocols = []
-        
-        f = open(os.getcwdb().decode("utf-8") + "/subgraphs/deployment/deployment.json")
-        deployment = json.load(f)
-        for protocol in protocols:
-            try:
-                schema_file = os.path.join(os.getcwdb().decode("utf-8") + PATH, protocol, "schema.graphql")
-                with open(schema_file) as f:
-                    first_line = f.readline()
-                    protocols[protocol]["schema_file"] = schema_file
-                # gather deployment data for protocol
-                if protocol in deployment:
-                    protocols[protocol]["type"] = deployment[protocol]["schema"]
-                    protocols[protocol]["deployments"] = {}  # network_label: {}}
-                    for chain in deployment[protocol]["deployments"]:
-                        if deployment[protocol]["deployments"][chain]["status"] == "prod":
-                            network_label = deployment[protocol]["deployments"][chain][
-                                "network"
-                            ]
-                            protocols[protocol]["deployments"][network_label] = deployment[
-                                protocol
-                            ]["deployments"][chain]["services"]
-                        if len(protocols[protocol]["deployments"]) == 0:
-                            # no production ready deployments founds
-                            unfinished_protocols.append(protocol)
-                if "deployments" not in protocols[protocol]:
-                    # no deployments founds
-                    unfinished_protocols.append(protocol)
-            except FileNotFoundError:
-                # no graphql schema found
-                unfinished_protocols.append(protocol)
-        for protocol in set(unfinished_protocols):
-            protocols.pop(protocol)
+    def read_mappings_dir(self, directory):
+        return list(glob.iglob(f"{directory}/**/*.ts", recursive=True))
 
-
-        return protocols
-
-    # dev: for debugging purposes
-    # from pprint import pprint
-
-    # pprint(protocols)
-    # print(len(protocols))
+    def parse_template_file(self):
+        # TODO: yaml.constructor.ConstructorError: while constructing a mapping
+        with open(self.template_file_location, "r") as stream:
+            yaml_content = yaml.safe_load(stream)
+        print(yaml_content)

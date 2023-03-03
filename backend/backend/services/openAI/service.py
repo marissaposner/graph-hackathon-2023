@@ -34,9 +34,10 @@ Show only code and do not use sentences.
 
 
 class OpenAIService:
-  def __init__(self, use_prompt=0):
-    openai.api_key = OPENAI_API_KEY
+    def __init__(self, use_prompt=0):
+        openai.api_key = OPENAI_API_KEY
 
+<<<<<<< HEAD
 
   def request_gql_for_graph_2(self, input_query):
     """
@@ -122,3 +123,21 @@ class OpenAIService:
     # print("==========openai response:==========\n", openai_result)
     return openai_result
 
+=======
+    def request_gql_for_graph(self, input_query, subgraph, generic=False):
+        prompt = input_query if generic else generate_prompt(input_query)
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=generate_prompt(input_query),
+            temperature=0.6,
+            max_tokens=2048,
+        )
+        openai_result = response.choices[0].text
+        print("==========openai response:==========\n", openai_result)
+        # strip any unnecessary text prepended and/or postpended to the gql query
+        openai_result = openai_result[
+            openai_result.find("{") : openai_result.rfind("}") + 1
+        ]
+        print("==========openai response (formatted):==========\n", openai_result)
+        return openai_result
+>>>>>>> d5fb5828a514db32411aef7b160dfb2e6477d55c
