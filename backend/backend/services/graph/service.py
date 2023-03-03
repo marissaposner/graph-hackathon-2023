@@ -1,5 +1,8 @@
 import datetime as dt
+import json
+import os
 
+import pandas as pd
 import requests
 
 from backend.config import THEGRAPH_API_KEY
@@ -8,6 +11,25 @@ from backend.services.graph.subgraphs import SubgraphService
 
 DEFAULT_PROTOCOL = "aave-governance"
 DEFAULT_CHAIN = "ethereum"
+
+CHAINS = [
+    "arbitrum",
+    "aurora",
+    "avalanche",
+    "boba",
+    "bsc",
+    "celo",
+    "clover",
+    "ethereum",
+    "fantom",
+    "fuse",
+    "gnosis",
+    "harmony",
+    "optimism",
+    "polygon",
+    "moonbeam",
+    "moonriver",
+]
 
 
 def query_thegraph(subgraph_id, query, hosted=True):
@@ -28,6 +50,7 @@ def query_thegraph(subgraph_id, query, hosted=True):
 
 class GraphService:
     def __init__(self, protocol=DEFAULT_PROTOCOL, chain=DEFAULT_CHAIN):
+        self.build_subgraphs_json()
         self.subgraph = SubgraphService(protocol, chain)
 
     def query_thegraph(self, gql):
@@ -51,3 +74,43 @@ class GraphService:
         # TODO: generate list of protocols that can be queried
         # this will populate the dropdown in the f/e
         pass
+
+    def build_subgraphs_json(self):
+        deployments = json.load(
+            open(os.getcwdb().decode("utf-8") + "/subgraphs/deployment/deployment.json")
+        )
+        li = []
+        for protocol in deployments:
+            for chain in CHAINS:
+                try:
+                    df = pd.DataFrame([SubgraphService(protocol, chain).__dict__])
+                    df.pop("protocol")
+                    df = df.join(df["deployments"].apply(pd.Series), lsuffix="_")
+                    df.pop("deployments_")
+                    df["deployments"].iloc[0] = (
+                        df["deployments"]
+                        .apply(pd.Series)[f"{protocol}-{chain}"]
+                        .iloc[0]
+                    )
+                    li.append(df)
+                except NotImplementedError:
+                    pass
+        df = pd.concat(li)
+        df = df.set_index(["protocol", "chain"])
+        print(df.info())
+        json_dump = df.to_json(
+            indent=2,
+            orient="index",
+        ).replace("\\/", "/")
+        print(
+            json_dump,
+            file=open(
+                os.path.join(
+                    os.getcwdb().decode("utf-8"),
+                    "backend/services/graph/",
+                    "subgraphs.json",
+                ),
+                "w",
+            ),
+        )
+        return df
