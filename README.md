@@ -50,7 +50,7 @@ This is split between 2 services, a frontend and a backend
 
 ## Database Debugging
 ### Database issues "sqlalchemy.exc.StatementError: (builtins.ValueError) Value"
-Try deleting your `backend/instances` folder, then `flask db upgrade` to bring a new database up to
+Try deleting your `backend/instance` folder, then `flask db upgrade` to bring a new database up to
 the latest app schema.
 
 
