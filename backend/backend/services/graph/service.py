@@ -50,6 +50,7 @@ def query_thegraph(subgraph_id, query, hosted=True):
 
 class GraphService:
     def __init__(self, protocol=DEFAULT_PROTOCOL, chain=DEFAULT_CHAIN):
+        self.build_subgraphs_json()
         self.subgraph = SubgraphService(protocol, chain)
 
     def query_thegraph(self, gql):
@@ -74,7 +75,7 @@ class GraphService:
         # this will populate the dropdown in the f/e
         pass
 
-    def loop_subgraphs(self):
+    def build_subgraphs_json(self):
         deployments = json.load(
             open(os.getcwdb().decode("utf-8") + "/subgraphs/deployment/deployment.json")
         )
