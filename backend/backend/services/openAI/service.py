@@ -44,9 +44,7 @@ class OpenAIService:
     PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/aave-governance/"
     with open(PATH+"schema.graphql"):
     # documents = SimpleDirectoryReader(list(PATH+"schema.graphql")).load_data()
-
     # documents = [Document(t) for t in PATH]
-    
     # documents = SimpleDirectoryReader(input_files = list(PATH + "schema.graphql")).load_data()
     # print("documents", documents)
     # index = GPTSimpleVectorIndex(documents)
