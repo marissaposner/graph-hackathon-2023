@@ -5,7 +5,7 @@ from backend.services.graph.service import GraphService
 
 
 class APIV1Controller:
-    def handle_query_for_dashboard(self, input_sentence):
+    def handle_query_for_dashboard(self, input_sentence, subgraph):
         """Get data for query
 
         Parameters
@@ -13,8 +13,8 @@ class APIV1Controller:
         input_sentence : _type_
         """
         ai_service = OpenAIService()
-        gql = ai_service.request_gql_for_graph(input_sentence)
-        graph_service = GraphService()
+        gql = ai_service.request_gql_for_graph(input_sentence, subgraph)
+        graph_service = GraphService(protocol=subgraph)
         result = graph_service.query_thegraph(gql)
 
         return result
