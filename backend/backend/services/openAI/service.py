@@ -68,23 +68,23 @@ class OpenAIService:
         #           # only consider directories that arent prefixed by a dot or underscore
         #           if not entry.name.startswith((".", "_")) and not entry.is_file():
         #               print(entry)
-        PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/".format(subgraph)
-
-        # with open(PATH+"schema.graphql"):
-        # documents = open(PATH+"schema.graphql")
-        # print(type(documents))
-
-        documents = SimpleDirectoryReader(PATH).load_data()
-        for d in documents: print(d)
+        schema = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/schema.graphql".format(subgraph)
+        mappings = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/src/".format(subgraph)
+        print("schema ", schema)
+        print("mappings", mappings)
+        documents = SimpleDirectoryReader(input_dir=mappings,  input_files=[schema]).load_data()
+        # for d in documents: print(d)
         # except:
             # PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/aave-governance/schema.graphql"
         #     documents = SimpleDirectoryReader.load_data(input_files=list(PATH)).load_data()
         
         index = GPTSimpleVectorIndex(documents)
+        print("index", index)
         # save to disk
-        index.save_to_disk('index.json')
+        # index.save_to_disk('index.json')
         # load from disk
         # index = GPTSimpleVectorIndex.load_from_disk('index.json')
+
         # define LLM
         llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-embedding-ada-002"))
 
@@ -105,17 +105,17 @@ class OpenAIService:
         # What is the total trading volume by tier?""")
         response = index.query("""You are an AI that helps write GraphQL queries on the Graph Protocol. 
         In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work. 
-        Show only code and do not use sentences. Note that it's important that if you don't have some specific data 
+        Note that it's important that if you don't have some specific data 
         (like dates or IDs), just add placeholders. Show only code and do not use sentences.
         {}""".format(input_query))
-        print(response)
+        # print(response)
         # response = openai.Completion.create(
         #   model="text-davinci-003",
         #   prompt=generate_prompt(input_query),
         #   temperature=0.6,
         #   max_tokens=2048,
         # )
-        #   import pdb;pdb.set_trace()
+        # import pdb;pdb.set_trace()
         openai_result = response.response
         print("==========openai response:==========\n", openai_result)
         # openai_result = response.choices[0].text
