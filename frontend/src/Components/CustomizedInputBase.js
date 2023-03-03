@@ -81,6 +81,7 @@ export function CustomizedInputBase(props) {
           <MenuItem value={"aave-governance"}>aave-governance</MenuItem>
           <MenuItem value={"uniswap-v3"}>uniswap-v3</MenuItem>
           <MenuItem value={"opensea-v2"}>opensea-v2</MenuItem>
+          <MenuItem value={"uniswap-governance"}>uniswap-governance</MenuItem>
         </Select>
       </FormControl>
 
