@@ -11,9 +11,8 @@ def QUERY_API_RESPONSE_FORMATTER(id, chatgpt_gql, output):
     return {
         "id": id,
         "chatgpt_gql": chatgpt_gql,
-        "output": output,
+        "output": output
     }
-
 
 
 class APIV1Controller:
@@ -31,7 +30,7 @@ class APIV1Controller:
         try:
             result = graph_service.query_thegraph(gql)
         except:
-            return  QUERY_API_RESPONSE_FORMATTER("-1", gql, {})
+            return QUERY_API_RESPONSE_FORMATTER("-1", gql, {})
 
         dashboard_query_result = DashboardQueryResult(user_input=input_sentence,
                                                       subgraph=subgraph,

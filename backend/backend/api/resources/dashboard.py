@@ -35,18 +35,18 @@ class DashboardCreator(Resource):
 
 
         try:
-            subgraph = request.get_json().get("wallet_address")
-            if subgraph == "":
+            wallet_address = request.get_json().get("wallet_address")
+            if wallet_address == "":
                 raise
         except:
-            subgraph = DEFAULT_SUBGRAPH
+            wallet_address = DEFAULT_ADDRESS
 
         print("=========== input_sentence ===============")
         print(input_sentence)
         print("=========== subgraph ===============")
         print(subgraph)
         controller = APIV1Controller()
-        response = controller.handle_query_for_dashboard(input_sentence, subgraph)
+        response = controller.handle_query_for_dashboard(input_sentence, subgraph, wallet_address)
         print(response)
         return response
 
