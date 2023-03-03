@@ -10,6 +10,7 @@ import { connect, useDispatch } from 'react-redux';
 import { itemSuccess } from '../redux/reducers/Counter/counter.actions';
 
 import Metamask from './Metamask';
+import MetamaskWeb3 from './Metamask-web3';
 
 
 function NavBar(props) {
@@ -90,7 +91,8 @@ function NavBar(props) {
         <Toolbar>
           {/* <HomeIcon onClick={goToHome} sx={{ display: { xs: 'none', sm: 'block', cursor: 'pointer' } }} /> */}
           <Box sx={{ flexGrow: 1 }} />
-          <Metamask />
+          {/* <Metamask /> */}
+          <MetamaskWeb3/>
 
         </Toolbar>
       </AppBar>

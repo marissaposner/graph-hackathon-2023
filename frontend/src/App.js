@@ -6,9 +6,10 @@ import ColumnGroupingTable from './Components/table';
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { useEffect, useState } from 'react';
-import Connect from './Components/Connect';
-
-
+import { Buffer } from 'buffer';
+// @ts-ignore
+window.Buffer = Buffer;
+window.process = process.env;
 function App() {
   const particlesInit = async (main) => {
     // console.log(main);
