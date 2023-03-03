@@ -2,6 +2,7 @@ import openai
 
 from backend.config import OPENAI_API_KEY
 from backend.services.graph.graphql_examples import LIST_OF_EXAMPLES
+from backend.services.openAI.graph_prompt_factory import GraphPromptFactory
 from llama_index import LLMPredictor, GPTSimpleVectorIndex, SimpleDirectoryReader, PromptHelper
 from llama_index.indices import GPTListIndex
 from llama_index import Document
@@ -9,18 +10,9 @@ from llama_index import Document
 
 from langchain import OpenAI
 from backend.services.graph import subgraphs
-import os 
+import os
 
-PRE_PROMPT = """
-You are an AI that helps write GraphQL queries on the Graph Protocol. 
-In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work.  
-Note that it's important that if you don't have some specific data (like dates or IDs), just add placeholders. 
-Show only code and do not use sentences.
-{}"""
 
-SAMPLE_QUERIES_PRE_PROMPT = """
-Here are a list of example queries based on various graphQL schemas.
-{}"""
 
 def generate_prompt(input):
     """
@@ -68,8 +60,9 @@ class OpenAIService:
             documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper
         )
 
-        response = index.query(PRE_PROMPT.format(input_query))
-
+        # response = index.query(PRE_PROMPT.format(input_query))
+        prompt = GraphPromptFactory(subgraph).build_prompt_for_subgraph(input_query)
+        response = index.query(prompt)
         # import pdb;pdb.set_trace()
         openai_result = response.response
         print("==========openai response:==========\n", openai_result)
@@ -99,10 +92,10 @@ class OpenAIService:
     #     with open(PATH+"schema.graphql"):
 
     #         completion = openai.ChatCompletion.create(
-    #             model="gpt-3.5-turbo", 
-    #             messages=[{"role": "user", "content": """You are an AI that helps write GraphQL queries on the Graph Protocol. 
-    #             In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work. 
-    #             Show only code and do not use sentences. Note that it's important that if you don't have some specific data 
+    #             model="gpt-3.5-turbo",
+    #             messages=[{"role": "user", "content": """You are an AI that helps write GraphQL queries on the Graph Protocol.
+    #             In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work.
+    #             Show only code and do not use sentences. Note that it's important that if you don't have some specific data
     #             (like dates or IDs), just add placeholders. Show only code and do not use sentences.{}""".format(input_query)}]
     #         )
     #     print("completion['choices'][0]['message']['content']", completion['choices'][0]['message']['content'])
