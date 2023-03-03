@@ -8,7 +8,7 @@ class APIV1Controller:
     def handle_query_for_dashboard(self, input_sentence, subgraph):
         """Get data for query
 
-        Parameters
+        Parameters:
         ----------
         input_sentence : _type_
         """
@@ -16,6 +16,7 @@ class APIV1Controller:
         #gql = ai_service.request_gql_for_graph(input_sentence, subgraph)
         gql = ai_service.request_gql_for_graph_llama(input_sentence, subgraph)
         graph_service = GraphService(protocol=subgraph)
+        # print("graph service",graph_service.subgraph.mappers)
         result = graph_service.query_thegraph(gql)
 
         return result

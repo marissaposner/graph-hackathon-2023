@@ -60,24 +60,20 @@ class OpenAIService:
         return completion['choices'][0]['message']['content']
 
     def request_gql_for_graph_llama(self, input_query, subgraph):
+        from backend.services.graph.service import GraphService
+        import regex as re
+        graph_service = GraphService(protocol=subgraph)
+        print('xxx',graph_service.subgraph.schema_file_location)
         # path = "/subgraphs/subgraphs/" #TODO UPDATE
         # PATH = os.path.dirname(os.path.dirname(path))
-        
-        # with os.scandir(os.getcwdb().decode("utf-8") + PATH) as p:
-        #   for entry in p:
-        #           # only consider directories that arent prefixed by a dot or underscore
-        #           if not entry.name.startswith((".", "_")) and not entry.is_file():
-        #               print(entry)
-        schema = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/schema.graphql".format(subgraph)
-        mappings = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/src/mappings/".format(subgraph)
-        print("schema ", schema)
-        print("mappings", mappings)
+
+        schema = os.path.join(os.getcwdb().decode("utf-8"), graph_service.subgraph.schema_file_location)
+
+        # print("HERE", graph_service.subgraph.schema_file_location)
+        # print("str.split(graph_service.subgraph.mappers)[:-1]", str.split(graph_service.subgraph.mappers)[:-1])
+        mappings = os.path.join(os.getcwdb().decode("utf-8"), "/subgraphs/subgraphs/{}/src/".format(graph_service.subgraph.deployments['base']))
         documents = SimpleDirectoryReader(input_dir=mappings,  input_files=[schema]).load_data()
-        # for d in documents: print(d)
-        # except:
-            # PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/aave-governance/schema.graphql"
-        #     documents = SimpleDirectoryReader.load_data(input_files=list(PATH)).load_data()
-        
+       
         # save to disk
         # index.save_to_disk('index.json')
         # load from disk
