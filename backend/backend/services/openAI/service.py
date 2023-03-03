@@ -36,6 +36,7 @@ Show only code and do not use sentences.
 class OpenAIService:
     def __init__(self, use_prompt=0):
         openai.api_key = OPENAI_API_KEY
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 
@@ -124,6 +125,9 @@ class OpenAIService:
     return openai_result
 
 =======
+=======
+
+>>>>>>> d5fb5828a514db32411aef7b160dfb2e6477d55c
     def request_gql_for_graph(self, input_query, subgraph, generic=False):
         prompt = input_query if generic else generate_prompt(input_query)
         response = openai.Completion.create(
@@ -140,4 +144,7 @@ class OpenAIService:
         ]
         print("==========openai response (formatted):==========\n", openai_result)
         return openai_result
+<<<<<<< HEAD
+>>>>>>> d5fb5828a514db32411aef7b160dfb2e6477d55c
+=======
 >>>>>>> d5fb5828a514db32411aef7b160dfb2e6477d55c
