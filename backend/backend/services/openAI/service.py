@@ -72,7 +72,8 @@ class OpenAIService:
         # print("HERE", graph_service.subgraph.schema_file_location)
         # print("str.split(graph_service.subgraph.mappers)[:-1]", str.split(graph_service.subgraph.mappers)[:-1])
         mappings = os.path.join(os.getcwdb().decode("utf-8"), "/subgraphs/subgraphs/{}/src/".format(graph_service.subgraph.deployments['base']))
-        documents = SimpleDirectoryReader(input_dir=mappings,  input_files=[schema]).load_data()
+        #set recursive = True for case of uniswap etc where there are more sub directories
+        documents = SimpleDirectoryReader(input_dir=mappings,  input_files=[schema], recursive=True).load_data()
        
         # save to disk
         # index.save_to_disk('index.json')
