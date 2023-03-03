@@ -69,7 +69,7 @@ class OpenAIService:
         #           if not entry.name.startswith((".", "_")) and not entry.is_file():
         #               print(entry)
         schema = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/schema.graphql".format(subgraph)
-        mappings = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/src/".format(subgraph)
+        mappings = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/{}/src/mappings/".format(subgraph)
         print("schema ", schema)
         print("mappings", mappings)
         documents = SimpleDirectoryReader(input_dir=mappings,  input_files=[schema]).load_data()
@@ -78,15 +78,13 @@ class OpenAIService:
             # PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/aave-governance/schema.graphql"
         #     documents = SimpleDirectoryReader.load_data(input_files=list(PATH)).load_data()
         
-        index = GPTSimpleVectorIndex(documents)
-        print("index", index)
         # save to disk
         # index.save_to_disk('index.json')
         # load from disk
         # index = GPTSimpleVectorIndex.load_from_disk('index.json')
 
         # define LLM
-        llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-embedding-ada-002"))
+        llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-davinci-003"))
 
         # define prompt helper
         # set maximum input size

@@ -49,6 +49,43 @@ LIST_OF_EXAMPLES = """Here are a set of example questions and queries you can us
                 }
               }",
     "Explanation": "Query the aave governance subgraph and find the proposal with the most votes."
+  },
+  {
+    "Questions": "Show me the last 10 proposals on aave",
+    "Output": "query {
+  proposals(orderBy: creationTime, orderDirection: desc, first: 1) {
+    id
+    description
+    state
+    proposer {
+      id
+    }
+    forWeightedVotes
+    againstWeightedVotes
+    abstainWeightedVotes
+    totalWeightedVotes
+    creationTime
+    startBlock
+    endBlock
+    queueTime
+    executionETA
+    executionTime
+    cancellationTime
   }
+}
+",
+    "Explanation": "Show me the most recent 10 proposals on aave."
+  },
+  {
+    "Questions": "Count the votes for and against the last 10 aave proposals",
+    "Output": "query {
+  proposals(orderBy: creationTime, orderDirection: desc, first: 10) {
+    forWeightedVotes
+    againstWeightedVotes
+  }
+}
+",
+    "Explanation": "How many people voted for and against the last 10 aave proposals?s"
+  },
 ]
 """
