@@ -67,65 +67,9 @@ function NavBar(props) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      {/* <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My Items</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem> */}
     </Menu>
   );
 
-//   const mobileMenuId = 'primary-search-account-menu-mobile';
-//   const renderMobileMenu = (
-//     <Menu
-//       anchorEl={mobileMoreAnchorEl}
-//       anchorOrigin={{
-//         vertical: 'top',
-//         horizontal: 'right',
-//       }}
-//       id={mobileMenuId}
-//       keepMounted
-//       transformOrigin={{
-//         vertical: 'top',
-//         horizontal: 'right',
-//       }}
-//       open={isMobileMenuOpen}
-//       onClose={handleMobileMenuClose}
-//     >
-//       <MenuItem>
-//         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-//           <Badge badgeContent={4} color="error">
-//             <MailIcon />
-//           </Badge>
-//         </IconButton>
-//         <Link to="/chat">
-//           <p>Messages</p>
-//         </Link>
-//       </MenuItem>
-//       <MenuItem onClick={handlePopper}>
-//         <IconButton
-//           size="large"
-//           aria-label="show 17 new notifications"
-//           color="inherit"
-//         >
-//           <Badge badgeContent={17} color="error">
-//             <NotificationsIcon />
-//           </Badge>
-//         </IconButton>
-//         <p>Notifications</p>
-//       </MenuItem>
-//       <MenuItem onClick={handleProfileMenuOpen}>
-//         <IconButton
-//           size="large"
-//           aria-label="account of current user"
-//           aria-controls="primary-search-account-menu"
-//           aria-haspopup="true"
-//           color="inherit"
-//         >
-//           <AccountCircle />
-//         </IconButton>
-//         <p>Profile</p>
-//       </MenuItem>
-//     </Menu>
-//   );
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;

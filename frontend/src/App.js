@@ -166,6 +166,7 @@ function App() {
       justifyContent="center"
       style={{ minHeight: '100vh' }}>
         {/* <Connect haveMetamask={haveMetamask} sethaveMetamask={sethaveMetamask}/> */}
+    {/* <MetamaskWeb3/> */}
       <CustomizedInputBase/>
       <ColumnGroupingTable/>
       </Grid>

@@ -29,7 +29,6 @@ function buildColumns(data){
           else{
 
           return h(value)} }})
-        columns.push({id: column_header[index], label: column_header[index], minWidth: 170, align: "right",format: (value) => value })
 
     }
 
