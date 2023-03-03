@@ -125,9 +125,12 @@ class OpenAIService:
     return openai_result
 
 =======
+<<<<<<< HEAD
 =======
 
 >>>>>>> d5fb5828a514db32411aef7b160dfb2e6477d55c
+=======
+>>>>>>> 6713bb194d38f007095def9cc30df02d21c7e867
     def request_gql_for_graph(self, input_query, subgraph, generic=False):
         prompt = input_query if generic else generate_prompt(input_query)
         response = openai.Completion.create(
@@ -145,6 +148,9 @@ class OpenAIService:
         print("==========openai response (formatted):==========\n", openai_result)
         return openai_result
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> d5fb5828a514db32411aef7b160dfb2e6477d55c
 =======
+=======
+>>>>>>> 6713bb194d38f007095def9cc30df02d21c7e867
 >>>>>>> d5fb5828a514db32411aef7b160dfb2e6477d55c
