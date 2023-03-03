@@ -40,7 +40,6 @@ class GraphService:
         ]["query-id"]
 
     def query_thegraph(self, gql):
-        import pdb;pdb.set_trace()
         data = execute_query_thegraph(
             self.query_id,
             gql,
@@ -48,12 +47,15 @@ class GraphService:
         )
 
         print("==========the graph response:==========\n", data)
-        for dict_item in data:
-            for key, val in dict_item.items():
-                if key == "timestamp":
-                    # print(dt.datetime.utcfromtimestamp(int(val)).strftime('%Y-%m-%d %H:%M:%S'))
-                    dict_item[key] = dt.datetime.utcfromtimestamp(int(val)).strftime(
-                        "%Y-%m-%d %H:%M:%S"
-                    )
-        print("formatted data", data)
-        return data
+        if data is not None:
+            for dict_item in data:
+                for key, val in dict_item.items():
+                    if key == "timestamp":
+                        # print(dt.datetime.utcfromtimestamp(int(val)).strftime('%Y-%m-%d %H:%M:%S'))
+                        dict_item[key] = dt.datetime.utcfromtimestamp(int(val)).strftime(
+                            "%Y-%m-%d %H:%M:%S"
+                        )
+            print("formatted data", data)
+            return data
+        return None
+        

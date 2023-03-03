@@ -16,8 +16,7 @@ PATH = "/subgraphs/subgraphs" #TODO UPDATE
 class SubgraphService:
     def get_prod_subgraphs(self):
         protocols = {}
-        # import pdb;pdb.set_trace()
-        with os.scandir(os.getcwdb().decode("utf-8")[0:-8] + PATH) as it:
+        with os.scandir(os.getcwdb().decode("utf-8") + PATH) as it:
             for entry in it:
                 # only consider directories that arent prefixed by a dot or underscore
                 if not entry.name.startswith((".", "_")) and not entry.is_file():
@@ -26,11 +25,11 @@ class SubgraphService:
         # gather protocol names and include them if their schema adheres to the standard
         unfinished_protocols = []
         
-        f = open(os.getcwdb().decode("utf-8")[0:-8] + "/subgraphs/deployment/deployment.json")
+        f = open(os.getcwdb().decode("utf-8") + "/subgraphs/deployment/deployment.json")
         deployment = json.load(f)
         for protocol in protocols:
             try:
-                schema_file = os.path.join(os.getcwdb().decode("utf-8")[0:-8] + PATH, protocol, "schema.graphql")
+                schema_file = os.path.join(os.getcwdb().decode("utf-8") + PATH, protocol, "schema.graphql")
                 with open(schema_file) as f:
                     first_line = f.readline()
                     protocols[protocol]["schema_file"] = schema_file

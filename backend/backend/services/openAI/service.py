@@ -4,11 +4,18 @@ from backend.config import OPENAI_API_KEY
 from backend.services.graph.graphql_examples import LIST_OF_EXAMPLES
 from llama_index import LLMPredictor, GPTSimpleVectorIndex, SimpleDirectoryReader, PromptHelper
 from llama_index.indices import GPTListIndex
+from llama_index import Document
 
 
 from langchain import OpenAI
 from backend.services.graph import subgraphs
 import os 
+
+PRE_PROMPT = """
+You are an AI that helps write GraphQL queries on the Graph Protocol. 
+In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work.  
+Note that it's important that if you don't have some specific data (like dates or IDs), just add placeholders. 
+Show only code and do not use sentences."""
 def generate_prompt(input):
     """
     Take in query from user and prepend sample queries
@@ -17,7 +24,10 @@ def generate_prompt(input):
     return (
         sample_queries
         + f"""
-You are an AI that helps write GraphQL queries on the Graph Protocol. In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work. Show only code and do not use sentences. Note that it's important that if you don't have some specific data (like dates or IDs), just add placeholders. Show only code and do not use sentences. 
+You are an AI that helps write GraphQL queries on the Graph Protocol. 
+In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work.  
+Note that it's important that if you don't have some specific data (like dates or IDs), just add placeholders. 
+Show only code and do not use sentences. 
 {input}
 """
     )
@@ -26,6 +36,30 @@ You are an AI that helps write GraphQL queries on the Graph Protocol. In the com
 class OpenAIService:
   def __init__(self, use_prompt=0):
     openai.api_key = OPENAI_API_KEY
+
+
+  def request_gql_for_graph_2(self, input_query):
+    """
+    testing new chatgpt api"""
+    PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/aave-governance/"
+    with open(PATH+"schema.graphql"):
+    # documents = SimpleDirectoryReader(list(PATH+"schema.graphql")).load_data()
+
+    # documents = [Document(t) for t in PATH]
+    
+    # documents = SimpleDirectoryReader(input_files = list(PATH + "schema.graphql")).load_data()
+    # print("documents", documents)
+    # index = GPTSimpleVectorIndex(documents)
+
+        completion = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo", 
+            messages=[{"role": "user", "content": """You are an AI that helps write GraphQL queries on the Graph Protocol. 
+            In the coming prompts I'll feed you questions that you need to turn into graphQL queries that work. 
+            Show only code and do not use sentences. Note that it's important that if you don't have some specific data 
+            (like dates or IDs), just add placeholders. Show only code and do not use sentences.{}""".format(input_query)}]
+        )
+    print("completion['choices'][0]['message']['content']", completion['choices'][0]['message']['content'])
+    return completion['choices'][0]['message']['content']
 
   def request_gql_for_graph(self, input_query):
     # path = "/subgraphs/subgraphs/" #TODO UPDATE
@@ -36,15 +70,23 @@ class OpenAIService:
     #           # only consider directories that arent prefixed by a dot or underscore
     #           if not entry.name.startswith((".", "_")) and not entry.is_file():
     #               print(entry)
-    
-    try:
-        PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/aave-governance/"
-        documents = SimpleDirectoryReader(PATH).load_data()
-    except:
-        PATH = os.getcwdb().decode("utf-8")[0:-8] + "/subgraphs/subgraphs/aave-governance/schema.graphql"
-        documents = SimpleDirectoryReader.load_data(input_files=list(PATH)).load_data()
-    index = GPTSimpleVectorIndex(documents)
+    PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/aave-governance/"
 
+    # with open(PATH+"schema.graphql"):
+    # documents = open(PATH+"schema.graphql")
+    # print(type(documents))
+
+    documents = SimpleDirectoryReader(PATH).load_data()
+    for d in documents: print(d)
+    # except:
+    #     PATH = os.getcwdb().decode("utf-8") + "/subgraphs/subgraphs/aave-governance/schema.graphql"
+    #     documents = SimpleDirectoryReader.load_data(input_files=list(PATH)).load_data()
+    
+    index = GPTSimpleVectorIndex(documents)
+    # save to disk
+    index.save_to_disk('index.json')
+    # load from disk
+    # index = GPTSimpleVectorIndex.load_from_disk('index.json')
     # define LLM
     llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-davinci-003"))
 
