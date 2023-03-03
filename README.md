@@ -1,3 +1,7 @@
+
+# REDIRECT TO https://github.com/ChainBrainStudio/ethdenver-buidlathon-2023
+
+
 <div align="center">
   <h1 align="center">ChatWithTheGraph</h1>
   <h2 align="center">A solution to view NFTs across protocols with comprehensive subgraphs by training ChatGPT</h2>
