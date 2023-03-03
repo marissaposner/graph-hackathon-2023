@@ -95,11 +95,11 @@ export function CustomizedInputBase(props) {
       onSubmit={Search}
     >
       <FormControl sx={{ width:"20%" }}>
-      
+
       <InputLabel id="sub-graph-label">SubGraph</InputLabel>
-       <Select 
+       <Select
           labelId="sub-graph-label"
-          sx={{  height:"55px", marginRight:"5px"}} 
+          sx={{  height:"55px", marginRight:"5px"}}
           id="sub-graph"
           value={subgraph}
           label="Subgraph"
@@ -115,7 +115,7 @@ export function CustomizedInputBase(props) {
         </Select>
         </FormControl>
       <TextField
-        sx={{ width:"75%"}} 
+        sx={{ width:"75%"}}
         id="outlined-controlled"
         label={prompt}
         value={input}
@@ -126,8 +126,8 @@ export function CustomizedInputBase(props) {
         autoComplete="off"
         onSubmit={Search}
       />
-      
-        
+
+
       <IconButton type="submit" sx={{ p: '10px', width:"5%", marginRight:"0px" }} aria-label="search">
         <SearchIcon onClick={(e) => { Search(e) }} />
       </IconButton>
