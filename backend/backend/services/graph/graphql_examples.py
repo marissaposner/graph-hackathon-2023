@@ -14,7 +14,8 @@ LIST_OF_EXAMPLES = """Here are a set of example questions and queries you can us
                     timestamp
                 }
               }",
-    "Explanation": "Queries the Bored Ape NFT collection and finds the date with the highest daily trade volume in ETH. \n\nThe timestamp is the number of days since the Unix epoch (basically the Unix timestamp, divided by 86400)."
+    "Explanation": "Queries the Bored Ape NFT collection and finds the date with the highest daily trade volume in ETH. \n\nThe timestamp is the number of days since the Unix epoch (basically the Unix timestamp, divided by 86400).",
+    subgraph = "opensea-v2"
   },
   {
     "Questions": "What is the traded volume in ETH, the number of NFTs traded, and the number of collections?",
@@ -26,7 +27,8 @@ LIST_OF_EXAMPLES = """Here are a set of example questions and queries you can us
                   timestamp
                 }
               }",
-    "Explanation": "Query the Opensea, LooksRare, or another NFT marketplace by trade volume in ETH, number of NFTs traded, and the number of collections."
+    "Explanation": "Query the Opensea NFT marketplace by trade volume in ETH, number of NFTs traded, and the number of collections.", 
+    subgraph = "opensea-v2"
   },
   {
     "Questions": "What NFT collections have the most revenue?",
@@ -38,7 +40,8 @@ LIST_OF_EXAMPLES = """Here are a set of example questions and queries you can us
                   totalRevenueETH
                 }
               }",
-    "Explanation": "Queries the highest revenue collections in ETH."
+    "Explanation": "Queries the highest revenue collections in ETH.",
+    subgraph = "opensea-v2"
   },
   {
     "Questions": "What is the aave proposal with the most votes?",
@@ -48,8 +51,10 @@ LIST_OF_EXAMPLES = """Here are a set of example questions and queries you can us
                   totalWeightedVotes
                 }
               }",
-    "Explanation": "Query the aave governance subgraph and find the proposal with the most votes."
+    "Explanation": "Query the aave governance subgraph and find the proposal with the most votes.", 
+    subgraph = "aave-governance"
   },
+  
   {
     "Questions": "Show me the last 10 proposals on aave",
     "Output": "query {
@@ -74,7 +79,8 @@ LIST_OF_EXAMPLES = """Here are a set of example questions and queries you can us
   }
 }
 ",
-    "Explanation": "Show me the most recent 10 proposals on aave."
+    "Explanation": "Show me the most recent 10 proposals on aave.", 
+    subgraph = "aave-governance"
   },
   {
     "Questions": "Count the votes for and against the last 10 aave proposals",
@@ -85,7 +91,52 @@ LIST_OF_EXAMPLES = """Here are a set of example questions and queries you can us
   }
 }
 ",
-    "Explanation": "How many people voted for and against the last 10 aave proposals?s"
+    "Explanation": "How many people voted for and against the last 10 aave proposals?", 
+    subgraph = "aave-governance"
   },
+  {
+    "Questions": "What are the top 5 NFTs on OpenSea?",
+    "Output": "query{
+      collections(first: 5, orderBy: totalRevenueETH, orderDirection: desc) {
+        id
+        name
+        symbol
+        totalRevenueETH
+      }
+    }",
+    "Explanation": "Query the top 5 NFTs by total revenue.",
+    subgraph = "opensea-v2"
+  },
+{
+    "Questions": "How much trading volume was there on June 1, 2022?",
+    "Output": "query {
+  uniswapDayDatas(where: { date: 1654041600 }) {
+    volumeUSD
+   }
+  }
+",
+    "Explanation": "Queries the UniswapDayData entity on a given date by Unix timestamp."
+  },
+  subgraph = "uniswap-v3"
+{
+    "Questions": "How much trading volume was there on June 1, 2022?",
+    "Output": "query {
+  start: factory(
+    id: "0x1F98431c8aD98523631AE4a59f267346ea31F984"
+    block: { number: 14881677 }
+  ) {
+    totalVolumeUSD
+  }
+  end: factory(
+    id: "0x1F98431c8aD98523631AE4a59f267346ea31F984"
+    block: { number: 14887796 }
+  ) {
+    totalVolumeUSD
+  }
+}",
+    "Explanation": "Queries the total volume on Uniswap at the start and the end of June 1st. These values can be subtracted to get the total volume.The date must be converted into the Ethereum block number.",
+    subgraph = "uniswap-v3"
+  }
+  
 ]
 """
