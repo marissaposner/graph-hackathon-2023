@@ -68,7 +68,7 @@ export function CustomizedInputBase(props) {
 
   return (
     <Paper
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: "80%", flexGrow: 0 }}
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: "80%", flexGrow: 0, marginTop: "64px" }}
     >
     <Box
       component="form"

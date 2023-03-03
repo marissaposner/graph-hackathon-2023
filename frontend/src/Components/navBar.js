@@ -52,7 +52,7 @@ function NavBar(props) {
 
 
   const menuId = 'primary-search-account-menu';
-  const renderMenu = (
+    const renderMenu = (
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
@@ -82,28 +82,24 @@ function NavBar(props) {
   return (
 
 
-    <Box sx={{ flexGrow: 1, position: "sticky", top: 0, zIndex:1}}>
-      {<Snackbar open={success} autoHideDuration={6000} onClose={handleClose}><Alert severity="success">Connected to Metamask </Alert></Snackbar>}
+    <Box sx={{ position: "fixed", top: 0, width:"100%", zIndex:"10000"}}>
       
       
-
-      <AppBar position="static" style={{ backgroundColor: "black" }}>
-        <Toolbar>
+      {/* <AppBar > */}
+        <Toolbar position="fixed" style={{ backgroundColor: "black"  }}>
           {/* <HomeIcon onClick={goToHome} sx={{ display: { xs: 'none', sm: 'block', cursor: 'pointer' } }} /> */}
           <Box sx={{ flexGrow: 1 }} />
           <Metamask />
           {/* <MetamaskWeb3/> */}
 
         </Toolbar>
-      </AppBar>
-      {/* {renderMobileMenu} */}
-      {renderMenu}
+      {/* </AppBar> */}
     </Box>
   );
 }
 function mapStateToProps(state){
   return {
-    //   "data": state.productReducer,
+      "success": state.counter.success,
   }
 }
 

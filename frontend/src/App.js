@@ -7,6 +7,7 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { useEffect, useState } from 'react';
 import { Buffer } from 'buffer';
+import NavBar from './Components/navBar';
 // @ts-ignore
 window.Buffer = Buffer;
 window.process = process.env;
@@ -33,7 +34,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App" class="particles-js-canvas-el">
+    <div className="App" >
       {/* <canvas class="particles-js-canvas-el" width="1748" height="842" style="width: 100%; height: 100%;"/> */}
       <Particles
       id="tsparticles"
@@ -159,7 +160,9 @@ function App() {
         }
     }}
     />
+    {/* <NavBar /> */}
       <Grid
+      className="grid"
       container
       spacing={0}
       direction="column"
@@ -168,7 +171,9 @@ function App() {
       style={{ minHeight: '100vh' }}>
         {/* <Connect haveMetamask={haveMetamask} sethaveMetamask={sethaveMetamask}/> */}
     {/* <MetamaskWeb3/> */}
-      <CustomizedInputBase/>
+      <CustomizedInputBase />
+      <ColumnGroupingTable/>
+      <ColumnGroupingTable/>
       <ColumnGroupingTable/>
       </Grid>
       {/* <header className="App-header">
