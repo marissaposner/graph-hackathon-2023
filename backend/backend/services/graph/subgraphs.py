@@ -14,7 +14,6 @@ import json
 import os
 import yaml
 
-PATH = "/subgraphs/subgraphs" #TODO UPDATE
 
 class SubgraphService:
     def __init__(self, protocol, chain):
