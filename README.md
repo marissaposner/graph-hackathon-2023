@@ -12,7 +12,7 @@
 
 ## About
 
-ChatWithTheGraph is an open-source project built for The Graph Protocol ecosystem that allows users to ask ChatGPT to visualize their data and then our frontend displays the results.
+Chain Brain Studio is an open-source project built for The Graph Protocol ecosystem that allows users to ask ChatGPT to visualize their data and then our frontend displays the results.
 
 Subgraphs we used: 
 
