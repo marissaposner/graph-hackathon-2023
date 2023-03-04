@@ -12,6 +12,22 @@ o="""query{
     to
     value
   }
+}"""), 
+Prompt(
+q="What are the 5 biggest transactions?",
+o="""query{
+  transfers(orderBy: value, orderDirection: desc, first: 5) {
+    value
+    transactionHash
+  }
+}"""),
+Prompt(
+q="What is the biggest transaction?",
+o="""query{
+  transfers(orderBy: value, orderDirection: desc, first: 1) {
+    value
+    transactionHash
+  }
 }""")
 
 ]
