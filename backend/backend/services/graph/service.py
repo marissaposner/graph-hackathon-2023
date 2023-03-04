@@ -53,12 +53,19 @@ class GraphService:
         self.build_subgraphs_json()
         self.subgraph = SubgraphService(protocol, chain)
 
+    def ensure_enumerable(self, data):
+        if not isinstance(data, list):
+            return [data]
+        return data
+
+
     def query_thegraph(self, gql):
         data = execute_query_thegraph(
             self.subgraph.query_id,
             gql,
             hosted=(self.subgraph.service_type == "hosted-service"),
         )
+
 
         print("==========the graph response:==========\n", data)
         if data is not None:
@@ -70,7 +77,8 @@ class GraphService:
                             "%Y-%m-%d %H:%M:%S"
                         )
             print("formatted data", data)
-            return data
+
+            return self.ensure_enumerable(data)
         return None
 
     def whitelist(self):

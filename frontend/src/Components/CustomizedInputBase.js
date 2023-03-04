@@ -36,13 +36,10 @@ export function CustomizedInputBase(props) {
       subgraph: subgraph,
     })
 
-
     props.setData(res.data?.output);
     props.apiCalled(false);
-
-
   }
-  //   const classes = useStyles()
+
   const handleChange = (event) => {
 
     setSubgraph(event.target.value);
