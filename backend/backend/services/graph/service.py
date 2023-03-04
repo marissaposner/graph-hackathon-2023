@@ -66,9 +66,9 @@ class GraphService:
             hosted=(self.subgraph.service_type == "hosted-service"),
         )
 
-
         print("==========the graph response:==========\n", data)
         if data is not None:
+            data = self.ensure_enumerable(data)
             for dict_item in data:
                 for key, val in dict_item.items():
                     if key == "timestamp":
@@ -78,7 +78,7 @@ class GraphService:
                         )
             print("formatted data", data)
 
-            return self.ensure_enumerable(data)
+            return data
         return None
 
     def whitelist(self):
