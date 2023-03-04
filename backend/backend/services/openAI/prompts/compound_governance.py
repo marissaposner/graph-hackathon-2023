@@ -2,9 +2,8 @@ from backend.services.openAI.graph_prompt import GraphPromptBase as Prompt
 
 
 EXAMPLES = [
-
 Prompt(
-q="How many votes did proposal 86 have?",
+q="What were the results for Proposal 86?",
 o="""query{
   proposals(where: {id: "86"}) {
     abstainWeightedVotes
@@ -12,6 +11,14 @@ o="""query{
     forWeightedVotes
   }
 }"""),
+Prompt(
+q="How many votes did proposal 86 have?",
+o="""query{
+  proposals(where: {id: "86"}) {
+    totalWeightedVotes
+  }
+}""")
+
 Prompt(
 q="Query: What was the voting timeline for for, against, and abstain votes for proposal 86?",
 o="""query {
@@ -33,24 +40,31 @@ o="""query {
 }"""),
 
 Prompt(
-q="What is the total number of proposals, number of proposals queued for execution, number of proposals executed, and number of proposals canceled for a governance with the ID = 86?",
+q="Summarize Proposal with ID = 86?",
 o="""query {
-  voteDailySnapshots(
-    where: {proposal_: {id: "86"}
-    }
-    orderBy: timestamp
-    orderDirection: desc
-  ) {
-    blockNumber
-    abstainWeightedVotes
+  proposal(id: "86") {
+    description
+    state
+    quorumVotes
+    tokenHoldersAtStart
+    delegatesAtStart
+    againstDelegateVotes
+    forDelegateVotes
+    abstainDelegateVotes
+    totalDelegateVotes
     againstWeightedVotes
     forWeightedVotes
-    timestamp
-    proposal {
+    abstainWeightedVotes
+    totalWeightedVotes
+    governanceFramework {
       id
+      name
+      type
+      version
     }
   }
-}"""),
+}
+"""),
 Prompt(
 q="Who are the top delegates by voting power?",
 o="""query{
