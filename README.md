@@ -1,6 +1,6 @@
 <div align="center">
   <h1 align="center">ChatWithTheGraph</h1>
-  <img src="ethdenver-buidlathon-2023/images/chainbrain.jpg" height="200">
+  <img src="images/chainbrain.jpg" height="200">
   <h2 align="center">A solution to view NFTs across protocols with comprehensive subgraphs by training ChatGPT</h2>
   <h2 align="center">Our submission for the Graph Hackathon at CU Boulder February 2023</h2>
 
