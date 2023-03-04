@@ -25,4 +25,20 @@ EXAMPLES = [
           }
         }""",
     ),
+    Prompt(
+        q="How much value is locked in the biggest pool?",
+        o="""{
+          liquidityPools(orderDirection: asc, first: 1, orderBy: createdTimestamp) {
+            name
+          }
+        }""",
+    ),
+    Prompt(
+        q="What is the address for the BADGER token?",
+        o="""{
+          tokens(where: {symbol: "BADGER"}) {
+            id
+          }
+        }""",
+    ),
 ]
