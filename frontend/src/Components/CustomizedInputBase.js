@@ -36,8 +36,8 @@ export function CustomizedInputBase(props) {
       subgraph: subgraph,
     })
 
-    props.setData(res.data);
 
+    props.setData(res.data?.output);
     props.apiCalled(false);
 
 
