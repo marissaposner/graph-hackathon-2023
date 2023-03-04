@@ -14,7 +14,15 @@ EXAMPLES = [
             name
             cumulativeVolumeUSD
           }
-        }
-        """,
+        }""",
+    ),
+    Prompt(
+        q="How much value is locked in the biggest pool?",
+        o="""{
+          liquidityPools(orderBy: totalValueLockedUSD, orderDirection: desc, first: 1) {
+            name
+            totalValueLockedUSD
+          }
+        }""",
     ),
 ]
