@@ -25,13 +25,14 @@ class APIV1Controller:
         input_sentence : _type_
         """
         ai_service = OpenAIService()
-        #gql = ai_service.request_gql_for_graph(input_sentence, subgraph)
         gql = ai_service.request_gql_for_graph_llama(input_sentence, subgraph)
         graph_service = GraphService(protocol=subgraph)
         try:
             result = graph_service.query_thegraph(gql)
         except:
-            return QUERY_API_RESPONSE_FORMATTER("-1", gql, {})
+            import pdb;pdb.set_trace()
+            return QUERY_API_RESPONSE_FORMATTER("-1", gql, [])
+
 
         dashboard_query_result = DashboardQueryResult(user_input=input_sentence,
                                                       subgraph=subgraph,
