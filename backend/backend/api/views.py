@@ -1,4 +1,5 @@
 from flask import Blueprint, current_app, jsonify
+
 from flask_restful import Api
 from marshmallow import ValidationError
 from backend.extensions import apispec
@@ -17,7 +18,6 @@ api.add_resource(DashboardViewer, "/dashboard/<int:dashboard_id>", endpoint="das
 
 
 @blueprint.before_app_first_request
-@cross_origin()
 def register_views():
     apispec.spec.components.schema("UserSchema", schema=UserSchema)
     apispec.spec.path(view=UserResource, app=current_app)

@@ -22,7 +22,7 @@ def create_app(testing=False):
     configure_cli(app)
     configure_apispec(app)
     register_blueprints(app)
-    CORS(app)
+    CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
     return app
 
 
