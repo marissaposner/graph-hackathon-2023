@@ -53,6 +53,12 @@ class GraphService:
         self.build_subgraphs_json()
         self.subgraph = SubgraphService(protocol, chain)
 
+    def ensure_enumerable(self, data):
+        if not isinstance(data, list):
+            return [data]
+        return data
+
+
     def query_thegraph(self, gql):
         data = execute_query_thegraph(
             self.subgraph.query_id,
@@ -62,6 +68,7 @@ class GraphService:
 
         print("==========the graph response:==========\n", data)
         if data is not None:
+            data = self.ensure_enumerable(data)
             for dict_item in data:
                 for key, val in dict_item.items():
                     if key == "timestamp":
@@ -70,6 +77,7 @@ class GraphService:
                             "%Y-%m-%d %H:%M:%S"
                         )
             print("formatted data", data)
+
             return data
         return None
 
