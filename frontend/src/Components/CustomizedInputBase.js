@@ -31,10 +31,18 @@ export function CustomizedInputBase(props) {
 
     props.apiCalled(true)
 
-    res = await axios.post(`${backend_url}/api/v1/dashboard`, {
-      input: input,
-      subgraph: subgraph,
-    })
+    res = await axios({
+      method: 'post',
+      url: `${backend_url}/api/v1/dashboard`,
+      data: {
+        input: input,
+        subgraph: subgraph,
+      },
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      }
+    });
 
     props.setData(res.data?.output);
     props.apiCalled(false);
