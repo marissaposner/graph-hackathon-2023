@@ -17,10 +17,13 @@ api.add_resource(DashboardViewer, "/dashboard/<int:dashboard_id>", endpoint="das
 
 
 @blueprint.before_app_first_request
+@cross_origin()
 def register_views():
     apispec.spec.components.schema("UserSchema", schema=UserSchema)
     apispec.spec.path(view=UserResource, app=current_app)
     apispec.spec.path(view=UserList, app=current_app)
+    apispec.spec.path(view=DashboardCreator, app=current_app)
+    apispec.spec.path(view=DashboardViewer, app=current_app)
 
 
 @blueprint.errorhandler(ValidationError)
