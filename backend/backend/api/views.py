@@ -5,6 +5,7 @@ from marshmallow import ValidationError
 from backend.extensions import apispec
 from backend.api.resources import UserResource, UserList, DashboardCreator, DashboardViewer
 from backend.api.schemas import UserSchema
+from flask_cors import CORS, cross_origin
 
 
 blueprint = Blueprint("api", __name__, url_prefix="/api/v1")
@@ -18,6 +19,7 @@ api.add_resource(DashboardViewer, "/dashboard/<int:dashboard_id>", endpoint="das
 
 
 @blueprint.before_app_first_request
+@cross_origin
 def register_views():
     apispec.spec.components.schema("UserSchema", schema=UserSchema)
     apispec.spec.path(view=UserResource, app=current_app)
