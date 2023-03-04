@@ -18,7 +18,7 @@ api.add_resource(DashboardCreator, "/dashboard", endpoint="dashboard")
 api.add_resource(DashboardViewer, "/dashboard/<int:dashboard_id>", endpoint="dashboard_view")
 
 
-@blueprint.before_app_first_request
+# @blueprint.before_app_first_request
 @cross_origin
 def register_views():
     apispec.spec.components.schema("UserSchema", schema=UserSchema)
