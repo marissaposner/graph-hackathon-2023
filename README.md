@@ -8,22 +8,20 @@
 
 <div align="center">
 <br />
-
-[![GitHub Workflow Status](https://github.com/keep-starknet-strange/garaga/actions/workflows/test.yml/badge.svg)](https://github.com/keep-starknet-strange/garaga/actions/workflows/test.yml)
-[![Project license](https://img.shields.io/github/license/keep-starknet-strange/garaga.svg?style=flat-square)](LICENSE)
-[![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/keep-starknet-strange/garaga/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
-
 </div>
 
 ## About
 
 ChatWithTheGraph is an open-source project built for The Graph Protocol ecosystem that allows users to ask ChatGPT to visualize their data and then our frontend displays the results.
 
+Subgraphs we used: 
+
 We queried the Messart NFT Marketplace subgraphs defined in this schema: https://github.com/messari/subgraphs/blob/master/schema-nft-marketplace.graphql
 Such as:
 https://thegraph.com/explorer/subgraphs/AwoxEZbiWLvv6e3QdvdMZw4WDURdGbvPfHmZRc8Dpfz9?view=Playground&chain=mainnet
 
 https://thegraph.com/explorer/subgraphs/GvgkY82DTAkYqRShBbPQMjF1WJyUcknXre3QPWiXrPnS?view=Playground&chain=mainnet
+
 
 Example graph queries are defined here: https://github.com/marissaposner/graph-hackathon-2023/blob/main/graphql_examples.py
 
