@@ -2,30 +2,43 @@ from backend.services.openAI.graph_prompt import GraphPromptBase as Prompt
 
 
 EXAMPLES = [
-
-Prompt(
-q="How much trading volume was there on June 1, 2022?",
-o="""query {
-  uniswapDayDatas(where: { date: 1654041600 }) {
-    volumeUSD
-   }
-  }"""),
-Prompt(
-q="How much trading volume was there on June 1, 2022?",
-o="""query {
-  start: factory(
-    id: "0x1F98431c8aD98523631AE4a59f267346ea31F984"
-    block: { number: 14881677 }
-  ) {
-    totalVolumeUSD
-  }
-  end: factory(
-    id: "0x1F98431c8aD98523631AE4a59f267346ea31F984"
-    block: { number: 14887796 }
-  ) {
-    totalVolumeUSD
-  }
-}"""),
-
-
+    Prompt(
+        q="What are the top 5 USDC pools by volume?",
+        o="""{
+          liquidityPools(
+            first: 5
+            orderBy: cumulativeVolumeUSD
+            orderDirection: desc
+            where: {inputTokens_: {symbol: "USDC"}}
+          ) {
+            name
+            cumulativeVolumeUSD
+          }
+        }""",
+    ),
+    Prompt(
+        q="How much value is locked in the biggest pool?",
+        o="""{
+          liquidityPools(orderBy: totalValueLockedUSD, orderDirection: desc, first: 1) {
+            name
+            totalValueLockedUSD
+          }
+        }""",
+    ),
+    Prompt(
+        q="How much value is locked in the biggest pool?",
+        o="""{
+          liquidityPools(orderDirection: asc, first: 1, orderBy: createdTimestamp) {
+            name
+          }
+        }""",
+    ),
+    Prompt(
+        q="What is the address for the BADGER token?",
+        o="""{
+          tokens(where: {symbol: "BADGER"}) {
+            id
+          }
+        }""",
+    ),
 ]
