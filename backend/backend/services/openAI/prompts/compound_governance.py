@@ -73,32 +73,5 @@ o="""query{
       tokenHoldersRepresentedAmount
       id
     }}}
-    """),
-Prompt(
-q="What is the total number of proposals, number of proposals queued for execution, number of proposals executed, and number of proposals canceled for a governance with the ID 85?",
-o="""query {
-  proposal(id: "85") {
-    description
-    state
-    quorumVotes
-    tokenHoldersAtStart
-    delegatesAtStart
-    againstDelegateVotes
-    forDelegateVotes
-    abstainDelegateVotes
-    totalDelegateVotes
-    againstWeightedVotes
-    forWeightedVotes
-    abstainWeightedVotes
-    totalWeightedVotes
-    governanceFramework {
-      id
-      name
-      type
-      version
-    }
-  }
-}
-""")
-
+    """)
 ]
