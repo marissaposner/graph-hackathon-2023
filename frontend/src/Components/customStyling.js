@@ -5,6 +5,7 @@ export const StyledSelect = styled(Select)`
   height: 45px;
   width: 100%;
   color: white;
+  background-gradient: gray;
   & .MuiOutlinedInput-notchedOutline {
     border-color: white
   };

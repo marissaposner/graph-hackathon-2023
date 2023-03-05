@@ -10,7 +10,7 @@ import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import axios from 'axios';
 import { backend_url } from '../constants';
-
+import SimpleHtmlChart from './simpleHtmlChart';
 import {
   apiCalled,
   setData,
@@ -25,6 +25,7 @@ const prompt = propmts[Math.floor(Math.random()*propmts.length)]
 export function CustomizedInputBase(props) {
   const [input, setInput] = React.useState('');
   const [subgraph, setSubgraph] = React.useState('');
+  const [hmtlChart, setHtmlChart] = React.useState('');
   const Search = async (event) => {
     let res;
     event.preventDefault();
@@ -37,6 +38,7 @@ export function CustomizedInputBase(props) {
     })
 
     props.setData(res.data?.output);
+    props.setHtmlChart(res.data?.chart);
     props.apiCalled(false);
   }
 
@@ -107,7 +109,7 @@ export function CustomizedInputBase(props) {
         onSubmit={Search}
       />
 
-
+      <SimpleHtmlChart chart={hmtlChart}/>
       <IconButton type="submit" sx={{ p: '10px', width:"5%", marginRight:"0px" }} aria-label="search">
         <SearchIcon onClick={(e) => { Search(e) }} />
       </IconButton>

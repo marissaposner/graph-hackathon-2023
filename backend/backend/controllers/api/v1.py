@@ -5,13 +5,14 @@ from backend.services.openAI.service import OpenAIService
 from backend.services.graph.service import GraphService
 from backend.services.dashboard.service import DashboardService
 from backend.models.dashboard import DashboardQueryResult
+from backend.services.viz.service import AutoVizService
 
-
-def QUERY_API_RESPONSE_FORMATTER(id, chatgpt_gql, output):
+def QUERY_API_RESPONSE_FORMATTER(id, chatgpt_gql, output, hmtlChart):
     return {
         "id": id,
         "chatgpt_gql": chatgpt_gql,
-        "output": output
+        "output": output,
+        "hmtlChart": hmtlChart
     }
 
 
@@ -42,8 +43,11 @@ class APIV1Controller:
                                                       user_id=wallet_address
                                                       )
 
+        htmlChart = AutoVizService(result).generate_html()
+        # import pdb;pdb.set_trace()
+
         DashboardService().save_dashboard_query_result(dashboard_query_result)
-        return QUERY_API_RESPONSE_FORMATTER(dashboard_query_result.id, gql, result)
+        return QUERY_API_RESPONSE_FORMATTER(dashboard_query_result.id, gql, result, htmlChart)
 
     def get_dashboard(self, dashboard_id):
         return DashboardQueryResult.query.get(dashboard_id).to_dict()
